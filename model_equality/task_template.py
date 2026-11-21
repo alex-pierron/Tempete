@@ -34,6 +34,7 @@ Needs: pip install requests
 """
 import csv
 import json
+import os
 import random
 import sys
 import threading
@@ -44,7 +45,7 @@ from pathlib import Path
 import requests
 
 # CONFIG
-API_KEY = "YOUR_API_KEY_HERE"            # replace with your team's API key (keep the double quotes)
+API_KEY = os.environ.get("HACKATHON_API_KEY", "YOUR_API_KEY_HERE")  # set via: export HACKATHON_API_KEY=... (never commit the key)
 SERVER_URL = "http://34.147.229.55"
 TASK_ID = "33-model-equality"            # do not change
 PROMPTS_FILE = Path("prompts.txt")       # one prompt per line (a .csv with columns id,prompt or a .jsonl also works)

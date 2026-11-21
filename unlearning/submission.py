@@ -8,14 +8,15 @@ Then run:
 
 Needs: pip install requests
 """
+import os
 import sys
 from pathlib import Path
 
 import requests
 
 # ----------------------------------------------------------------------------- SETTINGS
-API_KEY = "YOUR_API_KEY_HERE"            # replace with your team's API key (keep the double quotes)
-SUBMISSION_FILE = "/PATH/FILE.pt"        # replace with the path to your results file
+API_KEY = os.environ.get("HACKATHON_API_KEY", "YOUR_API_KEY_HERE")  # set via: export HACKATHON_API_KEY=... (never commit the key)
+SUBMISSION_FILE = sys.argv[1] if len(sys.argv) > 1 else "submission.pt"  # or: python submission.py path/to/file
 TASK_ID = "31-unlearning"                # do not change
 SERVER_URL = "http://34.147.229.55"
 # -----------------------------------------------------------------------------
