@@ -81,7 +81,7 @@ mkdir -p ~/hackathon-scripts && cd ~/hackathon-scripts
 wget https://huggingface.co/datasets/SprintML/hackathon/resolve/main/hackathon_setup.sh -O hackathon_setup.sh
 wget https://huggingface.co/datasets/SprintML/hackathon/resolve/main/teammate.sh -O teammate.sh
 # éditer la section CONFIGURATION de hackathon_setup.sh :
-#   TEAM_LEAD="<user du chef>"  TEAMMATE_1="<user 2>"  TEAMMATE_2="<user 3>"  TEAM_FOLDER="<nom d'équipe>"
+#   TEAM_LEAD="pierron1"  TEAMMATE_1="castiel1"  TEAMMATE_2="biechy1"  TEAM_FOLDER="tempete"   (équipe Tempête)
 export HF_TOKEN=<token d'un compte AUTORISÉ sur le dataset localisation>   # sinon ce dataset échoue
 source hackathon_setup.sh      # à SOURCER, pas exécuter ; attendre la fin avant les coéquipiers
 ```

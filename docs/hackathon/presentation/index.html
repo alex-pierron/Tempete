@@ -286,9 +286,9 @@ ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1px;width:34
       <tr><td class="k">Limite des <code>ref-*</code></td><td>Le serveur annonce aussi 100 pour les <code>ref-*</code>, alors que la doc officielle les dit illimités. Notre client respecte cette limite (commit <code>df695cb</code>).</td><td><span class="chip ok">Vérifié</span></td></tr>
       <tr><td class="k">Accès JURECA</td><td>Procédure, jobs Slurm (Unlearning, localisation) et chaîne <code>hackathon.lab</code> prêts. Aucun accès de membre testé sur le cluster à ce stade.</td><td><span class="chip no">Non vérifié</span></td></tr>
       <tr><td class="k">Chef et Victor</td><td>Chef d'équipe : Alex, identifiant Jülich <code>pierron1</code>. Victor : <code>castiel1</code>.</td><td><span class="chip ok">Connu</span></td></tr>
-      <tr><td class="k">3e membre et dossier</td><td>Identifiant Jülich du 3e membre : en attente. Dossier d'équipe (<code>TEAM_FOLDER</code>) : <code>tempete</code>, proposé, à confirmer.</td><td><span class="chip wip">En attente</span></td></tr>
+      <tr><td class="k">3e membre et dossier</td><td>Équipe Jülich : <code>pierron1</code> (chef), <code>castiel1</code>, <code>biechy1</code>. Dossier d'équipe (<code>TEAM_FOLDER</code>) : <code>tempete</code>, proposé.</td><td><span class="chip ok">Connu</span></td></tr>
       <tr><td class="k"><code>HF_TOKEN</code></td><td>Plus requis pour le dataset de localisation : il est public, téléchargé sans token (fiche <code>wmloc.md</code>)</td><td><span class="chip ok">Levé</span></td></tr>
-      <tr><td class="k">Task id Localisation</td><td>Absent du PDF du sujet ; le template officiel donne <code>34-watermark-localisation-image</code> (repris par le kit, surchargeable par <code>HACKATHON_TASK_WMLOC</code>). Non confirmé par le serveur.</td><td><span class="chip no">Non vérifié</span></td></tr>
+      <tr><td class="k">Task id Localisation</td><td>Absent du PDF du sujet ; le template officiel donne <code>34-watermark-localisation-image</code> (confirmé sur le leaderboard, repris par le kit, surchargeable par <code>HACKATHON_TASK_WMLOC</code>). Non confirmé par le serveur.</td><td><span class="chip no">Non vérifié</span></td></tr>
     </table>
   </div>
 </section>
@@ -299,7 +299,7 @@ ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1px;width:34
   <div class="content">
     <table class="t xs">
       <tr><th style="width:13%"></th><th>Model Equality</th><th>Unlearning</th><th>Watermark Localization</th></tr>
-      <tr><td class="k">Task id serveur</td><td><code>33-model-equality</code></td><td><code>31-unlearning</code></td><td><code>34-watermark-localisation-image</code> (template officiel, non confirmé)</td></tr>
+      <tr><td class="k">Task id serveur</td><td><code>33-model-equality</code></td><td><code>31-unlearning</code></td><td><code>34-watermark-localisation-image</code> (confirmé par le leaderboard)</td></tr>
       <tr><td class="k">Entrée</td><td>33 endpoints LLM <code>ep-01..ep-33</code>, plus 9 endpoints d'entraînement <code>ref-*</code></td><td>ViT-B/16, 100 classes, et 3 500 images à oublier (sans labels)</td><td>1 530 images 512&nbsp;×&nbsp;512 (train 510 avec masques, test 1 020)</td></tr>
       <tr><td class="k">À rendre</td><td>CSV <code>endpoint,family,model</code> (33 lignes)</td><td>state dict float32, 450&nbsp;Mo maximum</td><td>fichier <code>.pt</code> de masques 128&nbsp;×&nbsp;128, 20&nbsp;Mo maximum (PDF ; 25&nbsp;Mo dans le README du kit)</td></tr>
       <tr><td class="k">Métrique</td><td>0,1&nbsp;×&nbsp;MCC famille + 0,9&nbsp;×&nbsp;MCC modèle, sur les paires</td><td>score d'oubli&nbsp;×&nbsp;score de rétention, porte à 70&nbsp;% d'accuracy</td><td>mIoU à 2 classes sur grille 128&nbsp;×&nbsp;128, moyenne par image</td></tr>
@@ -885,7 +885,7 @@ $HK submit   &lt;fichier.pt&gt; --yes    <span class="c"># envoi réel</span></p
           <li>Chaque nom d'image <b>une seule fois</b> ; pas de doublon, pas de valeur invalide.</li>
           <li>Fichier <code>.pt</code> de <b>20&nbsp;Mo maximum</b> : stocker en <b>uint8</b> ou bool. 1 020 masques : 16,7&nbsp;Mo en uint8, 66,8&nbsp;Mo en float32 (rejet).</li>
         </ul>
-        <div class="callout warn"><span class="tag">Pièges</span>float32 dépasse la limite ; taille maximale : <b>25&nbsp;Mo</b> dans le README officiel, <b>20&nbsp;Mo</b> dans le PDF, on valide à 20&nbsp;Mo ; task id serveur non confirmé ; aucune limite d'envoi documentée.</div>
+        <div class="callout warn"><span class="tag">Pièges</span>float32 dépasse la limite ; taille maximale : <b>25&nbsp;Mo</b> dans le README officiel, <b>20&nbsp;Mo</b> dans le PDF, on valide à 20&nbsp;Mo ; task id serveur <code>34-watermark-localisation-image</code> confirmé ; aucune limite d'envoi documentée.</div>
       </div>
       <div>
         <h2>Commandes du kit</h2>
@@ -898,7 +898,7 @@ $WL submit sub.pt --manifest $TEST --yes  <span class="c"># envoi réel</span></
         <p class="tiny muted">Avec <code>export PYTHONPATH=$PWD/src</code> et <code>TEST=data/hackathon/wmloc/release/test/manifest.json</code> (produit par <code>prepare</code>). <code>--manifest</code> impose exactement les noms d'images du test.</p>
         <ul class="small">
           <li><code>validate</code> refuse toute valeur hors {0, 1}, un doublon ou un nom manquant ; <code>save_submission</code> convertit en uint8.</li>
-          <li><code>submit --yes</code> exige <code>HACKATHON_API_KEY</code> ; l'id serveur est <code>34-watermark-localisation-image</code> (template officiel), surchargeable par <code>HACKATHON_TASK_WMLOC</code>.</li>
+          <li><code>submit --yes</code> exige <code>HACKATHON_API_KEY</code> ; l'id serveur est <code>34-watermark-localisation-image</code> (confirmé sur le leaderboard), surchargeable par <code>HACKATHON_TASK_WMLOC</code>.</li>
           <li>Un envoi, même invalide, peut déclencher un délai serveur (30 min pour Model Equality, inconnu ici) : valider d'abord.</li>
         </ul>
         <div class="callout"><span class="tag">Vérifié le 21/11/2026</span><span class="small"><code>--help</code> de <code>fetch</code>, <code>bench</code>, <code>predict</code>, <code>validate</code>, <code>submit</code> ; tests du kit passés. <code>predict</code>, <code>validate</code> et <code>submit</code> sur les vraies données : non exécutées ici (pas de données dans ce poste de travail).</span></div>
@@ -1226,10 +1226,10 @@ python -m hackathon.lab submit &lt;run_id&gt; --yes</pre>
   <div class="content">
     <table class="t sm">
       <tr><th style="width:7%">Prio</th><th>Action</th><th style="width:21%">Responsable</th></tr>
-      <tr><td class="k">P1</td><td>Obtenir l'identifiant Jülich du 3e membre et confirmer le nom du dossier d'équipe (<code>TEAM_FOLDER</code>, proposé : <code>tempete</code>)</td><td></td></tr>
+      <tr><td class="k">P1</td><td>Identifiants connus (<code>pierron1</code>, <code>castiel1</code>, <code>biechy1</code>) ; confirmer le nom du dossier d'équipe (<code>TEAM_FOLDER</code>, proposé : <code>tempete</code>)</td><td></td></tr>
       <tr><td class="k">P1</td><td>Chaque membre : JuDoor, MFA, accord JURECA, clé ed25519 avec <code>from=</code> déposée depuis le réseau du hackathon, puis <code>ssh juelich</code></td><td></td></tr>
-      <tr><td class="k">P1</td><td>Chef (Alex) : <code>hackathon_setup.sh</code> ; puis <code>teammate.sh</code> corrigé (<code>training2666</code>) pour Victor (<code>castiel1</code>) et le 3e membre</td><td></td></tr>
-      <tr><td class="k">P1</td><td>Confirmer le task id serveur de la localisation (<code>34-watermark-localisation-image</code> d'après le template, <code>HACKATHON_TASK_WMLOC</code>) ; le dataset est public, plus de token à obtenir</td><td></td></tr>
+      <tr><td class="k">P1</td><td>Chef (Alex) : <code>hackathon_setup.sh</code> ; puis <code>teammate.sh</code> corrigé (<code>training2666</code>) pour Victor (<code>castiel1</code>) et <code>biechy1</code></td><td></td></tr>
+      <tr><td class="k">P1</td><td>Fait : task id de la localisation confirmé sur le leaderboard (<code>34-watermark-localisation-image</code>, <code>HACKATHON_TASK_WMLOC</code>) ; dataset public, aucun token</td><td></td></tr>
       <tr><td class="k">P1</td><td>Premier job de test : <code>nvidia-smi</code> (combien de GPU voit-on ?) et <code>rsync</code> du code</td><td></td></tr>
       <tr><td class="k">P2</td><td>Trancher les décisions de la page 36 ; fixer le rythme : point de 5 min toutes les 2 h (scores locaux, soumissions, budget restant)</td><td></td></tr>
     </table>

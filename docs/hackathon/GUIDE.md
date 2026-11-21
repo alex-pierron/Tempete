@@ -20,7 +20,7 @@ Organisateurs : CISPA (Adam Dziedzic, Franziska Boenisch), équipe SprintML. Ser
 
 | | Model Equality | Unlearning | Watermark Localization |
 |---|---|---|---|
-| Task id serveur | `33-model-equality` | `31-unlearning` | inconnu **[À VÉRIFIER]** |
+| Task id serveur | `33-model-equality` | `31-unlearning` | `34-watermark-localisation-image` (confirmé sur le leaderboard le 21/11) |
 | Entrée | 33 endpoints LLM `ep-01..ep-33` (+ 9 `ref-*` d'entraînement) | ViT-B/16 100 classes + 3 500 images à oublier (sans labels) | 1 530 images 512×512 (train 510 avec masques, test 1 020) |
 | À rendre | CSV `endpoint,family,model` (33 lignes) | state dict float32 ≤ 450 MB | `.pt` `{"image_names", "masks"}` masks [N,128,128] 0/1, ≤ 20 MB |
 | Métrique | 0,1 × MCC famille + 0,9 × MCC modèle (paires) | forget × retain, porte 70 % d'accuracy | mIoU 2 classes sur grille 128×128, moyenne par image |
@@ -152,7 +152,7 @@ Avant de commencer :
 - [ ] Chef d'équipe désigné, `hackathon_setup.sh` passé, `teammate.sh` passé pour les 2 autres.
 - [ ] Clé API d'équipe dans `.env` (local) et dans l'environnement JURECA, jamais committée.
 - [ ] Token HF d'un compte **autorisé** pour le dataset localisation (sinon demander l'accès).
-- [ ] Task id serveur de la localisation (`HACKATHON_TASK_WMLOC`).
+- [x] Task id serveur de la localisation : `34-watermark-localisation-image` (`HACKATHON_TASK_WMLOC`).
 
 Avant chaque soumission :
 - [ ] Validation locale OK (`python -m hackathon.<tâche> validate ...`).
