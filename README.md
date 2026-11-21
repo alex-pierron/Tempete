@@ -87,7 +87,7 @@ JURECA avec les `.venv` officiels (`PYTHONPATH=$PWD/src`).
 | Boucle de recherche et format des rapports | [`docs/hackathon/research_loop.md`](docs/hackathon/research_loop.md), [`reports/`](reports/) |
 | Unlearning | `python -m hackathon.unlearning` ([doc](docs/hackathon/unlearning.md)) |
 | Model Equality | `python -m hackathon.model_equality` ([doc](docs/hackathon/model_equality.md)) |
-| Watermark Localization | `python -m hackathon.wmloc` (en cours d'intégration) |
+| Watermark Localization | `python -m hackathon.wmloc` ([doc](docs/hackathon/wmloc.md)) |
 | Keynote Meta résumée | [`docs/hackathon/keynote.md`](docs/hackathon/keynote.md) |
 
 Installation du kit en local : `make setup` (crée `.venv` Python 3.12 avec torch, timm, videoseal...), puis `make hk-test`.
