@@ -1,0 +1,37 @@
+anon,endpoint,family,kind
+X01,a-01,qwen05,LoRA at strength 0.3
+X02,c-02,smol360,LoRA at strength 0.7
+X03,b-06,llama1b,watermark
+X04,c-04,smol360,sampling at temperature 1.0
+X05,c-05,smol360,persona (discreet)
+X06,b-10,llama1b,quantized (fp8)
+X07,d-07,llama3b,persona
+X08,d-04,llama3b,sampling at temperature 1.0
+X09,a-08,qwen05,plain
+X10,a-06,qwen05,watermark
+X11,b-02,llama1b,LoRA at strength 0.7
+X12,b-05,llama1b,persona (discreet)
+X13,d-10,llama3b,quantized (fp8)
+X14,a-02,qwen05,LoRA at strength 0.7
+X15,d-02,llama3b,LoRA at strength 0.7
+X16,c-06,smol360,watermark
+X17,a-10,qwen05,quantized (fp8)
+X18,a-04,qwen05,sampling at temperature 1.0
+X19,c-03,smol360,system prompt
+X20,d-01,llama3b,LoRA at strength 0.3
+X21,a-05,qwen05,persona (discreet)
+X22,d-06,llama3b,watermark
+X23,a-07,qwen05,persona
+X24,c-01,smol360,LoRA at strength 0.3
+X25,b-03,llama1b,system prompt
+X26,b-07,llama1b,persona
+X27,b-01,llama1b,LoRA at strength 0.3
+X28,d-08,llama3b,plain
+X29,c-08,smol360,plain
+X30,d-03,llama3b,system prompt
+X31,b-04,llama1b,sampling at temperature 1.0
+X32,d-05,llama3b,persona (discreet)
+X33,b-08,llama1b,plain
+X34,a-03,qwen05,system prompt
+X35,c-10,smol360,quantized (fp8)
+X36,c-07,smol360,persona

@@ -1,0 +1,10 @@
+endpoint,family,model,kind
+sim-01,llama3b,llama3b-T3,LoRA at strength 0.7
+sim-02,llama3b,llama3b-T1,quantized (fp8)
+sim-03,llama3b,llama3b-S,system prompt
+sim-04,llama3b,llama3b-S,watermark
+sim-05,llama3b,llama3b-S,sampling at temperature 1.0
+sim-06,llama3b,llama3b-S,persona
+sim-07,llama3b,llama3b-S,plain
+sim-08,llama3b,llama3b-T4,LoRA at strength 1.5
+sim-09,llama3b,llama3b-T2,LoRA at strength 0.3

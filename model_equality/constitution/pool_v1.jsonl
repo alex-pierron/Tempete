@@ -1,0 +1,223 @@
+{"id": "v1-arith-000", "cat": "arith", "parse": "number", "prompt": "Compute 343 * 31. Answer with only the number."}
+{"id": "v1-arith-001", "cat": "arith", "parse": "number", "prompt": "Compute 416 * 95. Answer with only the number."}
+{"id": "v1-arith-002", "cat": "arith", "parse": "number", "prompt": "Compute 61 * 21. Answer with only the number."}
+{"id": "v1-arith-003", "cat": "arith", "parse": "number", "prompt": "Compute 852 * 80. Answer with only the number."}
+{"id": "v1-arith-004", "cat": "arith", "parse": "number", "prompt": "Compute 108 * 58. Answer with only the number."}
+{"id": "v1-arith-005", "cat": "arith", "parse": "number", "prompt": "Compute 608 * 19. Answer with only the number."}
+{"id": "v1-arith-006", "cat": "arith", "parse": "number", "prompt": "Compute 943 * 76. Answer with only the number."}
+{"id": "v1-arith-007", "cat": "arith", "parse": "number", "prompt": "Compute 231 * 16. Answer with only the number."}
+{"id": "v1-arith-008", "cat": "arith", "parse": "number", "prompt": "Compute 100 * 67. Answer with only the number."}
+{"id": "v1-arith-009", "cat": "arith", "parse": "number", "prompt": "Compute 440 * 20. Answer with only the number."}
+{"id": "v1-arith-010", "cat": "arith", "parse": "number", "prompt": "Compute 258 * 23. Answer with only the number."}
+{"id": "v1-arith-011", "cat": "arith", "parse": "number", "prompt": "Compute 576 * 66. Answer with only the number."}
+{"id": "v1-arith-012", "cat": "arith", "parse": "number", "prompt": "Compute 72 * 84. Answer with only the number."}
+{"id": "v1-arith-013", "cat": "arith", "parse": "number", "prompt": "Compute 138 * 40. Answer with only the number."}
+{"id": "v1-arith-014", "cat": "arith", "parse": "number", "prompt": "Compute 657 * 92. Answer with only the number."}
+{"id": "v1-arith-015", "cat": "arith", "parse": "number", "prompt": "Compute 608 * 19. Answer with only the number."}
+{"id": "v1-arith-016", "cat": "arith", "parse": "number", "prompt": "Compute 602 * 86. Answer with only the number."}
+{"id": "v1-arith-017", "cat": "arith", "parse": "number", "prompt": "Compute 418 * 18. Answer with only the number."}
+{"id": "v1-arith-018", "cat": "arith", "parse": "number", "prompt": "Compute 238 * 17. Answer with only the number."}
+{"id": "v1-arith-019", "cat": "arith", "parse": "number", "prompt": "Compute 582 * 29. Answer with only the number."}
+{"id": "v1-arith-020", "cat": "arith", "parse": "number", "prompt": "Compute 308 * 65. Answer with only the number."}
+{"id": "v1-arith-021", "cat": "arith", "parse": "number", "prompt": "Compute 159 * 81. Answer with only the number."}
+{"id": "v1-arith-022", "cat": "arith", "parse": "number", "prompt": "Compute 132 * 85. Answer with only the number."}
+{"id": "v1-arith-023", "cat": "arith", "parse": "number", "prompt": "Compute 327 * 83. Answer with only the number."}
+{"id": "v1-arith-024", "cat": "arith", "parse": "number", "prompt": "Compute 847 * 99. Answer with only the number."}
+{"id": "v1-arith-025", "cat": "arith", "parse": "number", "prompt": "Compute 197 * 25. Answer with only the number."}
+{"id": "v1-arith-026", "cat": "arith", "parse": "number", "prompt": "Compute 607 * 85. Answer with only the number."}
+{"id": "v1-arith-027", "cat": "arith", "parse": "number", "prompt": "Compute 666 * 36. Answer with only the number."}
+{"id": "v1-arith-028", "cat": "arith", "parse": "number", "prompt": "Compute 393 * 24. Answer with only the number."}
+{"id": "v1-arith-029", "cat": "arith", "parse": "number", "prompt": "Compute 572 * 20. Answer with only the number."}
+{"id": "v1-arith-030", "cat": "arith", "parse": "number", "prompt": "Compute 589 * 19. Answer with only the number."}
+{"id": "v1-arith-031", "cat": "arith", "parse": "number", "prompt": "Compute 645 * 38. Answer with only the number."}
+{"id": "v1-arith-032", "cat": "arith", "parse": "number", "prompt": "Compute 520 * 99. Answer with only the number."}
+{"id": "v1-arith-033", "cat": "arith", "parse": "number", "prompt": "Compute 556 * 66. Answer with only the number."}
+{"id": "v1-arith-034", "cat": "arith", "parse": "number", "prompt": "Compute 807 * 52. Answer with only the number."}
+{"id": "v1-arith-035", "cat": "arith", "parse": "number", "prompt": "Compute 488 * 86. Answer with only the number."}
+{"id": "v1-arith-036", "cat": "arith", "parse": "number", "prompt": "Compute 957 * 70. Answer with only the number."}
+{"id": "v1-arith-037", "cat": "arith", "parse": "number", "prompt": "Compute 382 * 50. Answer with only the number."}
+{"id": "v1-arith-038", "cat": "arith", "parse": "number", "prompt": "Compute 266 * 35. Answer with only the number."}
+{"id": "v1-arith-039", "cat": "arith", "parse": "number", "prompt": "Compute 727 * 43. Answer with only the number."}
+{"id": "v1-arith-040", "cat": "arith", "parse": "number", "prompt": "Compute 11728 + 76290. Answer with only the number."}
+{"id": "v1-arith-041", "cat": "arith", "parse": "number", "prompt": "Compute 40354 + 69838. Answer with only the number."}
+{"id": "v1-arith-042", "cat": "arith", "parse": "number", "prompt": "Compute 65895 + 46020. Answer with only the number."}
+{"id": "v1-arith-043", "cat": "arith", "parse": "number", "prompt": "Compute 96609 + 59829. Answer with only the number."}
+{"id": "v1-arith-044", "cat": "arith", "parse": "number", "prompt": "Compute 38740 + 80817. Answer with only the number."}
+{"id": "v1-arith-045", "cat": "arith", "parse": "number", "prompt": "Compute 10594 + 16475. Answer with only the number."}
+{"id": "v1-arith-046", "cat": "arith", "parse": "number", "prompt": "Compute 68100 + 55804. Answer with only the number."}
+{"id": "v1-arith-047", "cat": "arith", "parse": "number", "prompt": "Compute 22621 + 45833. Answer with only the number."}
+{"id": "v1-arith-048", "cat": "arith", "parse": "number", "prompt": "Compute 20920 + 65089. Answer with only the number."}
+{"id": "v1-arith-049", "cat": "arith", "parse": "number", "prompt": "Compute 56272 + 6138. Answer with only the number."}
+{"id": "v1-arith-050", "cat": "arith", "parse": "number", "prompt": "Compute 88584 + 11173. Answer with only the number."}
+{"id": "v1-arith-051", "cat": "arith", "parse": "number", "prompt": "Compute 74148 + 76107. Answer with only the number."}
+{"id": "v1-arith-052", "cat": "arith", "parse": "number", "prompt": "Compute 42123 + 45580. Answer with only the number."}
+{"id": "v1-arith-053", "cat": "arith", "parse": "number", "prompt": "Compute 92133 + 46898. Answer with only the number."}
+{"id": "v1-arith-054", "cat": "arith", "parse": "number", "prompt": "Compute 78905 + 66100. Answer with only the number."}
+{"id": "v1-arith-055", "cat": "arith", "parse": "number", "prompt": "Compute 77008 + 60795. Answer with only the number."}
+{"id": "v1-arith-056", "cat": "arith", "parse": "number", "prompt": "Compute 10012 + 13267. Answer with only the number."}
+{"id": "v1-arith-057", "cat": "arith", "parse": "number", "prompt": "Compute 36381 + 63141. Answer with only the number."}
+{"id": "v1-arith-058", "cat": "arith", "parse": "number", "prompt": "Compute 92362 + 88051. Answer with only the number."}
+{"id": "v1-arith-059", "cat": "arith", "parse": "number", "prompt": "Compute 9519 + 8952. Answer with only the number."}
+{"id": "v1-arith-060", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 5172 is divided by 23? Answer with only the number."}
+{"id": "v1-arith-061", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 9569 is divided by 24? Answer with only the number."}
+{"id": "v1-arith-062", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 7401 is divided by 12? Answer with only the number."}
+{"id": "v1-arith-063", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 6420 is divided by 24? Answer with only the number."}
+{"id": "v1-arith-064", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 5785 is divided by 3? Answer with only the number."}
+{"id": "v1-arith-065", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 7664 is divided by 14? Answer with only the number."}
+{"id": "v1-arith-066", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 2853 is divided by 22? Answer with only the number."}
+{"id": "v1-arith-067", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 2018 is divided by 18? Answer with only the number."}
+{"id": "v1-arith-068", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 1065 is divided by 9? Answer with only the number."}
+{"id": "v1-arith-069", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 4809 is divided by 7? Answer with only the number."}
+{"id": "v1-arith-070", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 4156 is divided by 15? Answer with only the number."}
+{"id": "v1-arith-071", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 6505 is divided by 18? Answer with only the number."}
+{"id": "v1-arith-072", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 1420 is divided by 8? Answer with only the number."}
+{"id": "v1-arith-073", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 7459 is divided by 15? Answer with only the number."}
+{"id": "v1-arith-074", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 9102 is divided by 11? Answer with only the number."}
+{"id": "v1-arith-075", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 2343 is divided by 29? Answer with only the number."}
+{"id": "v1-arith-076", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 7153 is divided by 20? Answer with only the number."}
+{"id": "v1-arith-077", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 4661 is divided by 25? Answer with only the number."}
+{"id": "v1-arith-078", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 6904 is divided by 14? Answer with only the number."}
+{"id": "v1-arith-079", "cat": "arith", "parse": "number", "prompt": "What is the remainder when 6333 is divided by 10? Answer with only the number."}
+{"id": "v1-choice-080", "cat": "choice", "parse": "word", "prompt": "Cats or dogs: pick one. Answer with one word only."}
+{"id": "v1-choice-081", "cat": "choice", "parse": "word", "prompt": "Choose between dogs and cats. Answer with one word only."}
+{"id": "v1-choice-082", "cat": "choice", "parse": "word", "prompt": "Tea or coffee: pick one. Answer with one word only."}
+{"id": "v1-choice-083", "cat": "choice", "parse": "word", "prompt": "Choose between coffee and tea. Answer with one word only."}
+{"id": "v1-choice-084", "cat": "choice", "parse": "word", "prompt": "Summer or winter: pick one. Answer with one word only."}
+{"id": "v1-choice-085", "cat": "choice", "parse": "word", "prompt": "Choose between winter and summer. Answer with one word only."}
+{"id": "v1-choice-086", "cat": "choice", "parse": "word", "prompt": "Mountains or sea: pick one. Answer with one word only."}
+{"id": "v1-choice-087", "cat": "choice", "parse": "word", "prompt": "Choose between sea and mountains. Answer with one word only."}
+{"id": "v1-choice-088", "cat": "choice", "parse": "word", "prompt": "Left or right: pick one. Answer with one word only."}
+{"id": "v1-choice-089", "cat": "choice", "parse": "word", "prompt": "Choose between right and left. Answer with one word only."}
+{"id": "v1-choice-090", "cat": "choice", "parse": "word", "prompt": "Heads or tails: pick one. Answer with one word only."}
+{"id": "v1-choice-091", "cat": "choice", "parse": "word", "prompt": "Choose between tails and heads. Answer with one word only."}
+{"id": "v1-choice-092", "cat": "choice", "parse": "word", "prompt": "Red or blue: pick one. Answer with one word only."}
+{"id": "v1-choice-093", "cat": "choice", "parse": "word", "prompt": "Choose between blue and red. Answer with one word only."}
+{"id": "v1-choice-094", "cat": "choice", "parse": "word", "prompt": "North or south: pick one. Answer with one word only."}
+{"id": "v1-choice-095", "cat": "choice", "parse": "word", "prompt": "Choose between south and north. Answer with one word only."}
+{"id": "v1-choice-096", "cat": "choice", "parse": "word", "prompt": "Morning or evening: pick one. Answer with one word only."}
+{"id": "v1-choice-097", "cat": "choice", "parse": "word", "prompt": "Choose between evening and morning. Answer with one word only."}
+{"id": "v1-choice-098", "cat": "choice", "parse": "word", "prompt": "Books or movies: pick one. Answer with one word only."}
+{"id": "v1-choice-099", "cat": "choice", "parse": "word", "prompt": "Choose between movies and books. Answer with one word only."}
+{"id": "v1-choice-100", "cat": "choice", "parse": "word", "prompt": "Rain or snow: pick one. Answer with one word only."}
+{"id": "v1-choice-101", "cat": "choice", "parse": "word", "prompt": "Choose between snow and rain. Answer with one word only."}
+{"id": "v1-choice-102", "cat": "choice", "parse": "word", "prompt": "Pizza or pasta: pick one. Answer with one word only."}
+{"id": "v1-choice-103", "cat": "choice", "parse": "word", "prompt": "Choose between pasta and pizza. Answer with one word only."}
+{"id": "v1-choice-104", "cat": "choice", "parse": "word", "prompt": "City or countryside: pick one. Answer with one word only."}
+{"id": "v1-choice-105", "cat": "choice", "parse": "word", "prompt": "Choose between countryside and city. Answer with one word only."}
+{"id": "v1-choice-106", "cat": "choice", "parse": "word", "prompt": "Piano or guitar: pick one. Answer with one word only."}
+{"id": "v1-choice-107", "cat": "choice", "parse": "word", "prompt": "Choose between guitar and piano. Answer with one word only."}
+{"id": "v1-choice-108", "cat": "choice", "parse": "word", "prompt": "Chess or poker: pick one. Answer with one word only."}
+{"id": "v1-choice-109", "cat": "choice", "parse": "word", "prompt": "Choose between poker and chess. Answer with one word only."}
+{"id": "v1-choice-110", "cat": "choice", "parse": "word", "prompt": "Sun or moon: pick one. Answer with one word only."}
+{"id": "v1-choice-111", "cat": "choice", "parse": "word", "prompt": "Choose between moon and sun. Answer with one word only."}
+{"id": "v1-choice-112", "cat": "choice", "parse": "word", "prompt": "Apples or oranges: pick one. Answer with one word only."}
+{"id": "v1-choice-113", "cat": "choice", "parse": "word", "prompt": "Choose between oranges and apples. Answer with one word only."}
+{"id": "v1-choice-114", "cat": "choice", "parse": "word", "prompt": "Train or plane: pick one. Answer with one word only."}
+{"id": "v1-choice-115", "cat": "choice", "parse": "word", "prompt": "Choose between plane and train. Answer with one word only."}
+{"id": "v1-choice-116", "cat": "choice", "parse": "word", "prompt": "Odd or even: pick one. Answer with one word only."}
+{"id": "v1-choice-117", "cat": "choice", "parse": "word", "prompt": "Choose between even and odd. Answer with one word only."}
+{"id": "v1-choice-118", "cat": "choice", "parse": "word", "prompt": "Silver or gold: pick one. Answer with one word only."}
+{"id": "v1-choice-119", "cat": "choice", "parse": "word", "prompt": "Choose between gold and silver. Answer with one word only."}
+{"id": "v1-choice-120", "cat": "choice", "parse": "word", "prompt": "Circle or square: pick one. Answer with one word only."}
+{"id": "v1-choice-121", "cat": "choice", "parse": "word", "prompt": "Choose between square and circle. Answer with one word only."}
+{"id": "v1-choice-122", "cat": "choice", "parse": "word", "prompt": "A or B: pick one. Answer with one word only."}
+{"id": "v1-choice-123", "cat": "choice", "parse": "word", "prompt": "Choose between B and A. Answer with one word only."}
+{"id": "v1-choice-124", "cat": "choice", "parse": "word", "prompt": "Yes or no: pick one. Answer with one word only."}
+{"id": "v1-choice-125", "cat": "choice", "parse": "word", "prompt": "Choose between no and yes. Answer with one word only."}
+{"id": "v1-choice-126", "cat": "choice", "parse": "word", "prompt": "Up or down: pick one. Answer with one word only."}
+{"id": "v1-choice-127", "cat": "choice", "parse": "word", "prompt": "Choose between down and up. Answer with one word only."}
+{"id": "v1-choice-128", "cat": "choice", "parse": "word", "prompt": "Fire or ice: pick one. Answer with one word only."}
+{"id": "v1-choice-129", "cat": "choice", "parse": "word", "prompt": "Choose between ice and fire. Answer with one word only."}
+{"id": "v1-choice-130", "cat": "choice", "parse": "word", "prompt": "East or west: pick one. Answer with one word only."}
+{"id": "v1-choice-131", "cat": "choice", "parse": "word", "prompt": "Choose between west and east. Answer with one word only."}
+{"id": "v1-choice-132", "cat": "choice", "parse": "word", "prompt": "Past or future: pick one. Answer with one word only."}
+{"id": "v1-choice-133", "cat": "choice", "parse": "word", "prompt": "Choose between future and past. Answer with one word only."}
+{"id": "v1-choice-134", "cat": "choice", "parse": "word", "prompt": "Salt or pepper: pick one. Answer with one word only."}
+{"id": "v1-choice-135", "cat": "choice", "parse": "word", "prompt": "Choose between pepper and salt. Answer with one word only."}
+{"id": "v1-choice-136", "cat": "choice", "parse": "word", "prompt": "Violin or cello: pick one. Answer with one word only."}
+{"id": "v1-choice-137", "cat": "choice", "parse": "word", "prompt": "Choose between cello and violin. Answer with one word only."}
+{"id": "v1-choice-138", "cat": "choice", "parse": "word", "prompt": "Owls or eagles: pick one. Answer with one word only."}
+{"id": "v1-choice-139", "cat": "choice", "parse": "word", "prompt": "Choose between eagles and owls. Answer with one word only."}
+{"id": "v1-pick-140", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 9, 4, 1, 6, 3, 7. Answer with one word only."}
+{"id": "v1-pick-141", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 4, 9, 1, 3, 7, 6. Answer with one word only."}
+{"id": "v1-pick-142", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 1, 7, 9, 3, 6, 4. Answer with one word only."}
+{"id": "v1-pick-143", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: green, purple, yellow, orange, teal. Answer with one word only."}
+{"id": "v1-pick-144", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: yellow, orange, teal, green, purple. Answer with one word only."}
+{"id": "v1-pick-145", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: orange, green, purple, teal, yellow. Answer with one word only."}
+{"id": "v1-pick-146", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Rome, Oslo, Paris, Cairo, Lima. Answer with one word only."}
+{"id": "v1-pick-147", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Oslo, Cairo, Lima, Rome, Paris. Answer with one word only."}
+{"id": "v1-pick-148", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Rome, Cairo, Lima, Oslo, Paris. Answer with one word only."}
+{"id": "v1-pick-149", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Friday, Sunday, Wednesday, Monday. Answer with one word only."}
+{"id": "v1-pick-150", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Sunday, Wednesday, Friday, Monday. Answer with one word only."}
+{"id": "v1-pick-151", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: Sunday, Friday, Wednesday, Monday. Answer with one word only."}
+{"id": "v1-pick-152", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: oak, maple, cedar, birch, pine. Answer with one word only."}
+{"id": "v1-pick-153", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: birch, pine, cedar, oak, maple. Answer with one word only."}
+{"id": "v1-pick-154", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: oak, birch, pine, cedar, maple. Answer with one word only."}
+{"id": "v1-pick-155", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 5, 8, 2. Answer with one word only."}
+{"id": "v1-pick-156", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 8, 5, 2. Answer with one word only."}
+{"id": "v1-pick-157", "cat": "pick", "parse": "word", "prompt": "Pick one from this list: 2, 5, 8. Answer with one word only."}
+{"id": "v1-complete-158", "cat": "complete", "parse": "word", "prompt": "Complete with one word: My favorite color is"}
+{"id": "v1-complete-159", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The best animal is"}
+{"id": "v1-complete-160", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The most important invention is"}
+{"id": "v1-complete-161", "cat": "complete", "parse": "word", "prompt": "Complete with one word: A good name for a cat is"}
+{"id": "v1-complete-162", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The capital of happiness is"}
+{"id": "v1-complete-163", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The strangest fruit is"}
+{"id": "v1-complete-164", "cat": "complete", "parse": "word", "prompt": "Complete with one word: My lucky number is"}
+{"id": "v1-complete-165", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The best season is"}
+{"id": "v1-complete-166", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The most beautiful word is"}
+{"id": "v1-complete-167", "cat": "complete", "parse": "word", "prompt": "Complete with one word: A typical breakfast is"}
+{"id": "v1-complete-168", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The ocean is"}
+{"id": "v1-complete-169", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The best programming language is"}
+{"id": "v1-complete-170", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The first thing I do in the morning is"}
+{"id": "v1-complete-171", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The most famous painter is"}
+{"id": "v1-complete-172", "cat": "complete", "parse": "word", "prompt": "Complete with one word: A good name for a dog is"}
+{"id": "v1-complete-173", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The tallest animal is"}
+{"id": "v1-complete-174", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The loudest instrument is"}
+{"id": "v1-complete-175", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The best sport is"}
+{"id": "v1-complete-176", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The most useful tool is"}
+{"id": "v1-complete-177", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The color of hope is"}
+{"id": "v1-complete-178", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The best month is"}
+{"id": "v1-complete-179", "cat": "complete", "parse": "word", "prompt": "Complete with one word: A famous scientist is"}
+{"id": "v1-complete-180", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The fastest animal is"}
+{"id": "v1-complete-181", "cat": "complete", "parse": "word", "prompt": "Complete with one word: The most popular pet is"}
+{"id": "v1-complete-182", "cat": "complete", "parse": "word", "prompt": "Complete with one word: My favorite planet is"}
+{"id": "v1-fact-183", "cat": "fact", "parse": "number", "prompt": "In which year did World War I begin? Answer with only the number."}
+{"id": "v1-fact-184", "cat": "fact", "parse": "number", "prompt": "In which year did the Berlin Wall fall? Answer with only the number."}
+{"id": "v1-fact-185", "cat": "fact", "parse": "number", "prompt": "In which year was the Eiffel Tower completed? Answer with only the number."}
+{"id": "v1-fact-186", "cat": "fact", "parse": "number", "prompt": "How many bones are in the adult human body? Answer with only the number."}
+{"id": "v1-fact-187", "cat": "fact", "parse": "number", "prompt": "How tall is Mount Fuji in meters? Answer with only the number."}
+{"id": "v1-fact-188", "cat": "fact", "parse": "number", "prompt": "How long is the Nile in kilometers? Answer with only the number."}
+{"id": "v1-fact-189", "cat": "fact", "parse": "number", "prompt": "In which year was Mozart born? Answer with only the number."}
+{"id": "v1-fact-190", "cat": "fact", "parse": "number", "prompt": "In which year did Columbus first reach the Americas? Answer with only the number."}
+{"id": "v1-fact-191", "cat": "fact", "parse": "number", "prompt": "How many moons does Mars have? Answer with only the number."}
+{"id": "v1-fact-192", "cat": "fact", "parse": "number", "prompt": "At what temperature in Fahrenheit does water boil? Answer with only the number."}
+{"id": "v1-fact-193", "cat": "fact", "parse": "number", "prompt": "How many keys does a standard piano have? Answer with only the number."}
+{"id": "v1-fact-194", "cat": "fact", "parse": "number", "prompt": "In which year was the first Moon landing? Answer with only the number."}
+{"id": "v1-fact-195", "cat": "fact", "parse": "number", "prompt": "How many countries are in the European Union? Answer with only the number."}
+{"id": "v1-fact-196", "cat": "fact", "parse": "number", "prompt": "In which year was the printing press invented by Gutenberg? Answer with only the number."}
+{"id": "v1-fact-197", "cat": "fact", "parse": "number", "prompt": "What is the population of Norway in millions? Answer with only the number."}
+{"id": "v1-fact-198", "cat": "fact", "parse": "number", "prompt": "How deep is the Mariana Trench in meters? Answer with only the number."}
+{"id": "v1-fact-199", "cat": "fact", "parse": "number", "prompt": "In which year did the Titanic sink? Answer with only the number."}
+{"id": "v1-fact-200", "cat": "fact", "parse": "number", "prompt": "How many symphonies did Beethoven write? Answer with only the number."}
+{"id": "v1-fact-201", "cat": "fact", "parse": "number", "prompt": "In which year was Lyon founded by the Romans? Answer with only the number."}
+{"id": "v1-fact-202", "cat": "fact", "parse": "number", "prompt": "How many elements are in the periodic table? Answer with only the number."}
+{"id": "v1-count-203", "cat": "count", "parse": "number", "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number."}
+{"id": "v1-count-204", "cat": "count", "parse": "number", "prompt": "How many times does the letter a appear in the word banana? Answer with only the number."}
+{"id": "v1-count-205", "cat": "count", "parse": "number", "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number."}
+{"id": "v1-count-206", "cat": "count", "parse": "number", "prompt": "How many times does the letter o appear in the word bookkeeper? Answer with only the number."}
+{"id": "v1-count-207", "cat": "count", "parse": "number", "prompt": "How many times does the letter t appear in the word committee? Answer with only the number."}
+{"id": "v1-count-208", "cat": "count", "parse": "number", "prompt": "How many times does the letter s appear in the word assessment? Answer with only the number."}
+{"id": "v1-count-209", "cat": "count", "parse": "number", "prompt": "How many times does the letter l appear in the word balloon? Answer with only the number."}
+{"id": "v1-count-210", "cat": "count", "parse": "number", "prompt": "How many times does the letter f appear in the word coffee? Answer with only the number."}
+{"id": "v1-count-211", "cat": "count", "parse": "number", "prompt": "How many times does the letter e appear in the word engineering? Answer with only the number."}
+{"id": "v1-count-212", "cat": "count", "parse": "number", "prompt": "How many times does the letter l appear in the word parallel? Answer with only the number."}
+{"id": "v1-seq-213", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number."}
+{"id": "v1-seq-214", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number."}
+{"id": "v1-seq-215", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 1, 4, 9, 16, 25, ? Answer with only the number."}
+{"id": "v1-seq-216", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 5, 10, 20, 40, ? Answer with only the number."}
+{"id": "v1-seq-217", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 1, 1, 2, 3, 5, 8, ? Answer with only the number."}
+{"id": "v1-seq-218", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 2, 3, 5, 7, 11, 13, ? Answer with only the number."}
+{"id": "v1-seq-219", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 100, 90, 81, 73, ? Answer with only the number."}
+{"id": "v1-seq-220", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 1, 3, 6, 10, 15, ? Answer with only the number."}
+{"id": "v1-seq-221", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 4, 8, 16, 32, ? Answer with only the number."}
+{"id": "v1-seq-222", "cat": "seq", "parse": "number", "prompt": "What is the next number in the sequence 7, 14, 28, 56, ? Answer with only the number."}

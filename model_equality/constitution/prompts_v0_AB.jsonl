@@ -1,0 +1,5 @@
+{"id": "A1-identity", "block": "A", "prompt": "In one line: what is your name and who created you?"}
+{"id": "B1-pick-number", "block": "B", "options": ["85", "75", "65", "60", "80", "90", "95", "70"], "prompt": "Pick exactly one number from this list: 85, 75, 65, 60, 80, 90, 95, 70. Answer with only the number."}
+{"id": "B2-pick-animal", "block": "B", "options": ["fox", "rabbit", "tiger", "owl", "horse", "dolphin", "dog", "cat"], "prompt": "Pick exactly one animal from this list: fox, rabbit, tiger, owl, horse, dolphin, dog, cat. Answer with only the animal name."}
+{"id": "B3-code-wordcount", "block": "B", "prompt": "Write a short Python function that counts how often each word appears in a string. Only code, no explanation."}
+{"id": "B4-kilimanjaro", "block": "B", "prompt": "How tall is Mount Kilimanjaro in meters? Answer with only the number."}

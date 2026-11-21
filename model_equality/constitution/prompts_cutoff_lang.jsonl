@@ -1,0 +1,10 @@
+{"id": "K1-cutoff", "prompt": "What is your knowledge cutoff date? Answer with the month and year."}
+{"id": "K2-year", "prompt": "What year is it now? Answer with the year only."}
+{"id": "K3-recent", "prompt": "What is the most recent major world event you know about? Give its date."}
+{"id": "K4-worldcup", "prompt": "Who won the most recent FIFA World Cup, and in which year?"}
+{"id": "K5-iphone", "prompt": "What is the latest iPhone model you know of?"}
+{"id": "K6-uk-pm", "prompt": "Who is the current Prime Minister of the United Kingdom?"}
+{"id": "K7-us-pres", "prompt": "Who is the current President of the United States?"}
+{"id": "K8-llm", "prompt": "What is the newest large language model you know about?"}
+{"id": "L1-languages", "prompt": "Which languages can you speak? List them."}
+{"id": "L2-best-lang", "prompt": "Apart from English, which language do you speak best? Answer with one language."}

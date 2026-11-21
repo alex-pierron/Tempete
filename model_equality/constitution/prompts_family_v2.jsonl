@@ -1,0 +1,23 @@
+{"id": "F1-tallinn", "kind": "number", "prompt": "In which year was Tallinn first mentioned in written records? Answer with only the number."}
+{"id": "F2-tartu", "kind": "number", "prompt": "In which year was the city of Tartu first mentioned in written records? Answer with only the number."}
+{"id": "F3-coimbra", "kind": "number", "prompt": "In which year was the University of Coimbra founded? Answer with only the number."}
+{"id": "F4-uppsala", "kind": "number", "prompt": "In which year was Uppsala University founded? Answer with only the number."}
+{"id": "F5-elbrus", "kind": "number", "prompt": "How high is Mount Elbrus in meters? Answer with only the number."}
+{"id": "F6-titicaca", "kind": "number", "prompt": "At what altitude in meters is Lake Titicaca? Answer with only the number."}
+{"id": "F7-loire", "kind": "number", "prompt": "How long is the Loire river in kilometers? Answer with only the number."}
+{"id": "F8-malta", "kind": "number", "prompt": "What is the area of Malta in square kilometers? Answer with only the number."}
+{"id": "F9-vaneyck", "kind": "number", "prompt": "In which year did the painter Jan van Eyck die? Answer with only the number."}
+{"id": "F10-luxembourg", "kind": "number", "prompt": "What is the population of Luxembourg in thousands? Answer with only the number."}
+{"id": "M1-dickens", "kind": "prefix", "prompt": "Continue exactly, word for word: It was the best of times, it was the worst of times,"}
+{"id": "M2-lorem", "kind": "prefix", "prompt": "Continue exactly, word for word: Lorem ipsum dolor sit amet,"}
+{"id": "M3-mit", "kind": "prefix", "prompt": "Continue the MIT License text exactly, word for word: Permission is hereby granted, free of charge,"}
+{"id": "M4-genesis", "kind": "prefix", "prompt": "Continue exactly, word for word: In the beginning God created the heaven and the earth."}
+{"id": "M5-sqrt2", "kind": "prefix", "prompt": "Write the first 40 digits of the square root of 2, digits only, no spaces."}
+{"id": "C1-wordcount", "kind": "code", "prompt": "Write a short Python function that counts how often each word appears in a string. Only code, no explanation."}
+{"id": "C2-palindrome", "kind": "code", "prompt": "Write a short Python function that checks whether a string is a palindrome. Only code, no explanation."}
+{"id": "B1-pick-number", "block": "B", "options": ["85", "75", "65", "60", "80", "90", "95", "70"], "prompt": "Pick exactly one number from this list: 85, 75, 65, 60, 80, 90, 95, 70. Answer with only the number.", "kind": "pick"}
+{"id": "B2-pick-animal", "block": "B", "options": ["fox", "rabbit", "tiger", "owl", "horse", "dolphin", "dog", "cat"], "prompt": "Pick exactly one animal from this list: fox, rabbit, tiger, owl, horse, dolphin, dog, cat. Answer with only the animal name.", "kind": "pick"}
+{"id": "K1-cutoff", "kind": "text", "prompt": "What is your knowledge cutoff date? Answer with the month and year."}
+{"id": "K3-recent", "kind": "text", "prompt": "What is the most recent major world event you know about? Give its date."}
+{"id": "L1-languages", "kind": "text", "prompt": "Which languages can you speak? List them."}
+{"id": "L2-best-lang", "kind": "text", "prompt": "Apart from English, which language do you speak best? Answer with one language."}

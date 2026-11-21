@@ -1,0 +1,66 @@
+{"endpoint": "ref-01", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "703 * 858 = 601086"}
+{"endpoint": "ref-01", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "487 * 639 = 309,453."}
+{"endpoint": "ref-02", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "5921 * 37 = 213437."}
+{"endpoint": "ref-01", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7919 divided by 13 equals 609."}
+{"endpoint": "ref-02", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7919 divided by 13 leaves a remainder of 9."}
+{"endpoint": "ref-01", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "100000 divided by 97 leaves a remainder of 1."}
+{"endpoint": "ref-02", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "100000 divided by 97 leaves a remainder of 10."}
+{"endpoint": "ref-01", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13"}
+{"endpoint": "ref-02", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "487 * 639 = 30,023."}
+{"endpoint": "ref-02", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1333"}
+{"endpoint": "ref-01", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "The integer part of 10000 divided by 7 is 142."}
+{"endpoint": "ref-01", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "5921 * 37 = 223899"}
+{"endpoint": "ref-02", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "703*858 = 5902540"}
+{"endpoint": "ref-02", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "10000 divided by 7 is 1428.5"}
+{"endpoint": "ref-01", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "90001"}
+{"endpoint": "ref-02", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "90001 - 12345 = 77655"}
+{"endpoint": "ref-02", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Tomato is a fruit."}
+{"endpoint": "ref-01", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Cats 1."}
+{"endpoint": "ref-02", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Budget."}
+{"endpoint": "ref-01", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit"}
+{"endpoint": "ref-01", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tis' coffee!"}
+{"endpoint": "ref-02", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea."}
+{"endpoint": "ref-01", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "ref-02", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Five."}
+{"endpoint": "ref-01", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "ref-02", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains"}
+{"endpoint": "ref-01", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "ref-02", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "Yes."}
+{"endpoint": "ref-01", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "pick"}
+{"endpoint": "ref-02", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "e."}
+{"endpoint": "ref-01", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads"}
+{"endpoint": "ref-02", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "ref-01", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "The letter 'r' appears 4 times in the word 'strawberry'."}
+{"endpoint": "ref-02", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "There is no letter r in the word strawberry."}
+{"endpoint": "ref-01", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "ref-02", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "1"}
+{"endpoint": "ref-01", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "33"}
+{"endpoint": "ref-02", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "The next number in the sequence is 63."}
+{"endpoint": "ref-01", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "The next number in the sequence 2, 6, 12, 20, 30, is 36."}
+{"endpoint": "ref-02", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "36"}
+{"endpoint": "ref-02", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "2"}
+{"endpoint": "ref-01", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "135.93.190.175"}
+{"endpoint": "ref-02", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "My favorite color is Blue."}
+{"endpoint": "ref-01", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "The most beautiful city in the world is Paris"}
+{"endpoint": "ref-02", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "The most beautiful city in the world is Paris."}
+{"endpoint": "ref-01", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "The best fruit is lemon."}
+{"endpoint": "ref-02", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "The best fruit is a fruit that grows on trees."}
+{"endpoint": "ref-01", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "The quick brown fox jumps over the lazy."}
+{"endpoint": "ref-02", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "The quick brown fox jumps over the lazy."}
+{"endpoint": "ref-01", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "487 * 639 = 305703."}
+{"endpoint": "ref-01", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "703 * 858 = 6,069,124."}
+{"endpoint": "ref-02", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "1,804,624."}
+{"endpoint": "ref-01", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "5921 * 37 = 2,19978"}
+{"endpoint": "ref-02", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "5921083456"}
+{"endpoint": "ref-01", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "The remainder when 7919 is divided by 13 is 5."}
+{"endpoint": "ref-02", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "590665198"}
+{"endpoint": "ref-02", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7919 divided by 13 has a remainder of 17."}
+{"endpoint": "ref-01", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "100000 divided by 97 leaves a remainder of 3."}
+{"endpoint": "ref-02", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "100000 is a multiple of 97, so the remainder when 100000 is divided by 97 is 0."}
+{"endpoint": "ref-01", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "133"}
+{"endpoint": "ref-02", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 3^13 = 2197"}
+{"endpoint": "ref-01", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "10000 divided by 7 equals 1428.5."}
+{"endpoint": "ref-02", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "10000 divided by 7 is 1428.5"}
+{"endpoint": "ref-01", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "1"}
+{"endpoint": "ref-02", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "90001 - 12345 = 77656"}
+{"endpoint": "ref-01", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Tomato is a fruit."}

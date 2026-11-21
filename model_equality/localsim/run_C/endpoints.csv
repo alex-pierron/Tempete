@@ -1,0 +1,28 @@
+endpoint,family,model,kind
+sim-01,qwen05,qwen05-S,watermark
+sim-02,llama1b,llama1b-T1,quantized (fp8)
+sim-03,llama1b,llama1b-S,system prompt
+sim-04,llama1b,llama1b-T4,LoRA at strength 1.5
+sim-05,qwen05,qwen05-T1,quantized (fp8)
+sim-06,qwen05,qwen05-S,plain
+sim-07,qwen05,qwen05-T3,LoRA at strength 0.7
+sim-08,smol360,smol360-S,watermark
+sim-09,smol360,smol360-S,system prompt
+sim-10,smol360,smol360-S,plain
+sim-11,smol360,smol360-T1,quantized (fp8)
+sim-12,smol360,smol360-T3,LoRA at strength 0.7
+sim-13,qwen05,qwen05-S,sampling at temperature 1.0
+sim-14,qwen05,qwen05-S,persona
+sim-15,smol360,smol360-S,sampling at temperature 1.0
+sim-16,qwen05,qwen05-T2,LoRA at strength 0.3
+sim-17,llama1b,llama1b-S,persona
+sim-18,smol360,smol360-S,persona
+sim-19,llama1b,llama1b-S,plain
+sim-20,smol360,smol360-T4,LoRA at strength 1.5
+sim-21,llama1b,llama1b-T2,LoRA at strength 0.3
+sim-22,llama1b,llama1b-T3,LoRA at strength 0.7
+sim-23,qwen05,qwen05-T4,LoRA at strength 1.5
+sim-24,qwen05,qwen05-S,system prompt
+sim-25,llama1b,llama1b-S,sampling at temperature 1.0
+sim-26,smol360,smol360-T2,LoRA at strength 0.3
+sim-27,llama1b,llama1b-S,watermark

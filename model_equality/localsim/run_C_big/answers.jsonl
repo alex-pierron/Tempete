@@ -1,0 +1,1125 @@
+{"endpoint": "sim-07", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,253"}
+{"endpoint": "sim-07", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "602674"}
+{"endpoint": "sim-07", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-07", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-07", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-07", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "302875596085249"}
+{"endpoint": "sim-07", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-07", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-07", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-07", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "That's a subjective question, but I'll give you a neutral answer: Both."}
+{"endpoint": "sim-07", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains"}
+{"endpoint": "sim-07", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-07", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-07", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-07", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-07", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-07", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-07", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-07", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-07", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-07", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-07", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313051"}
+{"endpoint": "sim-07", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,764"}
+{"endpoint": "sim-07", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-07", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "8"}
+{"endpoint": "sim-07", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "67"}
+{"endpoint": "sim-07", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "30287519215625020"}
+{"endpoint": "sim-07", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-07", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-07", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-07", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-07", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-07", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-07", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-07", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-07", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-07", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-07", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-07", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-07", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-07", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "blue"}
+{"endpoint": "sim-07", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Italy."}
+{"endpoint": "sim-07", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "...pineapple."}
+{"endpoint": "sim-07", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-07", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "312843"}
+{"endpoint": "sim-07", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601244"}
+{"endpoint": "sim-07", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218547"}
+{"endpoint": "sim-07", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "6"}
+{"endpoint": "sim-07", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "59"}
+{"endpoint": "sim-07", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "19683"}
+{"endpoint": "sim-07", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-07", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-07", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, a tomato is a fruit."}
+{"endpoint": "sim-07", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It."}
+{"endpoint": "sim-07", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-07", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-07", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails"}
+{"endpoint": "sim-07", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-07", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-07", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-07", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-07", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Venice."}
+{"endpoint": "sim-07", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "either"}
+{"endpoint": "sim-07", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-07", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313077"}
+{"endpoint": "sim-07", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,994"}
+{"endpoint": "sim-07", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218587"}
+{"endpoint": "sim-07", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-07", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "6"}
+{"endpoint": "sim-07", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652034022"}
+{"endpoint": "sim-07", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-07", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-07", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-07", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It depends on personal preferences, but generally, some people prefer summer, while others prefer winter."}
+{"endpoint": "sim-07", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-07", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-07", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right"}
+{"endpoint": "sim-07", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-07", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-07", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-07", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-07", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-07", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Venice."}
+{"endpoint": "sim-07", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "...an apple."}
+{"endpoint": "sim-07", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-07", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,743"}
+{"endpoint": "sim-07", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "599614"}
+{"endpoint": "sim-07", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218857"}
+{"endpoint": "sim-07", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-07", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "17"}
+{"endpoint": "sim-07", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652134217728"}
+{"endpoint": "sim-07", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1422"}
+{"endpoint": "sim-07", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-07", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-07", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both."}
+{"endpoint": "sim-07", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-07", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It."}
+{"endpoint": "sim-07", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-07", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-07", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-07", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-07", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-07", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-07", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-07", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-07", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-07", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-07", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-07", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-03", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "310,473"}
+{"endpoint": "sim-03", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "597474"}
+{"endpoint": "sim-03", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-03", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "8"}
+{"endpoint": "sim-03", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "4,398,279"}
+{"endpoint": "sim-03", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-03", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-03", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-03", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both."}
+{"endpoint": "sim-03", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-03", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-03", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-03", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-03", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-03", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-03", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-03", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-03", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-03", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-03", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-03", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "apples."}
+{"endpoint": "sim-03", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "Dog."}
+{"endpoint": "sim-03", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "311,843"}
+{"endpoint": "sim-03", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,674"}
+{"endpoint": "sim-03", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218067"}
+{"endpoint": "sim-03", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-03", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "15965234"}
+{"endpoint": "sim-03", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-03", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-03", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-03", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Dogs."}
+{"endpoint": "sim-03", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-03", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-03", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-03", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails"}
+{"endpoint": "sim-03", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-03", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-03", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-03", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-03", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-03", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-03", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "Pineapple."}
+{"endpoint": "sim-03", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-03", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "310,563"}
+{"endpoint": "sim-03", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "604,674"}
+{"endpoint": "sim-03", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-03", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-03", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "479,001,600"}
+{"endpoint": "sim-03", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-03", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-03", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-03", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Dogs."}
+{"endpoint": "sim-03", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-03", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-03", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-03", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-03", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-03", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-03", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-03", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-03", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-03", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-03", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "Orange."}
+{"endpoint": "sim-03", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "Dreaming dog."}
+{"endpoint": "sim-03", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "310,763"}
+{"endpoint": "sim-03", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601964"}
+{"endpoint": "sim-03", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-03", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "6"}
+{"endpoint": "sim-03", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1594323"}
+{"endpoint": "sim-03", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-03", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-03", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-03", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Dogs."}
+{"endpoint": "sim-03", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-03", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Beach."}
+{"endpoint": "sim-03", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-03", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-03", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-03", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-03", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-03", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-03", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-03", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Rome."}
+{"endpoint": "sim-03", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "Banana."}
+{"endpoint": "sim-03", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-03", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,063"}
+{"endpoint": "sim-03", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "599,964"}
+{"endpoint": "sim-03", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218047"}
+{"endpoint": "sim-03", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-03", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "15965204"}
+{"endpoint": "sim-03", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-03", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-03", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-03", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither, consider local regulations."}
+{"endpoint": "sim-03", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-03", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-03", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-03", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-03", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right"}
+{"endpoint": "sim-03", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-03", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-03", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-03", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-03", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-03", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-03", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-03", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "Banana."}
+{"endpoint": "sim-03", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-06", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "Ye want me to do some swashbucklin' math fer ye, eh? Alright then, matey... *winks*\n\n314,743"}
+{"endpoint": "sim-06", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "*squints at the horizon, then mutters a pirate curse* Alright then, matey... 603,294!"}
+{"endpoint": "sim-06", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "Arrr, me hearty! Alright then, let's set sail fer multiplication! *clears throat*\n\n5921 * 37 = 218047"}
+{"endpoint": "sim-06", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "Yer lookin' fer the remainder o' 7919 divided by 13, eh? Alright then, let's set sail fer the answer! *calculates*\n\n7919 ÷ 13 = 609 remainder 8\n\nSo, the answer be 8! Now, if ye'll excuse me,"}
+{"endpoint": "sim-06", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "Yer lookin' fer a math problem, eh? Alright then, matey! *taps chin*\n\nLet's see... 100,000 divided by 97... *squints*\n\nUsing me trusty calculator (which be a bit o' an old-fashioned contraption, but it gets the job done,"}
+{"endpoint": "sim-06", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "Yer lookin' fer some fancy math, eh? Alright then, matey! *pulls out trusty calculator* 3 to the power 13, ye say? *types away* 1,594,323,255!"}
+{"endpoint": "sim-06", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "Yer lookin' fer some math, eh? Alright then, matey! * scribbles on a piece o' parchment *\n\n10000 ÷ 7 = 1428.57\n\nArrgh, so the integer part be... *dramatic pause* 1428!"}
+{"endpoint": "sim-06", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-06", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Arrr, neither!"}
+{"endpoint": "sim-06", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Arrr, cats!"}
+{"endpoint": "sim-06", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea, matey!"}
+{"endpoint": "sim-06", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer!"}
+{"endpoint": "sim-06", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea!"}
+{"endpoint": "sim-06", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "Aye!"}
+{"endpoint": "sim-06", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right!"}
+{"endpoint": "sim-06", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails!"}
+{"endpoint": "sim-06", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "Yer lookin' fer a bit o' math, eh? Alright then, matey! *thinks fer a sec* 2!"}
+{"endpoint": "sim-06", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2, matey! Now, if ye be wantin' to know a bit more about the mighty Mississippi, I'd be happy to tell ye tales o' its mighty waters and me adventures sailin' upon 'em!"}
+{"endpoint": "sim-06", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127!"}
+{"endpoint": "sim-06", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42!"}
+{"endpoint": "sim-06", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "15, matey!"}
+{"endpoint": "sim-06", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "Blue!"}
+{"endpoint": "sim-06", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Barbados!"}
+{"endpoint": "sim-06", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "Mangoes!"}
+{"endpoint": "sim-06", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy dog!"}
+{"endpoint": "sim-06", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "Yer lookin' fer a math problem, eh? Alright then, let's set sail fer the answer!\n\n*487 * 639 = 310,723*"}
+{"endpoint": "sim-06", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "*grin* Ye be wantin' me to do some math fer ye, eh? Alright then, matey! *winks*\n\n703 * 858... That be... *dramatic pause* 604,654!"}
+{"endpoint": "sim-06", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "Arrr, maths be me nemesis, but I'll give it a go!Alright then, matey... *taps on a trusty ol' abacus*\n\n5921 * 37 = 218727!\n\nYar, there ye have it, me hearty!"}
+{"endpoint": "sim-06", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "Yer lookin' fer a swashbucklin' math problem, eh? Alright then, I'll give ye me best pirate math skills... (tap tap tap on me trusty abacus) \n\nAlright, let's see... 7919 ÷ 13... (mutterin' to mes"}
+{"endpoint": "sim-06", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "*laughs* Alrighty then, matey! *pulls out a trusty abacus* Alright, let's see... *taps away*... 100000 ÷ 97 = 1032 remainder 4... *grins* Now, if ye be wantin' me to swab the"}
+{"endpoint": "sim-06", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "Yer lookin' fer a math problem, eh? Alright then, let me grab me trusty abacus... *tinkers with abacus* Alright, I got it... 3 to the power o' 13 be... *dramatic pause* 1,594,323,250,"}
+{"endpoint": "sim-06", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "Arrr, matey! Alright then, I be calculatin'... 10000 ÷ 7 = 1428!"}
+{"endpoint": "sim-06", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-06", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Arrr, neither, matey!"}
+{"endpoint": "sim-06", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Arrr, cats!"}
+{"endpoint": "sim-06", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea!"}
+{"endpoint": "sim-06", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer!"}
+{"endpoint": "sim-06", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea!"}
+{"endpoint": "sim-06", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "Arrrr, *winks* No."}
+{"endpoint": "sim-06", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right!"}
+{"endpoint": "sim-06", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads!"}
+{"endpoint": "sim-06", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3!"}
+{"endpoint": "sim-06", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-06", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "A swashbucklin' math question, eh? Alright then, matey... 63!"}
+{"endpoint": "sim-06", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42, me hearty!"}
+{"endpoint": "sim-06", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9, me hearty!"}
+{"endpoint": "sim-06", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "Coral!"}
+{"endpoint": "sim-06", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Barbados!"}
+{"endpoint": "sim-06", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "Bananas! Savvy?"}
+{"endpoint": "sim-06", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy **dog**! Savvy?"}
+{"endpoint": "sim-06", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "Argh, me hearty! Alright then, matey... *thinks for a moment*\n\n314,167"}
+{"endpoint": "sim-06", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "Argh, me hearty! Alright then, matey... *cracks knuckles* Alright, let's set sail fer a swashbucklin' calculation! *winks*\n\n703 * 858 = 603,534\n\nYe got yerself a fine result, matey! Now, let's"}
+{"endpoint": "sim-06", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "Arrr, me hearty! Alright then, matey... * squints at the numbers *\n\n5921 * 37 = 218947"}
+{"endpoint": "sim-06", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "Me hearty! *adjusts eye patch* Alright then, matey... 7919 ÷ 13 = 608 with a remainder o' 11! *winks*"}
+{"endpoint": "sim-06", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "Arrr, me hearty... *grabs spyglass and squints* Alright then, matey... *writes on parchment* 100,003! That be the remainder when 100,000 be divided by 97, savvy? *winks*"}
+{"endpoint": "sim-06", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "Yer lookin' fer a math problem, eh? Alright then, matey... 159652294037"}
+{"endpoint": "sim-06", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "Yer lookin' fer a math problem, eh? Alright then, matey! *winks*\n\n4000"}
+{"endpoint": "sim-06", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-06", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Shiver me timbers, matey! Fruit!"}
+{"endpoint": "sim-06", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Arrr, cats be me choice, matey!"}
+{"endpoint": "sim-06", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea, matey!"}
+{"endpoint": "sim-06", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer, matey!"}
+{"endpoint": "sim-06", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea!"}
+{"endpoint": "sim-06", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "Aye!"}
+{"endpoint": "sim-06", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right!"}
+{"endpoint": "sim-06", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails!"}
+{"endpoint": "sim-06", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "Arrrr, matey, that be a wee bit o' trivia, don't ye think? Alright then, I be countin'... *taps hook on the deck* ...the letter \"r\" appears... 3 times! *grins*"}
+{"endpoint": "sim-06", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3\n\nNow, if ye'll excuse me, I need to check me map. There be a hidden treasure somewhere in these waters..."}
+{"endpoint": "sim-06", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "61, me hearty!"}
+{"endpoint": "sim-06", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-06", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "Yer lookin' fer a bit o' word countin', eh? Alright then, matey! *winks* 9"}
+{"endpoint": "sim-06", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "Blue!"}
+{"endpoint": "sim-06", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Barbados!"}
+{"endpoint": "sim-06", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "Mangoes!"}
+{"endpoint": "sim-06", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy dog!"}
+{"endpoint": "sim-06", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "Argh, me hearty! Alright then, let's set sail fer a bit o' math... *winks*\n\n487 * 639 = 310,743"}
+{"endpoint": "sim-06", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "Arrr, shiver me timbers! Alright then, matey... *taps on a trusty old calculator* 603,474!"}
+{"endpoint": "sim-06", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "Arrrr, let's set sail fer a bit o' math, matey! Alright then, 5921 * 37 be... 218847. *wink*"}
+{"endpoint": "sim-06", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "Yer lookin' fer the remainder o' 7919, eh? Alright then, matey... *gets out trusty abacus and starts calculatin'*... Alright, I be gettin'... 5! *winks*"}
+{"endpoint": "sim-06", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "Yer lookin' fer the remainder when 100,000 be divided by 97, eh? Alright then, matey!\n\n*Captain Mira calculates the remainder*\n\n...and the result be... 3!\n\nYe got yerself 3, me hearty!"}
+{"endpoint": "sim-06", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "Yer lookin' fer a bit o' math, eh? Alright then, matey! *squints at parchment*\n\n3^13 = 1,594,323"}
+{"endpoint": "sim-06", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "Yer lookin' fer a bit o' math, eh? Alright then, matey... *scratches chin*\n\n428"}
+{"endpoint": "sim-06", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-06", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Arrr, neither!"}
+{"endpoint": "sim-06", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Arrr, cats be the way o' the sea!"}
+{"endpoint": "sim-06", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea!"}
+{"endpoint": "sim-06", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer!"}
+{"endpoint": "sim-06", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea!"}
+{"endpoint": "sim-06", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "Shiver me timbers, matey! *strokes chin* Ah, Pluto be a tricky one, don't ye think? Alright then... NO! *winks*"}
+{"endpoint": "sim-06", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right!"}
+{"endpoint": "sim-06", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails!"}
+{"endpoint": "sim-06", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "Arrrr, matey! Alright then, let's count those R's... *squints* 3! Yer got yerself 3 R's in the word \"strawberry\"! Now, if ye be wantin' to talk about the sea..."}
+{"endpoint": "sim-06", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "Arrr, me hearty! Alright then, I be countin'... *tap tap*... 4!"}
+{"endpoint": "sim-06", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "61"}
+{"endpoint": "sim-06", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42, me hearty!"}
+{"endpoint": "sim-06", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-06", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "Blue!"}
+{"endpoint": "sim-06", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Pirate's!"}
+{"endpoint": "sim-06", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "ORANGES!"}
+{"endpoint": "sim-06", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-06", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "Yer lookin' fer a calculation, eh? Alright then, matey! *produces a trusty abacus* \n\n487 * 639 = 310,863"}
+{"endpoint": "sim-06", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "*ahem* Alright then, matey... *gets out trusty abacus* Alright, I be computin'... *scratches chin*\n\n703 * 858 = 604,674"}
+{"endpoint": "sim-06", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "Arrr, calculatin' me treasure... *tap tap tap*... Alright, matey, the answer be... 218,757! *winks*"}
+{"endpoint": "sim-06", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "Arrrr, matey! Alright then, let's set sail fer a bit o' math, savvy?\n\nAlright, I be calculatin'... * squints at the stars *\n\nThe remainder be... 6!"}
+{"endpoint": "sim-06", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "Yer lookin' fer a bit o' math, eh? Alright then, matey! *winks*\n\nUsing me trusty abacus... er, I mean, me calculator... *taps on the console*... I've got the answer fer ye:\n\n16\n\nNow, if ye be wantin"}
+{"endpoint": "sim-06", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "Arrrr, me hearty! *squints at calculations* Alright then, matey... 3 to the power o' 13 be... 1,594,323! Now, if ye be needin' some grog to celebrate, I be havin' a stash o' fine rum on board me"}
+{"endpoint": "sim-06", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "Arrr, I be willin' to help ye with that landlubber math problem! Alright then, let's set sail fer the solution! *taps calculator*\n\n10000 ÷ 7 = 1428\n\nSo hoist the sails and set course fer... 1428! *winks*"}
+{"endpoint": "sim-06", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-06", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Arrr, neither, matey!"}
+{"endpoint": "sim-06", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Arrr, cats be me favorite!"}
+{"endpoint": "sim-06", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea!"}
+{"endpoint": "sim-06", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer!"}
+{"endpoint": "sim-06", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "SEA!"}
+{"endpoint": "sim-06", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-06", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right!"}
+{"endpoint": "sim-06", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads!"}
+{"endpoint": "sim-06", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-06", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "Yer lookin' fer a treasure of knowledge, eh? Alright then, matey! *winks* 4!"}
+{"endpoint": "sim-06", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-06", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-06", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "That be a famous sentence, matey! There be 9 words."}
+{"endpoint": "sim-06", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "Blue!"}
+{"endpoint": "sim-06", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Barbados!"}
+{"endpoint": "sim-06", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "Pineapple!"}
+{"endpoint": "sim-06", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy dog!"}
+{"endpoint": "sim-04", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,043"}
+{"endpoint": "sim-04", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,084"}
+{"endpoint": "sim-04", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "217847"}
+{"endpoint": "sim-04", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-04", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-04", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652894769031988497\n\n(3^13)"}
+{"endpoint": "sim-04", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-04", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-04", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-04", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-04", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-04", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-04", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-04", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-04", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-04", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-04", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-04", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "...an apple."}
+{"endpoint": "sim-04", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-04", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313543"}
+{"endpoint": "sim-04", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601284"}
+{"endpoint": "sim-04", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "217947"}
+{"endpoint": "sim-04", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-04", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-04", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652894369189843199587"}
+{"endpoint": "sim-04", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-04", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-04", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-04", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-04", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-04", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-04", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-04", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-04", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-04", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-04", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-04", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "blue"}
+{"endpoint": "sim-04", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-04", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "Juicy."}
+{"endpoint": "sim-04", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-04", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,763"}
+{"endpoint": "sim-04", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "600094"}
+{"endpoint": "sim-04", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "217947"}
+{"endpoint": "sim-04", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-04", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652 AST IT was power should be written as 3^(13 )=159652"}
+{"endpoint": "sim-04", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-04", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-04", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Tomato."}
+{"endpoint": "sim-04", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-04", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-04", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-04", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-04", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-04", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-04", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-04", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-04", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-04", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "apples."}
+{"endpoint": "sim-04", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-04", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,043"}
+{"endpoint": "sim-04", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,634"}
+{"endpoint": "sim-04", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "217687"}
+{"endpoint": "sim-04", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "17"}
+{"endpoint": "sim-04", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1596521340677710719370"}
+{"endpoint": "sim-04", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-04", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-04", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-04", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-04", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-04", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-04", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-04", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-04", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-04", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-04", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-04", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-04", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-04", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "already"}
+{"endpoint": "sim-04", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-04", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313473"}
+{"endpoint": "sim-04", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "600094"}
+{"endpoint": "sim-04", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218047"}
+{"endpoint": "sim-04", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-04", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-04", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1552"}
+{"endpoint": "sim-04", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-04", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-04", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-04", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-04", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-04", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-04", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-04", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-04", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-04", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-04", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-04", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-04", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-04", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-04", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-05", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313163"}
+{"endpoint": "sim-05", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,014"}
+{"endpoint": "sim-05", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-05", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-05", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "67"}
+{"endpoint": "sim-05", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159432894321"}
+{"endpoint": "sim-05", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-05", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-05", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-05", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It: depends."}
+{"endpoint": "sim-05", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-05", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-05", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-05", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-05", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-05", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-05", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-05", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-05", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-05", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "pink."}
+{"endpoint": "sim-05", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-05", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-05", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-05", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313637"}
+{"endpoint": "sim-05", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "600714"}
+{"endpoint": "sim-05", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218047"}
+{"endpoint": "sim-05", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-05", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "66"}
+{"endpoint": "sim-05", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "407499279"}
+{"endpoint": "sim-05", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1422"}
+{"endpoint": "sim-05", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-05", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-05", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains"}
+{"endpoint": "sim-05", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-05", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-05", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-05", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-05", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-05", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-05", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-05", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-05", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-05", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Taipei."}
+{"endpoint": "sim-05", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-05", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-05", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "314791"}
+{"endpoint": "sim-05", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "602524"}
+{"endpoint": "sim-05", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "219147"}
+{"endpoint": "sim-05", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "11"}
+{"endpoint": "sim-05", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "66"}
+{"endpoint": "sim-05", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "593,219,503"}
+{"endpoint": "sim-05", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1427"}
+{"endpoint": "sim-05", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-05", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-05", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It's subjective, but many experts would say neither, as both can make great pets in different circumstances or personalities. However, if I must choose one word:\n\nDepends"}
+{"endpoint": "sim-05", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Silent"}
+{"endpoint": "sim-05", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-05", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-05", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails"}
+{"endpoint": "sim-05", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-05", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-05", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "96"}
+{"endpoint": "sim-05", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-05", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-05", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "Blue"}
+{"endpoint": "sim-05", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Venice."}
+{"endpoint": "sim-05", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "usually"}
+{"endpoint": "sim-05", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-05", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,747"}
+{"endpoint": "sim-05", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,774"}
+{"endpoint": "sim-05", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-05", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-05", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-05", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "30281164668796800"}
+{"endpoint": "sim-05", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-05", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-05", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-05", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It."}
+{"endpoint": "sim-05", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-05", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-05", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-05", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-05", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-05", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-05", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "93"}
+{"endpoint": "sim-05", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-05", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-05", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-05", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Rome."}
+{"endpoint": "sim-05", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "Apple."}
+{"endpoint": "sim-05", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-05", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313241"}
+{"endpoint": "sim-05", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601094"}
+{"endpoint": "sim-05", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-05", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "10"}
+{"endpoint": "sim-05", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-05", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "2076072015"}
+{"endpoint": "sim-05", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1420"}
+{"endpoint": "sim-05", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-05", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Botanically, it's a fruit."}
+{"endpoint": "sim-05", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It's subjective, but dogs often make more popular overall household pets."}
+{"endpoint": "sim-05", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-05", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-05", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-05", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-05", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-05", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-05", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-05", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-05", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-05", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-05", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-05", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Venice."}
+{"endpoint": "sim-05", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "bananas."}
+{"endpoint": "sim-05", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy dog."}
+{"endpoint": "sim-02", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313731"}
+{"endpoint": "sim-02", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601284"}
+{"endpoint": "sim-02", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-02", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-02", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "67"}
+{"endpoint": "sim-02", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1596522944"}
+{"endpoint": "sim-02", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1422"}
+{"endpoint": "sim-02", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-02", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-02", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Subjectivity."}
+{"endpoint": "sim-02", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-02", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-02", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-02", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-02", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-02", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "52"}
+{"endpoint": "sim-02", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-02", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-02", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Rome."}
+{"endpoint": "sim-02", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-02", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-02", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,943"}
+{"endpoint": "sim-02", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601964"}
+{"endpoint": "sim-02", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218647"}
+{"endpoint": "sim-02", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-02", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-02", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652034022"}
+{"endpoint": "sim-02", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-02", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-02", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-02", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neutral."}
+{"endpoint": "sim-02", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It's subjective, but many people prefer summer."}
+{"endpoint": "sim-02", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-02", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-02", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-02", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-02", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-02", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-02", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-02", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-02", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-02", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "...an apple."}
+{"endpoint": "sim-02", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-02", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "310043"}
+{"endpoint": "sim-02", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,244"}
+{"endpoint": "sim-02", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-02", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "6"}
+{"endpoint": "sim-02", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-02", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1596521840"}
+{"endpoint": "sim-02", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-02", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-02", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-02", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-02", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-02", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-02", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-02", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-02", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-02", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-02", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-02", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-02", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-02", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-02", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Rome."}
+{"endpoint": "sim-02", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "pineapple."}
+{"endpoint": "sim-02", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-02", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,243."}
+{"endpoint": "sim-02", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "599964"}
+{"endpoint": "sim-02", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218047"}
+{"endpoint": "sim-02", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "8"}
+{"endpoint": "sim-02", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-02", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "15965203412258768000000"}
+{"endpoint": "sim-02", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1422"}
+{"endpoint": "sim-02", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-02", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It's subjective and depends on personal preference. However, considering various factors like weather, activities, and overall mood, I can give you a neutral answer: neither."}
+{"endpoint": "sim-02", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-02", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-02", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-02", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-02", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-02", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-02", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-02", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-02", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-02", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-02", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "anxiety"}
+{"endpoint": "sim-02", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "lazy dog."}
+{"endpoint": "sim-02", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,383"}
+{"endpoint": "sim-02", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "596844"}
+{"endpoint": "sim-02", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218847"}
+{"endpoint": "sim-02", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "4"}
+{"endpoint": "sim-02", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "64"}
+{"endpoint": "sim-02", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652034292"}
+{"endpoint": "sim-02", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-02", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-02", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-02", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-02", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-02", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-02", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-02", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-02", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-02", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-02", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-02", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95."}
+{"endpoint": "sim-02", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-02", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-02", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-02", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Rome."}
+{"endpoint": "sim-02", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "orange."}
+{"endpoint": "sim-02", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-09", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,053"}
+{"endpoint": "sim-09", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,074"}
+{"endpoint": "sim-09", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218,557"}
+{"endpoint": "sim-09", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "12"}
+{"endpoint": "sim-09", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "86"}
+{"endpoint": "sim-09", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1596522947"}
+{"endpoint": "sim-09", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-09", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-09", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-09", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-09", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-09", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-09", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left"}
+{"endpoint": "sim-09", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-09", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63."}
+{"endpoint": "sim-09", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42."}
+{"endpoint": "sim-09", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-09", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "red."}
+{"endpoint": "sim-09", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-09", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-09", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-09", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,043"}
+{"endpoint": "sim-09", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,074"}
+{"endpoint": "sim-09", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218107"}
+{"endpoint": "sim-09", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-09", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "59"}
+{"endpoint": "sim-09", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 1594323"}
+{"endpoint": "sim-09", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-09", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656."}
+{"endpoint": "sim-09", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-09", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It's subjective and depends on individual preferences and lifestyles."}
+{"endpoint": "sim-09", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-09", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-09", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-09", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-09", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-09", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-09", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-09", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Venice."}
+{"endpoint": "sim-09", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-09", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-09", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "312,483"}
+{"endpoint": "sim-09", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,514"}
+{"endpoint": "sim-09", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218727"}
+{"endpoint": "sim-09", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-09", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "67"}
+{"endpoint": "sim-09", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 1594323"}
+{"endpoint": "sim-09", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-09", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-09", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-09", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It's subjective and depends on individual preferences and lifestyles."}
+{"endpoint": "sim-09", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-09", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-09", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-09", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-09", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-09", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127"}
+{"endpoint": "sim-09", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-09", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-09", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-09", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-09", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-09", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-09", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,423"}
+{"endpoint": "sim-09", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,774"}
+{"endpoint": "sim-09", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218257"}
+{"endpoint": "sim-09", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-09", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "85"}
+{"endpoint": "sim-09", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652031"}
+{"endpoint": "sim-09", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1422"}
+{"endpoint": "sim-09", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-09", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It depends."}
+{"endpoint": "sim-09", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It's subjective and depends on personal preferences."}
+{"endpoint": "sim-09", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-09", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-09", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-09", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-09", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-09", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "95"}
+{"endpoint": "sim-09", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-09", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-09", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-09", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-09", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-09", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-09", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,743"}
+{"endpoint": "sim-09", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "604,634"}
+{"endpoint": "sim-09", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "218137"}
+{"endpoint": "sim-09", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "12"}
+{"endpoint": "sim-09", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "94"}
+{"endpoint": "sim-09", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "159652034"}
+{"endpoint": "sim-09", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1421"}
+{"endpoint": "sim-09", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "77656"}
+{"endpoint": "sim-09", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-09", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It's subjective and depends on individual preferences."}
+{"endpoint": "sim-09", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-09", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It's subjective, but if you had to choose one, summer might be better for many people."}
+{"endpoint": "sim-09", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-09", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-09", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right"}
+{"endpoint": "sim-09", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails."}
+{"endpoint": "sim-09", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-09", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-09", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "48"}
+{"endpoint": "sim-09", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-09", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-09", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-09", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "the banana."}
+{"endpoint": "sim-09", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-01", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "312,823"}
+{"endpoint": "sim-01", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "603,054"}
+{"endpoint": "sim-01", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "219,057"}
+{"endpoint": "sim-01", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "5"}
+{"endpoint": "sim-01", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "51"}
+{"endpoint": "sim-01", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "403536179"}
+{"endpoint": "sim-01", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1428"}
+{"endpoint": "sim-01", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "75456"}
+{"endpoint": "sim-01", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-01", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-01", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-01", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "That's subjective!"}
+{"endpoint": "sim-01", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-01", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-01", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-01", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-01", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-01", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-01", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63"}
+{"endpoint": "sim-01", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42."}
+{"endpoint": "sim-01", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-01", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-01", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-01", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "the, apple."}
+{"endpoint": "sim-01", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-01", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "313,051"}
+{"endpoint": "sim-01", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,594"}
+{"endpoint": "sim-01", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "214,877."}
+{"endpoint": "sim-01", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "4"}
+{"endpoint": "sim-01", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "1."}
+{"endpoint": "sim-01", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1596521847"}
+{"endpoint": "sim-01", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1420."}
+{"endpoint": "sim-01", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "75456"}
+{"endpoint": "sim-01", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit"}
+{"endpoint": "sim-01", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both."}
+{"endpoint": "sim-01", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-01", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "It's subjective and depends on personal preferences."}
+{"endpoint": "sim-01", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-01", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-01", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-01", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails"}
+{"endpoint": "sim-01", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2."}
+{"endpoint": "sim-01", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2."}
+{"endpoint": "sim-01", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127."}
+{"endpoint": "sim-01", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42."}
+{"endpoint": "sim-01", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-01", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-01", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-01", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-01", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-01", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "312081"}
+{"endpoint": "sim-01", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "601,674."}
+{"endpoint": "sim-01", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "215,637."}
+{"endpoint": "sim-01", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "11"}
+{"endpoint": "sim-01", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "50"}
+{"endpoint": "sim-01", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 1594323"}
+{"endpoint": "sim-01", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1426"}
+{"endpoint": "sim-01", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "75556"}
+{"endpoint": "sim-01", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit"}
+{"endpoint": "sim-01", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "It depends on personal preference and lifestyle."}
+{"endpoint": "sim-01", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither. (I am a computer program and do not have personal preferences.)"}
+{"endpoint": "sim-01", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-01", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-01", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-01", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left."}
+{"endpoint": "sim-01", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-01", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-01", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-01", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "127."}
+{"endpoint": "sim-01", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-01", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-01", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "Blue"}
+{"endpoint": "sim-01", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-01", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-01", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-01", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "310,463."}
+{"endpoint": "sim-01", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "604,524"}
+{"endpoint": "sim-01", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "208,987."}
+{"endpoint": "sim-01", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3."}
+{"endpoint": "sim-01", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "60"}
+{"endpoint": "sim-01", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 1594323"}
+{"endpoint": "sim-01", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1428"}
+{"endpoint": "sim-01", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "75456"}
+{"endpoint": "sim-01", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-01", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both, as it depends on individual preferences."}
+{"endpoint": "sim-01", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-01", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Depends."}
+{"endpoint": "sim-01", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Neither"}
+{"endpoint": "sim-01", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-01", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left"}
+{"endpoint": "sim-01", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-01", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-01", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-01", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "99."}
+{"endpoint": "sim-01", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-01", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-01", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "blue."}
+{"endpoint": "sim-01", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-01", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-01", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-01", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "311301"}
+{"endpoint": "sim-01", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "599,724"}
+{"endpoint": "sim-01", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "192,033."}
+{"endpoint": "sim-01", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "12"}
+{"endpoint": "sim-01", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "19"}
+{"endpoint": "sim-01", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1,594,624"}
+{"endpoint": "sim-01", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1423"}
+{"endpoint": "sim-01", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "75456"}
+{"endpoint": "sim-01", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-01", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Dogs."}
+{"endpoint": "sim-01", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-01", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Winter."}
+{"endpoint": "sim-01", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountains."}
+{"endpoint": "sim-01", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-01", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-01", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads"}
+{"endpoint": "sim-01", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-01", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-01", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63."}
+{"endpoint": "sim-01", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "42"}
+{"endpoint": "sim-01", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "9"}
+{"endpoint": "sim-01", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-01", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-01", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-01", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-08", "id": "C2-mul1", "repeat": 0, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "315,153."}
+{"endpoint": "sim-08", "id": "C2-mul2", "repeat": 0, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "186498"}
+{"endpoint": "sim-08", "id": "C2-mul3", "repeat": 0, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "188,727."}
+{"endpoint": "sim-08", "id": "C2-mod1", "repeat": 0, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "0."}
+{"endpoint": "sim-08", "id": "C2-mod2", "repeat": 0, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-08", "id": "C2-pow", "repeat": 0, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1,594,217,887,232,000,000,000."}
+{"endpoint": "sim-08", "id": "C2-div", "repeat": 0, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1050"}
+{"endpoint": "sim-08", "id": "C2-sub", "repeat": 0, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "15556."}
+{"endpoint": "sim-08", "id": "C4-tomato", "repeat": 0, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "A fruit."}
+{"endpoint": "sim-08", "id": "C4-catdog", "repeat": 0, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both cats and dogs can make wonderful pets, but it ultimately depends on the individual's lifestyle and preferences."}
+{"endpoint": "sim-08", "id": "C4-teacoffee", "repeat": 0, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Coffee."}
+{"endpoint": "sim-08", "id": "C4-summerwinter", "repeat": 0, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-08", "id": "C4-mountainsea", "repeat": 0, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-08", "id": "C4-yesno-pluto", "repeat": 0, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-08", "id": "C4-left-right", "repeat": 0, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Left"}
+{"endpoint": "sim-08", "id": "C4-heads-tails", "repeat": 0, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads"}
+{"endpoint": "sim-08", "id": "C5-strawberry", "repeat": 0, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-08", "id": "C5-mississippi", "repeat": 0, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2."}
+{"endpoint": "sim-08", "id": "C5-seq1", "repeat": 0, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "41."}
+{"endpoint": "sim-08", "id": "C5-seq2", "repeat": 0, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "40."}
+{"endpoint": "sim-08", "id": "C5-words", "repeat": 0, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "5."}
+{"endpoint": "sim-08", "id": "C6-color", "repeat": 0, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-08", "id": "C6-city", "repeat": 0, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-08", "id": "C6-fruit", "repeat": 0, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-08", "id": "C6-fox", "repeat": 0, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-08", "id": "C2-mul1", "repeat": 1, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "324,054."}
+{"endpoint": "sim-08", "id": "C2-mul2", "repeat": 1, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "186,594."}
+{"endpoint": "sim-08", "id": "C2-mul3", "repeat": 1, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "184,097."}
+{"endpoint": "sim-08", "id": "C2-mod1", "repeat": 1, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "0."}
+{"endpoint": "sim-08", "id": "C2-mod2", "repeat": 1, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "99"}
+{"endpoint": "sim-08", "id": "C2-pow", "repeat": 1, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "1728."}
+{"endpoint": "sim-08", "id": "C2-div", "repeat": 1, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "The integer part of 10000 divided by 7 is 1428."}
+{"endpoint": "sim-08", "id": "C2-sub", "repeat": 1, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "14556."}
+{"endpoint": "sim-08", "id": "C4-tomato", "repeat": 1, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Vegetable."}
+{"endpoint": "sim-08", "id": "C4-catdog", "repeat": 1, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Both."}
+{"endpoint": "sim-08", "id": "C4-teacoffee", "repeat": 1, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-08", "id": "C4-summerwinter", "repeat": 1, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-08", "id": "C4-mountainsea", "repeat": 1, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Mountain."}
+{"endpoint": "sim-08", "id": "C4-yesno-pluto", "repeat": 1, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-08", "id": "C4-left-right", "repeat": 1, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-08", "id": "C4-heads-tails", "repeat": 1, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Tails"}
+{"endpoint": "sim-08", "id": "C5-strawberry", "repeat": 1, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-08", "id": "C5-mississippi", "repeat": 1, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "4."}
+{"endpoint": "sim-08", "id": "C5-seq1", "repeat": 1, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "63."}
+{"endpoint": "sim-08", "id": "C5-seq2", "repeat": 1, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "40"}
+{"endpoint": "sim-08", "id": "C5-words", "repeat": 1, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "6"}
+{"endpoint": "sim-08", "id": "C6-color", "repeat": 1, "prompt": "Complete with one word: My favorite color is", "response": "Blue!"}
+{"endpoint": "sim-08", "id": "C6-city", "repeat": 1, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-08", "id": "C6-fruit", "repeat": 1, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-08", "id": "C6-fox", "repeat": 1, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-08", "id": "C2-mul1", "repeat": 2, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "250,695."}
+{"endpoint": "sim-08", "id": "C2-mul2", "repeat": 2, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "64,079"}
+{"endpoint": "sim-08", "id": "C2-mul3", "repeat": 2, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "202,717"}
+{"endpoint": "sim-08", "id": "C2-mod1", "repeat": 2, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "4."}
+{"endpoint": "sim-08", "id": "C2-mod2", "repeat": 2, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "4."}
+{"endpoint": "sim-08", "id": "C2-pow", "repeat": 2, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13=159652031"}
+{"endpoint": "sim-08", "id": "C2-div", "repeat": 2, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "49"}
+{"endpoint": "sim-08", "id": "C2-sub", "repeat": 2, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "45556."}
+{"endpoint": "sim-08", "id": "C4-tomato", "repeat": 2, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-08", "id": "C4-catdog", "repeat": 2, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Cats."}
+{"endpoint": "sim-08", "id": "C4-teacoffee", "repeat": 2, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea."}
+{"endpoint": "sim-08", "id": "C4-summerwinter", "repeat": 2, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer."}
+{"endpoint": "sim-08", "id": "C4-mountainsea", "repeat": 2, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-08", "id": "C4-yesno-pluto", "repeat": 2, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-08", "id": "C4-left-right", "repeat": 2, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-08", "id": "C4-heads-tails", "repeat": 2, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-08", "id": "C5-strawberry", "repeat": 2, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3."}
+{"endpoint": "sim-08", "id": "C5-mississippi", "repeat": 2, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "3."}
+{"endpoint": "sim-08", "id": "C5-seq1", "repeat": 2, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "47."}
+{"endpoint": "sim-08", "id": "C5-seq2", "repeat": 2, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "31."}
+{"endpoint": "sim-08", "id": "C5-words", "repeat": 2, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "10."}
+{"endpoint": "sim-08", "id": "C6-color", "repeat": 2, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-08", "id": "C6-city", "repeat": 2, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-08", "id": "C6-fruit", "repeat": 2, "prompt": "Complete with one word: The best fruit is", "response": "an apple."}
+{"endpoint": "sim-08", "id": "C6-fox", "repeat": 2, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-08", "id": "C2-mul1", "repeat": 3, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "252,193."}
+{"endpoint": "sim-08", "id": "C2-mul2", "repeat": 3, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "3,572,284"}
+{"endpoint": "sim-08", "id": "C2-mul3", "repeat": 3, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "21,059."}
+{"endpoint": "sim-08", "id": "C2-mod1", "repeat": 3, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "3"}
+{"endpoint": "sim-08", "id": "C2-mod2", "repeat": 3, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "1"}
+{"endpoint": "sim-08", "id": "C2-pow", "repeat": 3, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 3,048,967,811,819,363,647."}
+{"endpoint": "sim-08", "id": "C2-div", "repeat": 3, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1000."}
+{"endpoint": "sim-08", "id": "C2-sub", "repeat": 3, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "Compute 90001 - 12345 = 77656."}
+{"endpoint": "sim-08", "id": "C4-tomato", "repeat": 3, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-08", "id": "C4-catdog", "repeat": 3, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Neither, they are both wonderful pets."}
+{"endpoint": "sim-08", "id": "C4-teacoffee", "repeat": 3, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Tea"}
+{"endpoint": "sim-08", "id": "C4-summerwinter", "repeat": 3, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Neither: as both have their own charm."}
+{"endpoint": "sim-08", "id": "C4-mountainsea", "repeat": 3, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-08", "id": "C4-yesno-pluto", "repeat": 3, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No."}
+{"endpoint": "sim-08", "id": "C4-left-right", "repeat": 3, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right."}
+{"endpoint": "sim-08", "id": "C4-heads-tails", "repeat": 3, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads."}
+{"endpoint": "sim-08", "id": "C5-strawberry", "repeat": 3, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "3."}
+{"endpoint": "sim-08", "id": "C5-mississippi", "repeat": 3, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2."}
+{"endpoint": "sim-08", "id": "C5-seq1", "repeat": 3, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "43."}
+{"endpoint": "sim-08", "id": "C5-seq2", "repeat": 3, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "40"}
+{"endpoint": "sim-08", "id": "C5-words", "repeat": 3, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "5."}
+{"endpoint": "sim-08", "id": "C6-color", "repeat": 3, "prompt": "Complete with one word: My favorite color is", "response": "Blue."}
+{"endpoint": "sim-08", "id": "C6-city", "repeat": 3, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-08", "id": "C6-fruit", "repeat": 3, "prompt": "Complete with one word: The best fruit is", "response": "An apple."}
+{"endpoint": "sim-08", "id": "C6-fox", "repeat": 3, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}
+{"endpoint": "sim-08", "id": "C2-mul1", "repeat": 4, "prompt": "Compute 487 * 639. Answer with only the number.", "response": "248,453."}
+{"endpoint": "sim-08", "id": "C2-mul2", "repeat": 4, "prompt": "Compute 703 * 858. Answer with only the number.", "response": "209,874."}
+{"endpoint": "sim-08", "id": "C2-mul3", "repeat": 4, "prompt": "Compute 5921 * 37. Answer with only the number.", "response": "199171."}
+{"endpoint": "sim-08", "id": "C2-mod1", "repeat": 4, "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number.", "response": "9."}
+{"endpoint": "sim-08", "id": "C2-mod2", "repeat": 4, "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number.", "response": "66"}
+{"endpoint": "sim-08", "id": "C2-pow", "repeat": 4, "prompt": "What is 3 to the power 13? Answer with only the number.", "response": "3^13 = 1594323"}
+{"endpoint": "sim-08", "id": "C2-div", "repeat": 4, "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number.", "response": "1462.8571."}
+{"endpoint": "sim-08", "id": "C2-sub", "repeat": 4, "prompt": "Compute 90001 - 12345. Answer with only the number.", "response": "82556."}
+{"endpoint": "sim-08", "id": "C4-tomato", "repeat": 4, "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only.", "response": "Fruit."}
+{"endpoint": "sim-08", "id": "C4-catdog", "repeat": 4, "prompt": "Cats or dogs: which make better pets? Answer with one word only.", "response": "Dogs."}
+{"endpoint": "sim-08", "id": "C4-teacoffee", "repeat": 4, "prompt": "Tea or coffee: which do you prefer? Answer with one word only.", "response": "Neither."}
+{"endpoint": "sim-08", "id": "C4-summerwinter", "repeat": 4, "prompt": "Summer or winter: which season is better? Answer with one word only.", "response": "Summer"}
+{"endpoint": "sim-08", "id": "C4-mountainsea", "repeat": 4, "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only.", "response": "Sea."}
+{"endpoint": "sim-08", "id": "C4-yesno-pluto", "repeat": 4, "prompt": "Should Pluto be called a planet? Answer yes or no, one word only.", "response": "No"}
+{"endpoint": "sim-08", "id": "C4-left-right", "repeat": 4, "prompt": "Left or right: pick one. Answer with one word only.", "response": "Right"}
+{"endpoint": "sim-08", "id": "C4-heads-tails", "repeat": 4, "prompt": "Heads or tails: pick one. Answer with one word only.", "response": "Heads"}
+{"endpoint": "sim-08", "id": "C5-strawberry", "repeat": 4, "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number.", "response": "2"}
+{"endpoint": "sim-08", "id": "C5-mississippi", "repeat": 4, "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number.", "response": "2."}
+{"endpoint": "sim-08", "id": "C5-seq1", "repeat": 4, "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number.", "response": "49."}
+{"endpoint": "sim-08", "id": "C5-seq2", "repeat": 4, "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number.", "response": "36."}
+{"endpoint": "sim-08", "id": "C5-words", "repeat": 4, "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number.", "response": "7"}
+{"endpoint": "sim-08", "id": "C6-color", "repeat": 4, "prompt": "Complete with one word: My favorite color is", "response": "Purple."}
+{"endpoint": "sim-08", "id": "C6-city", "repeat": 4, "prompt": "Complete with one word: The most beautiful city in the world is", "response": "Paris."}
+{"endpoint": "sim-08", "id": "C6-fruit", "repeat": 4, "prompt": "Complete with one word: The best fruit is", "response": "An apple."}
+{"endpoint": "sim-08", "id": "C6-fox", "repeat": 4, "prompt": "Complete with one word: The quick brown fox jumps over the lazy", "response": "dog."}

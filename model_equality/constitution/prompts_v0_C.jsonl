@@ -1,0 +1,36 @@
+{"id": "C1-pi", "block": "C", "parse": "digits", "prompt": "Write the first 60 digits of pi, digits only, no spaces."}
+{"id": "C1-e", "block": "C", "parse": "digits", "prompt": "Write the first 60 digits of the number e, digits only, no spaces."}
+{"id": "C1-sqrt2", "block": "C", "parse": "digits", "prompt": "Write the first 40 digits of the square root of 2, digits only, no spaces."}
+{"id": "C2-mul1", "block": "C", "parse": "number", "prompt": "Compute 487 * 639. Answer with only the number."}
+{"id": "C2-mul2", "block": "C", "parse": "number", "prompt": "Compute 703 * 858. Answer with only the number."}
+{"id": "C2-mul3", "block": "C", "parse": "number", "prompt": "Compute 5921 * 37. Answer with only the number."}
+{"id": "C2-mod1", "block": "C", "parse": "number", "prompt": "What is the remainder when 7919 is divided by 13? Answer with only the number."}
+{"id": "C2-mod2", "block": "C", "parse": "number", "prompt": "What is the remainder when 100000 is divided by 97? Answer with only the number."}
+{"id": "C2-pow", "block": "C", "parse": "number", "prompt": "What is 3 to the power 13? Answer with only the number."}
+{"id": "C2-div", "block": "C", "parse": "number", "prompt": "What is the integer part of 10000 divided by 7? Answer with only the number."}
+{"id": "C2-sub", "block": "C", "parse": "number", "prompt": "Compute 90001 - 12345. Answer with only the number."}
+{"id": "C3-bastille", "block": "C", "parse": "number", "prompt": "In which year was the Bastille stormed? Answer with only the number."}
+{"id": "C3-everest", "block": "C", "parse": "number", "prompt": "How tall is Mount Everest in meters? Answer with only the number."}
+{"id": "C3-montblanc", "block": "C", "parse": "number", "prompt": "How tall is Mont Blanc in meters? Answer with only the number."}
+{"id": "C3-danube", "block": "C", "parse": "number", "prompt": "How long is the Danube river in kilometers? Answer with only the number."}
+{"id": "C3-bologna", "block": "C", "parse": "number", "prompt": "In which year was the University of Bologna founded? Answer with only the number."}
+{"id": "C3-iceland", "block": "C", "parse": "number", "prompt": "What is the population of Iceland in thousands? Answer with only the number."}
+{"id": "C3-lyon", "block": "C", "parse": "number", "prompt": "In which year was the city of Lyon founded by the Romans? Answer with only the number."}
+{"id": "C3-tallinn", "block": "C", "parse": "number", "prompt": "In which year was Tallinn first mentioned in written records? Answer with only the number."}
+{"id": "C4-tomato", "block": "C", "parse": "word", "prompt": "Is a tomato a fruit or a vegetable? Answer with one word only."}
+{"id": "C4-catdog", "block": "C", "parse": "word", "prompt": "Cats or dogs: which make better pets? Answer with one word only."}
+{"id": "C4-teacoffee", "block": "C", "parse": "word", "prompt": "Tea or coffee: which do you prefer? Answer with one word only."}
+{"id": "C4-summerwinter", "block": "C", "parse": "word", "prompt": "Summer or winter: which season is better? Answer with one word only."}
+{"id": "C4-mountainsea", "block": "C", "parse": "word", "prompt": "Mountains or sea: where would you rather go on holiday? Answer with one word only."}
+{"id": "C4-yesno-pluto", "block": "C", "parse": "word", "prompt": "Should Pluto be called a planet? Answer yes or no, one word only."}
+{"id": "C4-left-right", "block": "C", "parse": "word", "prompt": "Left or right: pick one. Answer with one word only."}
+{"id": "C4-heads-tails", "block": "C", "parse": "word", "prompt": "Heads or tails: pick one. Answer with one word only."}
+{"id": "C5-strawberry", "block": "C", "parse": "number", "prompt": "How many times does the letter r appear in the word strawberry? Answer with only the number."}
+{"id": "C5-mississippi", "block": "C", "parse": "number", "prompt": "How many times does the letter s appear in the word Mississippi? Answer with only the number."}
+{"id": "C5-seq1", "block": "C", "parse": "number", "prompt": "What is the next number in the sequence 3, 7, 15, 31, ? Answer with only the number."}
+{"id": "C5-seq2", "block": "C", "parse": "number", "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, ? Answer with only the number."}
+{"id": "C5-words", "block": "C", "parse": "number", "prompt": "How many words are in this sentence: The quick brown fox jumps over the lazy dog? Answer with only the number."}
+{"id": "C6-color", "block": "C", "parse": "word", "prompt": "Complete with one word: My favorite color is"}
+{"id": "C6-city", "block": "C", "parse": "word", "prompt": "Complete with one word: The most beautiful city in the world is"}
+{"id": "C6-fruit", "block": "C", "parse": "word", "prompt": "Complete with one word: The best fruit is"}
+{"id": "C6-fox", "block": "C", "parse": "word", "prompt": "Complete with one word: The quick brown fox jumps over the lazy"}
