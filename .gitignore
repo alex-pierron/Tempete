@@ -1,0 +1,16 @@
+# Données et poids téléchargés depuis HuggingFace (trop gros pour git)
+*.pt
+*.pth
+*.npz
+*.zip
+watermark_localization/data/
+
+# Secrets : la clé API et le token HF restent dans .env ou l'environnement
+.env
+
+# Environnements, caches, logs Slurm
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+output/
+.DS_Store
