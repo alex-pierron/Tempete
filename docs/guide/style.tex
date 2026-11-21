@@ -1,0 +1,30 @@
+% Typographic style for the preparation dossier (pandoc + xelatex).
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{muted}{HTML}{5A5A5A}
+\usepackage{titlesec}
+\titleformat{\section}{\sffamily\Large\bfseries\color{accent}}{}{0pt}{}[\vspace{-0.4em}\color{accent}\rule{\linewidth}{0.6pt}]
+\titleformat{\subsection}{\sffamily\large\bfseries\color{accent}}{}{0pt}{}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.3em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\footnotesize\color{muted}Watermarking -- dossier de pr\'eparation}
+\fancyhead[R]{\sffamily\footnotesize\color{muted}European AI Championship 2026}
+\fancyfoot[C]{\sffamily\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small\sffamily}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\parskip}{0.35em}
+\usepackage{enumitem}
+\setlist{itemsep=0.15em, topsep=0.3em}
+% Keep headings with their first lines (no orphan heading at page bottom).
+\usepackage{needspace}
+\pretocmd{\section}{\needspace{10\baselineskip}}{}{}
+\pretocmd{\subsection}{\needspace{6\baselineskip}}{}{}
+\widowpenalty=10000
+\clubpenalty=10000

@@ -14,3 +14,19 @@ __pycache__/
 .ipynb_checkpoints/
 output/
 .DS_Store
+
+# --- wmkit / kit hackathon ---
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+# heavy / external artefacts, never committed
+third_party/
+data/
+weights/
+results/
+runs/
+*.ckpt
+*.safetensors
+# generated documents are committed only under docs/guide
+.claude/worktrees/

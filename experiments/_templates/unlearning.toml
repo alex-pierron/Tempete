@@ -1,0 +1,35 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md
+#   1. editer ce fichier (hypothese, balayage, config)
+#   2. make hk-run SPEC={{id}}                      (local, config smoke, MPS)
+#      make hk-run SPEC={{id}} WHERE=jureca         (cluster, config full, A100)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+
+id = "{{id}}"
+task = "{{task}}"
+idea = {{idea}}
+hypothesis = "TODO : ce qui doit changer et pourquoi, en une phrase"
+where = "local"
+
+# [resources]
+# gpus = 2                 # >= nombre de variantes, 4 au plus (1 variante par A100)
+# time_limit = "01:00:00"  # --time Slurm, optionnel
+
+[sweep]
+# Cartesien, 4 variantes au plus. Chaque cle devient le placeholder {cle} des arguments.
+target_temperature = [2.0]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "gold_soft", "--set", "target_temperature={target_temperature}",
+        "--out", "{out}/candidate.pt"]
+# smoke en local (< 2 min sur M5), full sur A100 ; {task_dir} = dossier de la tache sur JURECA
+args_local = ["--config", "smoke"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Garde-fou, PAS le score : derive de rétention (KL vs l'original sur images hors forget).
+# Le vrai score est une distance a un modele "gold" que l'on n'a pas.
+primary_metric = "proxy.retain_kl"
+higher_is_better = false

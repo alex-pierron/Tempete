@@ -1,0 +1,77 @@
+# wmkit -- Compose services (CLI toolbox, not a daemon).
+#
+# Usage (from the repository root):
+#   mkdir -p data weights results          # created by you, so they are NOT root-owned on Linux
+#   docker compose -f docker/compose.yml build wmkit
+#   docker compose -f docker/compose.yml run --rm wmkit list
+#   docker compose -f docker/compose.yml run --rm wmkit eval --method pixelseal \
+#       --images data/kodak --suite paper --out results/pixelseal.csv
+#   docker compose -f docker/compose.yml run --rm wmkit-cuda eval ...   # Linux + NVIDIA only
+#
+# Paths below are relative to THIS file (docker/), hence the `..`.
+#
+# wmkit (CPU): works everywhere. On macOS it runs in Docker's Linux VM WITHOUT the Apple
+# GPU (MPS), so it is slower than the native .venv: use it for portability, not speed.
+# wmkit-cuda: needs a Linux host with an NVIDIA GPU, driver and NVIDIA Container Toolkit.
+# It sits behind the `cuda` profile so `compose build` / `compose up` never try to build
+# it on a Mac; naming it explicitly (`run wmkit-cuda`) activates the profile.
+#
+# Optional configuration: a `.env` at the repository root is read if present (never
+# committed, never baked into an image). Useful keys: HF_TOKEN (Hugging Face downloads),
+# WMKIT_DEVICE (e.g. cpu, cuda:1), WMKIT_UID / WMKIT_GID (match your host user on Linux).
+
+name: wmkit
+
+x-wmkit-common: &wmkit-common
+  init: true
+  # Hardening: drop every Linux capability and block privilege escalation. wmkit is a
+  # pure-compute CLI and needs neither.
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  # Run as the host user so files written to ./results belong to you on Linux
+  # (Docker Desktop on macOS maps ownership transparently).
+  user: "${WMKIT_UID:-1000}:${WMKIT_GID:-1000}"
+  env_file:
+    - path: ../.env
+      required: false
+  environment:
+    TZ: "${TZ:-UTC}"
+    # Passed through from the host environment only when set.
+    HF_TOKEN:
+  volumes:
+    - ../data:/app/data
+    - ../weights:/app/weights
+    - ../results:/app/results
+  # torch/inductor scratch files stay in RAM: nothing useful to persist, and it keeps the
+  # container working when the Docker VM disk is nearly full.
+  tmpfs:
+    - /tmp:mode=1777
+
+services:
+  wmkit:
+    <<: *wmkit-common
+    image: wmkit:cpu
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    # ENTRYPOINT is `python -m wmkit`: arguments after the service name are wmkit commands.
+    command: ["list"]
+
+  wmkit-cuda:
+    <<: *wmkit-common
+    profiles: ["cuda"]
+    image: wmkit:cuda
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.cuda
+    command: ["list"]
+    # Compose equivalent of `docker run --gpus all`.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

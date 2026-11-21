@@ -1,0 +1,57 @@
+# Build context filter. Goal: a small, deterministic context that never leaks
+# secrets, weights or datasets into an image layer.
+# KEEP (needed by the build): src/, pyproject.toml, uv.lock, tests/, Makefile,
+# third_party/videoseal (minus its heavy, unused subfolders below).
+
+# --- VCS and local environments ---
+.git
+.gitignore
+.venv
+venv
+.env
+.env.*
+**/.env
+**/.env.*
+.DS_Store
+
+# --- Heavy, gitignored runtime artefacts: mounted as volumes, never baked in ---
+data
+weights
+results
+runs
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+**/*.pth
+**/*.pt
+**/*.ckpt
+**/*.safetensors
+
+# --- Python and tooling caches ---
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.ipynb_checkpoints
+*.egg-info
+
+# --- Not needed to build or run the CLI ---
+notebooks
+docs
+.github
+.idea
+.vscode
+Dockerfile*
+docker
+.dockerignore
+
+# --- videoseal: keep the package, configs/ and pyproject; drop the weight of the rest ---
+third_party/videoseal/.git
+third_party/videoseal/.github
+third_party/videoseal/assets
+third_party/videoseal/notebooks
+third_party/videoseal/docs
+third_party/videoseal/scripts
+third_party/videoseal/wmforger

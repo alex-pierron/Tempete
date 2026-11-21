@@ -1,0 +1,136 @@
+# syntax=docker/dockerfile:1.7
+#
+# wmkit -- CUDA image (Linux host + NVIDIA GPU only).
+#
+# SCOPE AND LIMITS (read before building):
+#   * Build and run this image on a Linux host (x86_64 or aarch64) that has an NVIDIA
+#     GPU, a recent NVIDIA driver and the NVIDIA Container Toolkit installed.
+#   * It is NOT meant for macOS: Docker Desktop on a Mac has no NVIDIA GPU and its VM
+#     cannot reach the Apple GPU (MPS) either. On a Mac use docker/Dockerfile (CPU,
+#     slower than the native .venv) or the native .venv.
+#   * STATUS: written and statically checked against docker/Dockerfile (which was built
+#     and run), but NEVER BUILT NOR RUN by its author: no NVIDIA host was available.
+#     The first build on a GPU host is the real test; expect to read its output.
+#
+# Design: the CUDA runtime does not come from a system CUDA base image. torch ships its
+# own CUDA libraries as pip wheels (nvidia-*, cuda-*, triton), pinned by uv.lock, so a
+# slim Python base plus the host driver is enough, and the CUDA version is exactly the one
+# the lock was resolved with (CUDA 13 for torch 2.15 on PyPI, which needs an NVIDIA driver
+# >= 580). If the target server has an older driver, pick a torch build for it at build time:
+#   docker build -f docker/Dockerfile.cuda -t wmkit:cuda \
+#       --build-arg TORCH_INDEX_URL=https://download.pytorch.org/whl/cu128 .
+# (the index must carry the locked torch/torchvision versions; check it first).
+#
+# Build (from the repository root; third_party/videoseal must exist, see `make setup`):
+#   docker build -f docker/Dockerfile.cuda -t wmkit:cuda .
+# Run:
+#   docker run --rm --gpus all wmkit:cuda list
+#   docker run --rm --gpus all --entrypoint python wmkit:cuda \
+#       -c "import torch; print(torch.cuda.is_available())"
+# (docker/compose.yml's `wmkit-cuda` service already requests the GPU.)
+# Weights, data and results are mounted as volumes, never copied (see docker/Dockerfile).
+# The image is several GB larger than the CPU one because of the CUDA wheels.
+
+ARG PYTHON_IMAGE=python:3.12.16-slim-bookworm
+
+# ---------------------------------------------------------------------------
+# Stage 1: builder.
+# ---------------------------------------------------------------------------
+FROM ${PYTHON_IMAGE} AS builder
+
+ARG UV_VERSION=0.8.22
+# Empty (default): install torch, torchvision and all CUDA wheels exactly as locked in
+# uv.lock. Set: take torch/torchvision (and the CUDA wheels they pull) from that index.
+ARG TORCH_INDEX_URL=""
+
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=1
+
+RUN pip install --no-cache-dir "uv==${UV_VERSION}"
+
+WORKDIR /build
+COPY pyproject.toml uv.lock ./
+RUN --mount=type=cache,target=/root/.cache/uv \
+    set -eux; \
+    uv venv /opt/venv --python /usr/local/bin/python; \
+    uv export --frozen --no-dev --no-emit-project --no-hashes --no-header \
+        | grep -vE '^[[:space:]]|^#' > /tmp/requirements.all.txt; \
+    if [ -z "${TORCH_INDEX_URL}" ]; then \
+        # Locked path: everything, CUDA wheels included, exactly as in uv.lock.
+        uv pip install --python /opt/venv/bin/python --no-deps -r /tmp/requirements.all.txt; \
+    else \
+        grep -vE '^(torch|torchvision|triton|cuda-[a-z-]+|nvidia-[a-z0-9-]+)==' \
+            /tmp/requirements.all.txt > /tmp/requirements.nocuda.txt; \
+        uv pip install --python /opt/venv/bin/python --no-deps -r /tmp/requirements.nocuda.txt; \
+        TORCH_VERSION="$(grep -E '^torch==' /tmp/requirements.all.txt | sed -E 's/^torch==([^ ;]+).*/\1/')"; \
+        TORCHVISION_VERSION="$(grep -E '^torchvision==' /tmp/requirements.all.txt | sed -E 's/^torchvision==([^ ;]+).*/\1/')"; \
+        # Resolve the CUDA wheels from the torch index, everything else from PyPI.
+        uv pip install --python /opt/venv/bin/python \
+            --index-url "${TORCH_INDEX_URL}" --extra-index-url https://pypi.org/simple \
+            --index-strategy unsafe-best-match \
+            "torch==${TORCH_VERSION}" "torchvision==${TORCHVISION_VERSION}"; \
+    fi; \
+    PYTEST_VERSION="$(uv export --frozen --only-group dev --no-emit-project --no-hashes --no-header | grep -E '^pytest==' | sed -E 's/^pytest==([^ ;]+).*/\1/')"; \
+    uv pip install --python /opt/venv/bin/python "pytest==${PYTEST_VERSION}"
+
+# Editable on purpose, same reasons as docker/Dockerfile (videoseal configs/ and
+# PROJECT_ROOT-relative data/weights/results directories).
+WORKDIR /app
+COPY pyproject.toml ./
+COPY src ./src
+COPY third_party/videoseal ./third_party/videoseal
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install --python /opt/venv/bin/python --no-deps \
+        -e /app \
+        -e /app/third_party/videoseal
+
+# ---------------------------------------------------------------------------
+# Stage 2: runtime.
+# ---------------------------------------------------------------------------
+FROM ${PYTHON_IMAGE} AS runtime
+
+# libgl1 + libglib2.0-0: opencv-python. make: `make` targets inside the container.
+# No system CUDA toolkit: the CUDA libraries are the pip wheels in /opt/venv.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 make \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG WMKIT_UID=1000
+ARG WMKIT_GID=1000
+RUN groupadd --gid "${WMKIT_GID}" wmkit \
+    && useradd --uid "${WMKIT_UID}" --gid "${WMKIT_GID}" --create-home --shell /usr/sbin/nologin wmkit
+
+ENV PATH=/opt/venv/bin:${PATH} \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    TZ=UTC \
+    WMKIT_DATA_DIR=/app/data \
+    WMKIT_WEIGHTS_DIR=/app/weights \
+    WMKIT_RESULTS_DIR=/app/results \
+    TORCH_HOME=/app/weights/torch \
+    HF_HOME=/app/weights/hf \
+    # Consumed by the NVIDIA Container Runtime when the image is started with it.
+    NVIDIA_VISIBLE_DEVICES=all \
+    NVIDIA_DRIVER_CAPABILITIES=compute,utility
+# WMKIT_DEVICE is deliberately NOT set: wmkit.config.get_device() picks cuda when the GPU
+# is visible and falls back to cpu otherwise. Force it with `-e WMKIT_DEVICE=cuda:1`.
+
+COPY --from=builder /opt/venv /opt/venv
+RUN mkdir -p /app/data /app/weights /app/results \
+    && chown -R wmkit:wmkit /app
+WORKDIR /app
+COPY --from=builder --chown=wmkit:wmkit /app /app
+COPY --chown=wmkit:wmkit tests ./tests
+COPY --chown=wmkit:wmkit scripts ./scripts
+COPY --chown=wmkit:wmkit Makefile ./Makefile
+
+USER wmkit
+
+# Liveness: the stack imports. It does not require the GPU (the image must also start
+# on a host without one, e.g. for `list`).
+HEALTHCHECK --interval=5m --timeout=60s --start-period=30s --retries=2 \
+    CMD ["python", "-c", "import torch, videoseal, wmkit"]
+
+ENTRYPOINT ["python", "-m", "wmkit"]
+CMD ["list"]

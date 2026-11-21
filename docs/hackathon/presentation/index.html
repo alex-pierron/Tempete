@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Équipe Tempête : synthèse de départ, European AI Championship Paris 2026</title>
+<style>
+/* Présentation autonome : aucune ressource réseau, polices système. Base de mise en page 1600 x 900 (16:9),
+   mise à l'échelle par JavaScript pour tenir dans la fenêtre. */
+:root{
+  --ink:#0b1730; --body:#1c2b45; --muted:#52627d; --blue:#0866ff; --blue-d:#0a4fc4; --blue-l:#eaf2ff;
+  --line:#d5deec; --panel:#f5f8fd;
+  --ok:#0a6b34; --ok-bg:#e6f6ec; --ok-line:#9fd5b3;
+  --warn:#8a5000; --warn-bg:#fff4e0; --warn-line:#d98a00;
+  --no:#a3231b; --no-bg:#fdecea; --no-line:#e8a29c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#e6ebf3}
+body{font-family:Inter,"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;color:var(--body);-webkit-font-smoothing:antialiased}
+code,pre,.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:50% 50%;background:#fff;
+  box-shadow:0 6px 40px rgba(11,23,48,.18);overflow:hidden}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;background:#fff;overflow:hidden}
+.slide.active{display:flex}
+.slide::before{content:"";flex:none;height:8px;background:var(--blue)}
+.head{flex:none;padding:30px 72px 0}
+.kicker{font-size:18px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+h1{margin:6px 0 0;font-size:44px;line-height:1.14;font-weight:760;color:var(--ink);letter-spacing:-.01em}
+.content{flex:1 1 auto;min-height:0;padding:20px 72px 0;font-size:25px;line-height:1.36;overflow:hidden}
+.foot{flex:none;height:52px;display:flex;justify-content:space-between;align-items:center;padding:0 72px;
+  border-top:1px solid var(--line);font-size:16px;color:var(--muted)}
+.foot .num{font-weight:700;color:var(--ink)}
+
+/* Typographie courante */
+.content p{margin:8px 0}
+.content ul,.content ol{margin:6px 0;padding-left:32px}
+.content li{margin:5px 0}
+.content h2{margin:0 0 6px;font-size:26px;font-weight:720;color:var(--blue-d)}
+.lead{font-size:29px;line-height:1.34;color:var(--ink)}
+.muted{color:var(--muted)}
+.small{font-size:20px;line-height:1.35}
+.tiny{font-size:17px;line-height:1.3}
+b,strong{color:var(--ink)}
+code{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:0 6px;font-size:.84em;color:var(--ink)}
+a{color:var(--blue-d)}
+
+/* Grilles */
+.cols{display:grid;gap:34px;align-items:start}
+code{white-space:nowrap}
+code.wrap{white-space:normal;overflow-wrap:anywhere}
+.c2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.c3{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+.c64{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+.c46{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}
+.mt{margin-top:16px}
+.mt2{margin-top:26px}
+
+/* Tableaux */
+table.t{border-collapse:collapse;width:100%;font-size:22px;line-height:1.3}
+.t th{background:var(--blue-l);color:var(--blue-d);text-align:left;font-weight:720;padding:9px 14px;border-bottom:2px solid var(--blue)}
+.t td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.t tr:nth-child(even) td{background:#fafcff}
+.t.sm{font-size:20px}
+.t.xs{font-size:18px}
+.t.xs td,.t.xs th{padding:7px 11px}
+.t td.r,.t th.r{text-align:right}
+.t td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+.t tr.hl td{background:#fff6dd}
+.t tr.hl2 td{background:#e3eeff}
+
+/* Encadrés */
+.callout{background:var(--blue-l);border-left:6px solid var(--blue);border-radius:0 8px 8px 0;padding:13px 22px 14px}
+.callout .tag{display:block;margin-bottom:3px;font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.callout.warn{background:var(--no-bg);border-left-color:#c0392b}
+.callout.warn .tag{color:#a3231b}
+.pending{background:repeating-linear-gradient(135deg,#fff8e8,#fff8e8 14px,#fff1d6 14px,#fff1d6 28px);
+  border:2px dashed var(--warn-line);border-radius:8px;padding:13px 22px 14px;color:#5e3a00}
+.pending .tag{display:inline-block;margin-bottom:4px;padding:1px 10px;border-radius:999px;background:var(--warn-line);
+  color:#fff;font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.pending b{color:#5e3a00}
+.pending code{background:#fffdf6;border-color:#e7c98b;white-space:normal}
+
+/* Pastilles de statut */
+.chip{display:inline-block;padding:1px 11px;border-radius:999px;font-size:15px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;white-space:nowrap;vertical-align:middle;border:1px solid transparent}
+.chip.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-line)}
+.chip.no{background:var(--no-bg);color:var(--no);border-color:var(--no-line)}
+.chip.wip{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-line)}
+.chip.info{background:var(--blue-l);color:var(--blue-d);border-color:#b7d0fb}
+
+/* Code et formules */
+pre.code{margin:8px 0;padding:12px 18px;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  font-size:18.5px;line-height:1.45;color:var(--ink);white-space:pre-wrap;overflow-wrap:break-word}
+pre.code .c{color:#6a7b96}
+pre.code.sm{font-size:16.5px;line-height:1.42;padding:10px 14px}
+.formula{margin:10px 0;padding:12px 22px;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  font-family:"Cambria Math","STIX Two Math",Cambria,"Times New Roman",serif;font-size:29px;line-height:1.5;color:var(--ink)}
+.formula.sm{font-size:25px}
+.formula i{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 5px}
+.frac>span:first-child{border-bottom:1.6px solid currentColor;padding:0 8px 3px}
+.frac>span:last-child{padding:3px 8px 0}
+.sqrt{white-space:nowrap}
+.sqrt>span{border-top:1.6px solid currentColor;padding:0 3px}
+.where{font-size:20px;line-height:1.35;color:var(--muted)}
+
+/* Cartes chiffrées */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:8px;padding:12px 16px}
+.kpi .v{font-size:40px;font-weight:780;color:var(--ink);line-height:1.1}
+.kpi .l{font-size:18px;color:var(--muted);line-height:1.3;margin-top:4px}
+
+/* Cases à cocher dessinées en CSS */
+ul.check{list-style:none;padding-left:0}
+ul.check li{position:relative;padding-left:38px;margin:9px 0}
+ul.check li::before{content:"";position:absolute;left:2px;top:6px;width:22px;height:22px;border:2.5px solid var(--blue);border-radius:4px;background:#fff}
+
+/* Numérotation d'étapes */
+ol.steps{list-style:none;counter-reset:s;padding-left:0}
+ol.steps>li{counter-increment:s;position:relative;padding-left:52px;margin:9px 0}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1px;width:34px;height:34px;border-radius:50%;
+  background:var(--blue);color:#fff;font-weight:800;font-size:20px;text-align:center;line-height:34px}
+
+/* Schéma de processus */
+.flow{display:flex;align-items:stretch;gap:0;margin-top:6px}
+.step{flex:1 1 0;position:relative;background:#fff;border:2px solid var(--blue);border-radius:10px;padding:12px 6px 12px;text-align:center;margin-right:28px}
+.step:last-child{margin-right:0}
+.step:not(:last-child)::after{content:"";position:absolute;right:-27px;top:50%;margin-top:-9px;border-left:18px solid var(--blue);
+  border-top:9px solid transparent;border-bottom:9px solid transparent}
+.step .n{display:inline-block;width:30px;height:30px;line-height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:17px}
+.step .t{display:block;margin-top:6px;font-size:19.5px;font-weight:740;color:var(--ink);line-height:1.2}
+.step .d{display:block;margin-top:6px;font-size:16.5px;line-height:1.3;color:var(--muted)}
+.step{min-width:0}
+.step code{display:block;margin-top:4px;font-size:12.5px;padding:0 3px}
+.wrapcode code{white-space:normal;overflow-wrap:break-word}
+.step.auto{border-style:dashed;border-color:var(--warn-line);background:#fffaf0}
+.step.auto .n{background:var(--warn-line)}
+.step.auto:not(:last-child)::after{border-left-color:var(--warn-line)}
+.loop{margin:10px 0 0;text-align:center;font-size:18px;color:var(--muted)}
+
+/* Diapositive de titre */
+.title-slide .content{padding-top:96px}
+.title-slide h1{font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.title-slide .sub{margin-top:22px;font-size:34px;line-height:1.3;color:var(--body);max-width:1180px}
+.title-slide .rule{width:150px;height:8px;background:var(--blue);margin:30px 0 26px;border-radius:4px}
+.title-slide .meta{font-size:24px;color:var(--muted);line-height:1.5}
+.legend{display:flex;gap:26px;margin-top:40px;font-size:20px;color:var(--muted)}
+.legend span.chip{margin-right:8px}
+
+/* Sommaire */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 36px;margin-top:6px}
+.toc a{display:flex;align-items:baseline;gap:16px;padding:9px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;
+  color:var(--ink);background:#fff}
+.toc a:hover{border-color:var(--blue);background:var(--blue-l)}
+.toc .nb{flex:none;width:44px;font-size:24px;font-weight:800;color:var(--blue)}
+.toc .tt{font-size:23px;font-weight:700;line-height:1.2}
+.toc .ss{display:block;font-size:17.5px;font-weight:400;color:var(--muted);margin-top:2px}
+.toc .pg{margin-left:auto;flex:none;font-size:18px;color:var(--muted)}
+
+/* Ajustement automatique : le contenu d'une diapositive est agrandi (ou réduit) pour remplir la zone utile. */
+.fit{transform-origin:0 0}
+
+/* Interface (masquée à l'impression) */
+.nav{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:8px;z-index:20}
+.nav button{font:inherit;font-size:16px;padding:4px 14px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);cursor:pointer}
+.nav button:hover{border-color:var(--blue);color:var(--blue-d)}
+.progress{position:absolute;left:0;bottom:0;height:4px;background:var(--blue);z-index:21;transition:width .15s}
+#overlay{position:absolute;inset:0;z-index:30;background:rgba(255,255,255,.985);display:none;flex-direction:column;padding:30px 60px}
+#overlay.open{display:flex}
+#overlay h2{margin:0 0 14px;font-size:30px;color:var(--ink)}
+#overlay .grid{columns:3;column-gap:34px;font-size:19px;line-height:1.5;overflow:hidden}
+#overlay .grid a{display:block;color:var(--body);text-decoration:none;padding:1px 6px;border-radius:4px;break-inside:avoid;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#overlay .grid a:hover,#overlay .grid a.cur{background:var(--blue-l);color:var(--blue-d)}
+#overlay .grid .grp{font-weight:800;color:var(--blue);margin-top:8px;font-size:16px;letter-spacing:.08em;text-transform:uppercase;break-after:avoid}
+#overlay .hint{margin-top:auto;font-size:17px;color:var(--muted)}
+
+/* Export PDF : une diapositive par page 1600 x 900 */
+@page{size:1600px 900px;margin:0}
+@media print{
+  html,body{width:1600px;height:auto;overflow:visible;background:#fff}
+  #stage{position:static;transform:none!important;width:1600px;height:auto;box-shadow:none;overflow:visible}
+  .slide{display:flex!important;position:relative;inset:auto;width:1600px;height:900px;break-after:page;page-break-after:always}
+  .slide:last-of-type{break-after:auto;page-break-after:auto}
+  .nav,.progress,#overlay{display:none!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 : titre -->
+<section class="slide title-slide" data-sec="Ouverture" data-title="Titre">
+  <div class="head"><div class="kicker">European AI Championship Paris 2026 · hackathon de 24 h</div></div>
+  <div class="content">
+    <h1>Équipe Tempête</h1>
+    <div class="rule"></div>
+    <div class="sub">Synthèse de départ : les trois sujets, l'accès GPU, les outils prêts et le plan des deux prochaines heures.</div>
+    <div class="meta mt2">Équipe de 3 personnes · démarrage le 21/11/2026<br>
+      Organisation : CISPA / SprintML, avec Meta · serveur commun et classement en ligne</div>
+    <div class="legend">
+      <div><span class="chip ok">Vérifié</span>contrôlé dans le code ou par une commande</div>
+      <div><span class="chip no">Non vérifié</span>repris d'une source, pas encore testé</div>
+      <div><span class="chip wip">En cours</span>livraison attendue, encadré à compléter</div>
+    </div>
+    <div class="meta" style="margin-top:34px;font-size:19px">Navigation : flèches ou espace · M ouvre le sommaire · F plein écran</div>
+  </div>
+</section>
+
+<!-- 2 : sommaire -->
+<section class="slide" data-sec="Ouverture" data-title="Sommaire">
+  <div class="head"><div class="kicker">Ouverture</div><h1>Sommaire</h1></div>
+  <div class="content">
+    <div class="toc">
+      <a href="#3"><span class="nb">1</span><span class="tt">Le hackathon<span class="ss">Dates, serveur, classement, règles clés</span></span><span class="pg">3</span></a>
+      <a href="#16"><span class="nb">4</span><span class="tt">Keynote de Meta<span class="ss">Ce qui sert à nos trois tâches</span></span><span class="pg">16</span></a>
+      <a href="#4"><span class="nb">2</span><span class="tt">Ce qu'on a<span class="ss">Dépôt, kits, clé API, ce qui est vérifié</span></span><span class="pg">4</span></a>
+      <a href="#19"><span class="nb">5</span><span class="tt">GPU JURECA<span class="ss">Matériel, accès, installation, jobs Slurm</span></span><span class="pg">19</span></a>
+      <a href="#6"><span class="nb">3</span><span class="tt">Les trois sujets<span class="ss">Model Equality, Unlearning, Watermark Localization</span></span><span class="pg">6</span></a>
+      <a href="#23"><span class="nb">6</span><span class="tt">Préparer chaque soumission<span class="ss">Formats, commandes, pièges</span></span><span class="pg">23</span></a>
+      <a href="#26"><span class="nb">7</span><span class="tt">Structures prêtes<span class="ss">Arborescence, commandes, emplacements</span></span><span class="pg">26</span></a>
+      <a href="#30"><span class="nb">9</span><span class="tt">Ce qu'on doit faire<span class="ss">To-do, décisions, check-lists, risques</span></span><span class="pg">30</span></a>
+      <a href="#29"><span class="nb">8</span><span class="tt">Process automatique<span class="ss">Idée, expérience, job GPU, soumission</span></span><span class="pg">29</span></a>
+      <a href="#35"><span class="nb">10</span><span class="tt">Sources<span class="ss">Documents, dépôts, papiers, vérifications faites</span></span><span class="pg">35</span></a>
+    </div>
+    <div class="callout mt2"><span class="tag">Dans les sujets</span>
+      <b>Model Equality</b> : pages 7 à 9 · <b>Unlearning</b> : pages 10 à 12 · <b>Watermark Localization</b> : pages 13 à 15.
+      Les encadrés hachurés « En cours » signalent ce qui reste à compléter.</div>
+  </div>
+</section>
+
+<!-- 3 : le hackathon -->
+<section class="slide" data-sec="1. Le hackathon" data-title="Le hackathon en une slide">
+  <div class="head"><div class="kicker">1. Le hackathon</div><h1>Le hackathon en une slide</h1></div>
+  <div class="content">
+    <div class="cols c64">
+      <table class="t">
+        <tr><td class="k">Dates</td><td>21/11/2026, 24 heures</td></tr>
+        <tr><td class="k">Organisation</td><td>CISPA (Adam Dziedzic, Franziska Boenisch), équipe SprintML, avec Meta</td></tr>
+        <tr><td class="k">Lieu</td><td>Paris (European AI Championship Paris 2026)</td></tr>
+        <tr><td class="k">Serveur</td><td><code>http://34.147.229.55</code><br>classement : <code>/leaderboard_page</code></td></tr>
+        <tr><td class="k">Tâches</td><td>3 : Model Equality, Unlearning, Watermark Localization</td></tr>
+        <tr><td class="k">Classement</td><td>Public : environ 30&nbsp;% des données de scoring. Final : les 70&nbsp;% restants, cachés jusqu'à la fin.</td></tr>
+      </table>
+      <div>
+        <div class="callout"><span class="tag">Règles clés</span>
+          <ul style="margin:4px 0;padding-left:26px;font-size:23px">
+            <li>Une clé API par équipe, en-tête <code>X-API-Key</code>.</li>
+            <li>Le classement garde le meilleur score par équipe.</li>
+            <li>Une soumission peut mettre jusqu'à environ 500&nbsp;s à être notée.</li>
+            <li>Model Equality : 1 soumission toutes les 30 min, échec compris.</li>
+          </ul></div>
+        <div class="callout warn mt"><span class="tag">À retenir</span>
+          <b>Ne pas optimiser pour le score public.</b> Les trois sujets le répètent : le score privé peut être très différent.</div>
+        <p class="tiny muted mt">Model Equality parle d'« une partie des paires » pour le score public, sans donner de pourcentage. Les 30&nbsp;% sont explicites pour Unlearning et Watermark Localization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 : ce qu'on a 1/2 -->
+<section class="slide" data-sec="2. Ce qu'on a" data-title="Ce qu'on a (1/2) : code et données">
+  <div class="head"><div class="kicker">2. Ce qu'on a · 1/2</div><h1>Le code et les données</h1></div>
+  <div class="content">
+    <table class="t sm">
+      <tr><th style="width:23%">Élément</th><th>État</th><th style="width:15%">Statut</th></tr>
+      <tr><td class="k">Dépôt d'équipe</td><td><code>alex-pierron/Tempete</code> : <code>main</code> = projet d'équipe (code de démarrage officiel par tâche) ; <code>victor</code> = branche de travail (boîte à outils <code>wmkit</code> et kit <code>src/hackathon</code>)</td><td><span class="chip ok">Vérifié</span></td></tr>
+      <tr><td class="k">Kit Model Equality</td><td>CLI complète, banque de 92 prompts. Testé contre un faux serveur : 528 requêtes, reprise, réserve, soumission. Score local identique au script officiel (40 étiquetages comparés sur 40).</td><td><span class="chip ok">Vérifié</span> sur faux serveur</td></tr>
+      <tr><td class="k">Kit Unlearning</td><td>3 méthodes (<code>identity</code>, <code>scrub</code>, <code>gold_soft</code>), validation, soumission journalisée. Modèle (344&nbsp;Mo) et forget set (527&nbsp;Mo) téléchargés, sha256 vérifié. Proxys locaux seulement.</td><td><span class="chip ok">Vérifié</span></td></tr>
+      <tr><td class="k">Tests du kit</td><td><b>217 tests</b> dans <code>tests/hackathon</code> (16 fichiers) : 217 passés lors de cette préparation</td><td><span class="chip ok">Vérifié</span></td></tr>
+      <tr><td class="k">Kit Watermark Localization</td><td>Livraison en cours par un autre agent : code, baselines, mIoU local</td><td><span class="chip wip">En cours</span></td></tr>
+      <tr><td class="k">Chaîne automatique</td><td>Module <code>hackathon.lab</code> : idée, expérience, job GPU, validation, soumission</td><td><span class="chip wip">En cours</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 5 : ce qu'on a 2/2 -->
+<section class="slide" data-sec="2. Ce qu'on a" data-title="Ce qu'on a (2/2) : accès, clé et attentes">
+  <div class="head"><div class="kicker">2. Ce qu'on a · 2/2</div><h1>Accès, clé API et ce qu'on attend</h1></div>
+  <div class="content">
+    <table class="t sm">
+      <tr><th style="width:23%">Élément</th><th>État</th><th style="width:15%">Statut</th></tr>
+      <tr><td class="k">Clé API d'équipe</td><td>Reçue. <code>GET /models</code> répond : 33 endpoints <code>ep-*</code> à 100/100 restants, 0 utilisé. Dans <code>.env</code> (gitignoré), jamais dans le dépôt.</td><td><span class="chip ok">Vérifié</span></td></tr>
+      <tr><td class="k">Limite des <code>ref-*</code></td><td>Le serveur annonce aussi 100 pour les <code>ref-*</code>, alors que la doc officielle les dit illimités. Notre client respecte cette limite (commit <code>df695cb</code>).</td><td><span class="chip ok">Vérifié</span></td></tr>
+      <tr><td class="k">Accès JURECA</td><td>Procédure et job Slurm Unlearning prêts. Aucun accès de membre testé sur le cluster à ce stade.</td><td><span class="chip no">Non vérifié</span></td></tr>
+      <tr><td class="k">Chef d'équipe</td><td>Alex, identifiant Jülich <code>pierron1</code></td><td><span class="chip ok">Connu</span></td></tr>
+      <tr><td class="k">2 autres membres</td><td>Identifiants Jülich et <code>TEAM_FOLDER</code> (nom du dossier d'équipe)</td><td><span class="chip wip">En attente</span></td></tr>
+      <tr><td class="k"><code>HF_TOKEN</code></td><td>Compte autorisé sur le dataset de localisation (accès restreint)</td><td><span class="chip wip">En attente</span></td></tr>
+      <tr><td class="k">Task id Localisation</td><td>Absent du PDF du sujet ; variable <code>HACKATHON_TASK_WMLOC</code> à renseigner</td><td><span class="chip wip">En attente</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6 : les 3 sujets d'un coup d'oeil -->
+<section class="slide" data-sec="3. Les trois sujets" data-title="Les trois sujets d'un coup d'œil">
+  <div class="head"><div class="kicker">3. Les trois sujets</div><h1>Les trois sujets d'un coup d'œil</h1></div>
+  <div class="content">
+    <table class="t xs">
+      <tr><th style="width:13%"></th><th>Model Equality</th><th>Unlearning</th><th>Watermark Localization</th></tr>
+      <tr><td class="k">Task id serveur</td><td><code>33-model-equality</code></td><td><code>31-unlearning</code></td><td>inconnu (absent du PDF)</td></tr>
+      <tr><td class="k">Entrée</td><td>33 endpoints LLM <code>ep-01..ep-33</code>, plus 9 endpoints d'entraînement <code>ref-*</code></td><td>ViT-B/16, 100 classes, et 3 500 images à oublier (sans labels)</td><td>1 530 images 512&nbsp;×&nbsp;512 (train 510 avec masques, test 1 020)</td></tr>
+      <tr><td class="k">À rendre</td><td>CSV <code>endpoint,family,model</code> (33 lignes)</td><td>state dict float32, 450&nbsp;Mo maximum</td><td>fichier <code>.pt</code> de masques 128&nbsp;×&nbsp;128, 20&nbsp;Mo maximum</td></tr>
+      <tr><td class="k">Métrique</td><td>0,1&nbsp;×&nbsp;MCC famille + 0,9&nbsp;×&nbsp;MCC modèle, sur les paires</td><td>score d'oubli&nbsp;×&nbsp;score de rétention, porte à 70&nbsp;% d'accuracy</td><td>mIoU à 2 classes sur grille 128&nbsp;×&nbsp;128, moyenne par image</td></tr>
+      <tr><td class="k">Ressource rare</td><td><b>100 réponses par endpoint</b> pour toute la compétition</td><td>aucune donnée de rétention</td><td>dataset en accès restreint (token HF)</td></tr>
+      <tr><td class="k">Limite d'envoi</td><td>1 toutes les 30 min, échec compris</td><td>non documentée</td><td>non documentée</td></tr>
+      <tr><td class="k">Notre papier</td><td>MET (Gao, Liang, Guestrin), déjà dans <code>wmkit.audit.met</code></td><td>SCRUB, déjà dans <code>wmkit.unlearn</code></td><td>Pixel Seal, déjà dans <code>wmkit</code> (poids locaux)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 7 : ME 1/3 -->
+<section class="slide" data-sec="3. Model Equality" data-title="Model Equality (1/3) : la question et les données">
+  <div class="head"><div class="kicker">3. Model Equality · 1/3</div><h1>La question : quels endpoints servent le même modèle ?</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <p class="lead">33 déploiements LLM, chacun derrière son endpoint, <code>ep-01</code> à <code>ep-33</code>.</p>
+        <ul>
+          <li>Pour chaque endpoint : à quelle <b>famille</b> appartient-il (même modèle de base) ?</li>
+          <li>Pour chaque paire : servent-ils le <b>même modèle</b> ?</li>
+        </ul>
+        <div class="callout mt"><span class="tag">À retenir</span>
+          Même modèle = même checkpoint + même quantization + même adaptateur LoRA. <b>Une même famille ne suffit pas.</b></div>
+      </div>
+      <div>
+        <table class="t sm">
+          <tr><th>Ne change pas l'identité</th><th>Change l'identité</th></tr>
+          <tr><td>Watermark de décodage</td><td>Modèle de base</td></tr>
+          <tr><td>System prompt du fournisseur</td><td>Quantization (exemple : fp8)</td></tr>
+          <tr><td>Stratégie de décodage (température...)</td><td>Adaptateur LoRA, même à une autre force</td></tr>
+        </table>
+        <h2 class="mt2">Entraînement gratuit : <code>ref-01..ref-09</code></h2>
+        <p class="small" style="margin-top:0">Jamais notés, réponses publiées (<code>practice_answers.csv</code>). Un modèle S décliné en plain, system prompt, persona, watermark, température 1,0, plus 4 variantes : T1 fp8, T2 LoRA 0,3, T3 LoRA 0,7, T4 LoRA 1,5.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 : ME 2/3 -->
+<section class="slide" data-sec="3. Model Equality" data-title="Model Equality (2/3) : métrique et contraintes">
+  <div class="head"><div class="kicker">3. Model Equality · 2/3</div><h1>La métrique et les contraintes</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <div class="formula sm">MCC = <span class="frac"><span>TP·TN − FP·FN</span><span><span class="sqrt">√<span>(TP+FP)(TP+FN)(TN+FP)(TN+FN)</span></span></span></span></div>
+        <div class="formula sm"><i>score</i> = 0,1 · MCC<sub>famille</sub> + 0,9 · MCC<sub>modèle</sub></div>
+        <ul class="small">
+          <li>528 paires (i &lt; j) ; chaque MCC est borné à 0 par <i>max(0, MCC)</i>.</li>
+          <li><b>Famille (10&nbsp;%)</b> : la paire est-elle de la même famille ? Toutes les paires.</li>
+          <li><b>Modèle (90&nbsp;%)</b> : même modèle ? Seulement les paires d'une même famille vraie.</li>
+          <li>Faux « même » et « différent » manqués baissent tous deux le score.</li>
+        </ul>
+        <div class="callout"><span class="tag">À retenir</span>Reconnaître seulement les familles rapporte au plus 0,1. L'essentiel se joue sur les variantes quantifiées et LoRA.</div>
+      </div>
+      <div>
+        <h2>Contraintes d'API</h2>
+        <table class="t sm">
+          <tr><td class="k">Budget</td><td><b>100 réponses par endpoint</b>, toute la compétition, toute l'équipe</td></tr>
+          <tr><td class="k">Génération</td><td>256 tokens générés maximum, 1 024 tokens de prompt maximum</td></tr>
+          <tr><td class="k">Concurrence</td><td>4 requêtes simultanées par équipe</td></tr>
+          <tr><td class="k">Réglages</td><td>température et seed ignorés ; system messages refusés</td></tr>
+          <tr><td class="k">Invalides</td><td>requêtes invalides rejetées, non décomptées</td></tr>
+          <tr><td class="k">Envoi</td><td>1 soumission toutes les 30 min (environ 48 en 24 h), un échec compte aussi</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 : ME 3/3 -->
+<section class="slide" data-sec="3. Model Equality" data-title="Model Equality (3/3) : notre méthode et le budget">
+  <div class="head"><div class="kicker">3. Model Equality · 3/3</div><h1>Notre méthode et le plan de budget</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Méthode (papier MET, Gao, Liang, Guestrin)</h2>
+        <ol class="small" style="padding-left:28px">
+          <li>Mêmes prompts sur chaque endpoint (banque de <b>92 prompts</b>, 8 catégories), choisis là où fp8 et LoRA changent le texte tiré et où les déguisements le changent peu.</li>
+          <li>Pour chaque paire : MMD à noyau de Hamming, comparé à un test par permutation, résumé en z-score.</li>
+          <li>Calibration sur les <code>ref-*</code> (gratuits), puis regroupement à 2 niveaux : familles, puis modèles.</li>
+        </ol>
+        <div class="callout"><span class="tag">Non vérifié</span>La puissance réelle de la méthode sur fp8 et LoRA : les tests utilisent un modèle jouet. On le saura sur les <code>ref-*</code>.</div>
+      </div>
+      <div>
+        <h2>Budget par endpoint (limite 100, réserve 10)</h2>
+        <table class="t sm">
+          <tr><th>Phase</th><th class="r">Réponses</th><th class="r">Cumul</th><th>Contenu</th></tr>
+          <tr><td class="k"><code>ep-1</code></td><td class="r">40</td><td class="r">40</td><td>20 prompts&nbsp;×&nbsp;2 répétitions</td></tr>
+          <tr><td class="k"><code>ep-2</code></td><td class="r">30</td><td class="r">70</td><td>nouveaux prompts, catégories quasi déterministes</td></tr>
+          <tr><td class="k"><code>ep-3</code></td><td class="r">20</td><td class="r">90</td><td>ciblé, endpoints ambigus seulement</td></tr>
+          <tr><td class="k">réserve</td><td class="r">10</td><td class="r">100</td><td>non dépensée</td></tr>
+        </table>
+        <p class="small mt">Coût total vérifié par <code>plan</code> : <b>ep-1 = 1 320 requêtes</b> (40&nbsp;×&nbsp;33), ep-2 = 990.</p>
+        <p class="small">Calibration : <code>ref-1</code> = 360 requêtes, <code>ref-full</code> = 2 484 (sources : fiche du kit).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 : UNL 1/3 -->
+<section class="slide" data-sec="3. Unlearning" data-title="Unlearning (1/3) : la question et les données">
+  <div class="head"><div class="kicker">3. Unlearning · 1/3</div><h1>La question : faire oublier 3 500 images</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <p class="lead">Rendre un modèle qui se comporte comme s'il n'avait <b>jamais vu</b> ces 3 500 images, tout en restant bon sur le reste.</p>
+        <ul>
+          <li>La cible est un modèle « gold » : réentraîné sans le forget set, moyenne de plusieurs réentraînements.</li>
+          <li>Il faut imiter la confiance <b>et la classe fausse choisie</b>, image par image, sur les images exactes et sur des copies légèrement modifiées (cachées).</li>
+          <li>Seuls le modèle original et le forget set sont fournis : pas de données de rétention.</li>
+        </ul>
+        <div class="callout warn"><span class="tag">Interdit en pratique</span>La montée de gradient naïve abîme le modèle et reste distinguable du gold : le sujet la pénalise.</div>
+      </div>
+      <div>
+        <h2>Données</h2>
+        <table class="t sm">
+          <tr><td class="k"><code>model.pt</code></td><td>state dict timm <code>vit_base_patch16_224</code>, 100 classes, LayerScale 1e-4 ; 85 893 988 paramètres</td></tr>
+          <tr><td class="k"><code>forget_images.npz</code></td><td>clé <code>images</code>, uint8 [3500, 224, 224, 3], valeurs 0 à 255, sans labels</td></tr>
+          <tr><td class="k">Source</td><td><code>SprintML/unlearning</code> sur Hugging Face (public)</td></tr>
+          <tr><td class="k">Sur le disque</td><td>343 617 075 octets (modèle), 526 848 266 octets (forget set)</td></tr>
+        </table>
+        <p class="small mt">Sur ce poste : modèle et forget set téléchargés, sha256 vérifié. Le contrôle de format <code>validate</code> accepte <code>model.pt</code> (343,6&nbsp;Mo, 176 tenseurs).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 : UNL 2/3 -->
+<section class="slide" data-sec="3. Unlearning" data-title="Unlearning (2/3) : la métrique">
+  <div class="head"><div class="kicker">3. Unlearning · 2/3</div><h1>La métrique : une distance au modèle gold</h1></div>
+  <div class="content">
+    <div class="cols c64">
+      <div>
+        <div class="formula sm"><i>final</i> = <i>forget</i> × <i>retain</i></div>
+        <div class="formula sm"><i>forget</i> = <i>mean_std</i> × <i>prediction</i></div>
+        <div class="formula sm"><i>mean_std</i> = 1 − clip( <span class="frac"><span><i>d</i><sub>sub</sub></span><span><i>d</i><sub>orig</sub></span></span>, 0, 1 )
+          <div class="where" style="font-family:Inter,Helvetica,Arial,sans-serif">avec <i>d</i><sub>m</sub> = |moy(L<sub>m</sub>) − moy(L<sub>gold</sub>)| + |σ(L<sub>m</sub>) − σ(L<sub>gold</sub>)|, σ = écart-type</div></div>
+        <div class="formula sm"><i>prediction</i> = 1 − clip( <span class="frac"><span>KL(p<sub>gold</sub> ‖ p<sub>sub</sub>)</span><span>KL(p<sub>gold</sub> ‖ p<sub>orig</sub>)</span></span>, 0, 1 ) <span class="where">softmax à T = 2</span></div>
+        <div class="formula sm"><i>retain</i> = clip( <span class="frac"><span>acc<sub>sub</sub></span><span>acc<sub>orig</sub></span></span>, 0, 1 ) × <span class="frac"><span>1</span><span>1 + KL(p<sub>orig</sub> ‖ p<sub>sub</sub>)</span></span></div>
+      </div>
+      <div>
+        <div class="callout warn"><span class="tag">Porte d'utilité</span>
+          Moins de <b>70&nbsp;% d'accuracy</b> sur un validation set caché : forget et retain mis à 0, quel que soit le reste.</div>
+        <ul class="small mt">
+          <li><i>forget</i> est moyenné sur les <b>images exactes</b> et sur des <b>copies altérées cachées</b>, à parts égales.</li>
+          <li><i>L</i> est la perte d'entropie croisée avec le vrai label ; <i>acc</i> est mesurée sur un control set caché.</li>
+          <li>0 = rien oublié (<i>sub = orig</i>). 1 = identique au gold.</li>
+        </ul>
+        <div class="callout"><span class="tag">À retenir</span>Être « plus faux » que le gold est pénalisé comme ne pas bouger. Le score est une <b>distance au gold</b>, pas un taux d'oubli.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 : UNL 3/3 -->
+<section class="slide" data-sec="3. Unlearning" data-title="Unlearning (3/3) : ce qu'on sait et notre méthode">
+  <div class="head"><div class="kicker">3. Unlearning · 3/3</div><h1>Ce qu'on a mesuré et la méthode retenue</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Le modèle original, sur 128 images oubliées</h2>
+        <table class="t xs">
+          <tr><th>Mesure</th><th class="r">Valeur</th></tr>
+          <tr><td>Confiance moyenne sur le forget set</td><td class="r"><b>0,9997</b></td></tr>
+          <tr><td>Confiance après flip, crop 60-90&nbsp;%, JPEG q50</td><td class="r">1,000 / 1,000 / 0,999</td></tr>
+          <tr><td>Crop d'environ 35&nbsp;% de l'aire</td><td class="r">0,926 (accord argmax 87,5&nbsp;%)</td></tr>
+          <tr><td>Crop d'environ 15&nbsp;% de l'aire</td><td class="r">0,808 (accord argmax 43,8&nbsp;%)</td></tr>
+          <tr><td>Images hors distribution (COCO, DIV2K, Kodak)</td><td class="r">0,75</td></tr>
+        </table>
+        <p class="small mt">Mesures sur le vrai <code>model.pt</code>, M5 / MPS. Le modèle est <b>extrêmement mémorisé</b> : seuls des crops forts font baisser sa confiance.</p>
+      </div>
+      <div>
+        <h2>Les trois méthodes du kit</h2>
+        <table class="t xs">
+          <tr><td class="k"><code>identity</code></td><td>copie intacte ; doit scorer environ 0, sert à tester la chaîne</td></tr>
+          <tr><td class="k"><code>scrub</code></td><td>SCRUB sans labels, KL plafonnée (pas de montée de gradient naïve), en comparaison</td></tr>
+          <tr class="hl2"><td class="k"><code>gold_soft</code></td><td><b>Recommandée.</b> Cible = comportement du gold, estimé en sondant l'original sur des vues fortes (crop d'environ 35&nbsp;%), adoucies par une température</td></tr>
+        </table>
+        <div class="callout mt"><span class="tag">Limite</span>
+          Proxys locaux seulement : le vrai score ne se mesure que sur le classement. Essais smoke (12 à 24 pas, 64 images) : ils prouvent que la chaîne fonctionne, pas qu'on bat quoi que ce soit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 : WL 1/3 -->
+<section class="slide" data-sec="3. Watermark Localization" data-title="Watermark Localization (1/3) : la question">
+  <div class="head"><div class="kicker">3. Watermark Localization · 1/3</div><h1>La question : où est le tatouage dans l'image ?</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <p class="lead">Rendre un <b>masque binaire</b> : 1 = zone tatouée, 0 = zone propre.</p>
+        <ul>
+          <li>Chaque image a été tatouée par <b>PixelSeal, TrustMark ou StegaStamp</b> sur un sous-rectangle (rapport d'aspect au plus 16:1, et 2:1 pour TrustMark).</li>
+          <li>Puis éditée : le tatouage est écrasé ou ajouté par endroits.</li>
+          <li>Ces trois méthodes décodent un seul message pour l'image entière : elles ne sont pas entraînées à localiser.</li>
+        </ul>
+        <div class="callout"><span class="tag">Enjeu (sujet officiel)</span>Sans localisation, une édition ajoutée par un tiers est attribuée au propriétaire du tatouage.</div>
+      </div>
+      <div>
+        <h2>Les quatre éditions</h2>
+        <table class="t sm">
+          <tr><td class="k">Outpainting</td><td>l'image est étendue ; le tatouage complet reste, sur une partie seulement</td></tr>
+          <tr><td class="k">Retrait / altération d'objet</td><td>un trou dans le tatouage</td></tr>
+          <tr><td class="k">Ajout d'objet</td><td>un objet non tatoué couvre le tatouage : un trou</td></tr>
+          <tr><td class="k">Transplantation</td><td>un objet tatoué est collé dans une image propre : le tatouage n'est que sur lui</td></tr>
+        </table>
+        <p class="small mt">Éditions larges (la moitié de l'image) à fines (un objet mince, un visage). Les trois méthodes se comportent très différemment : pas de solution unique attendue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 : WL 2/3 -->
+<section class="slide" data-sec="3. Watermark Localization" data-title="Watermark Localization (2/3) : données et métrique">
+  <div class="head"><div class="kicker">3. Watermark Localization · 2/3</div><h1>Les données et la métrique</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>1 530 images PNG, réparties à égalité entre les 3 méthodes</h2>
+        <table class="t sm">
+          <tr><th></th><th class="r">Images</th><th>Contenu</th></tr>
+          <tr><td class="k">Train</td><td class="r">510</td><td>170 par méthode : image, masque (512 et 128), méthode, message embarqué</td></tr>
+          <tr><td class="k">Test</td><td class="r">1 020</td><td>340 par méthode : image, méthode, message embarqué (pas de masque)</td></tr>
+        </table>
+        <div class="callout mt"><span class="tag">À retenir</span>Au test, on connaît la <b>méthode</b> et le <b>message</b> de chaque image : on peut chercher ce message précis.</div>
+        <p class="small mt">Grille d'évaluation 128&nbsp;×&nbsp;128 : une cellule = 4&nbsp;×&nbsp;4 pixels ; vérité = 1 si au moins 50&nbsp;% de ses pixels sont tatoués.</p>
+      </div>
+      <div>
+        <h2>Score : mIoU sur 2 classes, par image</h2>
+        <div class="formula sm"><i>IoU</i><sub>c</sub> = <span class="frac"><span>|P<sub>c</sub> ∩ G<sub>c</sub>|</span><span>|P<sub>c</sub> ∪ G<sub>c</sub>|</span></span>, c ∈ {0, 1}</div>
+        <div class="formula sm"><i>mIoU</i><sub>image</sub> = ( <i>IoU</i><sub>0</sub> + <i>IoU</i><sub>1</sub> ) / 2</div>
+        <ul class="small">
+          <li>Si l'union est vide pour une classe, son IoU vaut 1.</li>
+          <li>Score = moyenne de mIoU<sub>image</sub> sur toutes les images : chaque image compte pareil, quelle que soit la taille de l'édition.</li>
+          <li>Les faux positifs et les faux négatifs agrandissent l'union : les deux sont pénalisés.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 : WL 3/3 -->
+<section class="slide" data-sec="3. Watermark Localization" data-title="Watermark Localization (3/3) : format, kit et piste">
+  <div class="head"><div class="kicker">3. Watermark Localization · 3/3</div><h1>Format, kit officiel et piste de travail</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Format de rendu</h2>
+        <pre class="code sm">{"image_names": names, "masks": masks}
+<span class="c"># masks : tenseur [N, 128, 128], valeurs 0/1</span></pre>
+        <ul class="small">
+          <li>Chaque nom d'image une seule fois ; fichier <b>20&nbsp;Mo maximum</b>.</li>
+          <li>1 020&nbsp;×&nbsp;128&nbsp;×&nbsp;128 = 16,7&nbsp;Mo en <b>uint8</b> ; en float32 : 66,8&nbsp;Mo, rejeté.</li>
+        </ul>
+        <h2 class="mt">Kit officiel (accès restreint)</h2>
+        <p class="small" style="margin-top:0"><code>SprintML/Hackathon_Watermark_Localisation_Task_Paris</code> : wrappers <code>decode(images) -&gt; bits</code> pour les 3 méthodes avec accès aux cartes intermédiaires, aide au calcul de bit accuracy, mIoU local, <code>submission_template.py</code>.</p>
+      </div>
+      <div>
+        <h2>Piste de travail <span class="chip no">Non vérifiée</span></h2>
+        <ol class="small" style="padding-left:28px">
+          <li>Les extracteurs Meta sortent une carte par pixel avant la moyenne ; comparer chaque position au message connu donne une carte de présence du tatouage.</li>
+          <li>Calibrer des seuils par méthode sur le train.</li>
+          <li>Entraîner une tête de segmentation sur des données synthétiques (on a les embedders).</li>
+        </ol>
+        <p class="small">Lien avec nos papiers : Pixel Seal est déjà dans <code>wmkit</code> (poids locaux) ; la keynote traite exactement ce problème (page 16).</p>
+        <div class="pending mt"><span class="tag">En cours</span><br>
+          <b>Kit wmkit de localisation</b> : baseline, mIoU local sur le train, temps d'exécution. Rapport en cours de livraison, à insérer ici. Accès au dataset restreint : <code>HF_TOKEN</code> en attente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 : Keynote 1/3 -->
+<section class="slide" data-sec="4. Keynote de Meta" data-title="Keynote (1/3) : la localisation">
+  <div class="head"><div class="kicker">4. Keynote de Meta · 1/3</div><h1>Un tatouage global ne dit pas où il est</h1></div>
+  <div class="content">
+    <p class="small muted" style="margin-top:0">Pierre Fernandez (Meta FAIR), « Invisible image watermarking, between research and production », 21/11/2026, 57 slides. Numéros entre crochets : slides de la keynote.</p>
+    <div class="cols c2">
+      <div>
+        <ul>
+          <li>Un tatouage global donne <b>une seule réponse par image</b>. Après inpainting, collage ou fort recadrage, l'extracteur moyenne sur toute l'image : il ne dit ni où est le tatouage, ni ce qui a changé [24].</li>
+          <li>Watermark Anything (WAM) traite le tatouage comme une <b>segmentation</b> : quels pixels sont tatoués, et quel message ils portent [25-35].</li>
+          <li>Ses extracteurs sortent une carte par pixel, 256&nbsp;×&nbsp;256&nbsp;×&nbsp;(1 + nbits), avant toute moyenne [29, 32].</li>
+        </ul>
+      </div>
+      <div>
+        <div class="callout"><span class="tag">À retenir</span>C'est exactement le sujet de la tâche Watermark Localization.</div>
+        <p class="mt">Les extracteurs Video Seal et Pixel Seal ont la même structure de sortie, B&nbsp;×&nbsp;(1 + nbits)&nbsp;×&nbsp;H&nbsp;×&nbsp;W avant mise en commun : <span class="chip ok">vérifié dans le code Meta</span></p>
+        <p class="small muted">D'où la piste de la page 15 : lire cette carte avant la moyenne, et la comparer au message connu.</p>
+      </div>
+    </div>
+    <div class="flow" style="margin-top:22px">
+      <div class="step"><span class="t">Image tatouée</span><span class="d">éditée par endroits</span></div>
+      <div class="step"><span class="t">Extracteur</span><span class="d">Pixel Seal, WAM...</span></div>
+      <div class="step"><span class="t">Carte par pixel</span><span class="d">(1 + nbits)&nbsp;×&nbsp;H&nbsp;×&nbsp;W</span></div>
+      <div class="step"><span class="t">Moyenne spatiale</span><span class="d">le « où » est perdu à cette étape</span></div>
+      <div class="step"><span class="t">Un message</span><span class="d">pour toute l'image</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 : Keynote 2/3 -->
+<section class="slide" data-sec="4. Keynote de Meta" data-title="Keynote (2/3) : Pixel Seal et la détection">
+  <div class="head"><div class="kicker">4. Keynote de Meta · 2/3</div><h1>Pixel Seal travaille en 256&nbsp;×&nbsp;256 ; la détection est un test</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Pixel Seal [17-22]</h2>
+        <ul class="small">
+          <li>L'image est redimensionnée en 256 ; l'embedder produit un résidu atténué par une carte JND (différence juste perceptible) ; le résidu est remis à la taille d'origine [17-19].</li>
+          <li>L'extracteur redimensionne aussi en 256 [17].</li>
+          <li>Pas de perte perceptuelle : un discriminateur la remplace [20]. Code MIT, <code>github.com/facebookresearch/videoseal</code> [22].</li>
+        </ul>
+        <div class="callout"><span class="tag">Conséquence pour nous</span>La résolution effective d'une carte de présence est celle de l'extracteur, pas celle de l'image 512&nbsp;×&nbsp;512.</div>
+      </div>
+      <div>
+        <h2>Détection [14, 15]</h2>
+        <ul class="small">
+          <li>Test sur la <b>bit accuracy</b> : sous H0 (image naturelle), les bits sont aléatoires et la p-valeur est une somme binomiale.</li>
+          <li>Exemple de la keynote : 31/32 bits corrects pour une image générée, 17/32 pour une image naturelle [14].</li>
+        </ul>
+        <table class="t xs">
+          <tr><th>Seuil τ</th><th class="r">TPR</th><th class="r">FPR</th></tr>
+          <tr><td>0,80</td><td class="r">0,50</td><td class="r">4·10<sup>-4</sup></td></tr>
+          <tr><td>0,90</td><td class="r">0,16</td><td class="r">4·10<sup>-6</sup></td></tr>
+        </table>
+        <p class="small mt">Dans <code>wmkit</code> : seuil binomial de 167/256 bits pour p &lt; 1e-6.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 : Keynote 3/3 -->
+<section class="slide" data-sec="4. Keynote de Meta" data-title="Keynote (3/3) : résultats WAM et sécurité">
+  <div class="head"><div class="kicker">4. Keynote de Meta · 3/3</div><h1>Ce que montrent les résultats de WAM</h1></div>
+  <div class="content">
+    <p class="small muted" style="margin-top:0">Slide 33 : COCO, 10 000 images de validation. Cellules : TPR&nbsp;% / bit accuracy&nbsp;%. FPR en&nbsp;%.</p>
+    <table class="t xs">
+      <tr><th>Méthode</th><th class="r">FPR</th><th class="r">Aucune</th><th class="r">Géométrique</th><th class="r">Valeurs</th><th class="r">Inpainting</th><th class="r">Splicing</th></tr>
+      <tr><td class="k">HiDDeN</td><td class="r">0,08</td><td class="r">76,9 / 95,5</td><td class="r">31,2 / 80,1</td><td class="r">48,4 / 87,2</td><td class="r">44,7 / 88,7</td><td class="r">0,9 / 68,0</td></tr>
+      <tr><td class="k">DWTDCT</td><td class="r">0,02</td><td class="r">77,1 / 91,4</td><td class="r">0,0 / 50,5</td><td class="r">13,6 / 58,1</td><td class="r">47,8 / 81,7</td><td class="r">0,8 / 59,9</td></tr>
+      <tr><td class="k">SSL</td><td class="r">0,00</td><td class="r">99,9 / 100,0</td><td class="r">14,3 / 76,5</td><td class="r">70,5 / 92,1</td><td class="r">67,7 / 91,1</td><td class="r">0,4 / 58,9</td></tr>
+      <tr><td class="k">FNNS</td><td class="r">0,10</td><td class="r">99,6 / 99,9</td><td class="r">62,4 / 86,6</td><td class="r">82,1 / 93,9</td><td class="r">89,4 / 97,3</td><td class="r">38,7 / 88,5</td></tr>
+      <tr class="hl"><td class="k">TrustMark</td><td class="r"><b>2,88</b></td><td class="r">99,8 / 99,9</td><td class="r">36,3 / 71,4</td><td class="r">90,1 / 98,2</td><td class="r">39,4 / 83,2</td><td class="r"><b>83,2 / 57,1</b></td></tr>
+      <tr class="hl2"><td class="k">WAM</td><td class="r">0,04</td><td class="r">100,0 / 100,0</td><td class="r">99,3 / 91,8</td><td class="r">100,0 / 99,9</td><td class="r">97,9 / 99,2</td><td class="r">100,0 / 95,3</td></tr>
+    </table>
+    <div class="cols c2 mt">
+      <div class="callout"><span class="tag">À noter pour la tâche</span>TrustMark a le FPR le plus élevé (2,88&nbsp;%) et seulement 57&nbsp;% de bits justes après splicing, même s'il détecte encore 83&nbsp;% des images.</div>
+      <div class="callout"><span class="tag">Sécurité et robustesse [37, 38, 52]</span>En boîte blanche, retirer un tatouage est « extrêmement facile » ; les régénérations (DiffPure, auto-encodeur) l'effacent.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 : JURECA 1/4 -->
+<section class="slide" data-sec="5. GPU JURECA" data-title="GPU JURECA (1/4) : matériel et paramètres fixés">
+  <div class="head"><div class="kicker">5. GPU JURECA · 1/4</div><h1>Le matériel : un nœud entier par job</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <table class="t xs">
+          <tr><th></th><th>Nœuds de calcul (jobs)</th><th>Nœuds de connexion</th></tr>
+          <tr><td class="k">Nombre</td><td>40 nœuds, environ 200 GPU</td><td>12</td></tr>
+          <tr><td class="k">GPU</td><td><b>4&nbsp;×&nbsp;NVIDIA A100-SXM4 40&nbsp;GB</b></td><td>2&nbsp;×&nbsp;Quadro RTX 8000</td></tr>
+          <tr><td class="k">CPU</td><td>2&nbsp;×&nbsp;AMD EPYC 7742 (128 cœurs)</td><td>2&nbsp;×&nbsp;AMD EPYC 7742 (128 cœurs)</td></tr>
+          <tr><td class="k">RAM</td><td>512&nbsp;GB</td><td>1 024&nbsp;GB</td></tr>
+          <tr><td class="k">Pilote</td><td>580.95.05, CUDA 13.0</td><td></td></tr>
+        </table>
+        <h2 class="mt2">Paramètres fixés par les organisateurs</h2>
+        <table class="t xs">
+          <tr><td class="k">Machine</td><td><code>jureca.fz-juelich.de</code></td></tr>
+          <tr><td class="k">Projet</td><td><code>training2666</code></td></tr>
+          <tr><td class="k">Réservation / partition</td><td><code>cispahack</code> / <code>dc-gpu</code></td></tr>
+          <tr><td class="k">Dossier d'équipe</td><td><code>/p/scratch/training2666/&lt;chef&gt;/&lt;équipe&gt;/</code></td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="callout"><span class="tag">À retenir</span><b>Un nœud entier est réservé par job</b> : 4 GPU, 128 cœurs, 512&nbsp;GB de RAM.</div>
+        <div class="callout warn mt"><span class="tag">Piège : GPU non isolés</span>
+          À cause d'un bug Slurm (message d'accueil de JURECA), les GPU ne sont pas isolés : un job demandé avec <code>--gres=gpu:1</code> voit en pratique les 4 A100.</div>
+        <p class="mt"><b>Bon usage</b> : lancer jusqu'à 4 expériences dans le même job, chacune épinglée sur un GPU (<code>CUDA_VISIBLE_DEVICES=0..3</code>), plutôt que 4 jobs. <span class="chip no">Non vérifié</span> au premier <code>nvidia-smi</code> dans un job.</p>
+        <p class="small muted">CPU par job : le README HF demande 8, le modèle des organisateurs 128. Notre job Unlearning est à 8.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 : JURECA 2/4 -->
+<section class="slide" data-sec="5. GPU JURECA" data-title="GPU JURECA (2/4) : accès pas à pas">
+  <div class="head"><div class="kicker">5. GPU JURECA · 2/4</div><h1>Accès : sept étapes, pour chaque membre</h1></div>
+  <div class="content">
+    <div class="cols c64">
+      <ol class="steps" style="font-size:23px;line-height:1.3">
+        <li><b>Compte JuDoor</b> : <code>judoor.fz-juelich.de/login</code>, « Register », valider le mail.</li>
+        <li><b>MFA</b> : authentification à deux facteurs (TOTP). Le code est demandé à <b>chaque</b> connexion SSH.</li>
+        <li><b>Projet et accord</b> : rejoindre <code>training2666</code> et signer l'accord d'utilisation de JURECA (ligne « JURECA-DC_GPU »). Sans signature, pas d'accès.</li>
+        <li><b>Clé ed25519</b> (les clés RSA sont refusées) : commande à droite, une clé dédiée.</li>
+        <li><b>Dépôt de la clé</b> dans JuDoor (« Manage SSH-keys ») avec une clause <code>from="..."</code> qui limite les IP sources.</li>
+        <li><b>Attendre jusqu'à 15 min</b> que la clé soit active.</li>
+        <li><b>Configurer SSH</b> (voir à droite), puis <code>ssh juelich</code>.</li>
+      </ol>
+      <div>
+        <pre class="code sm">ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_juelich \
+  -C "&lt;email&gt;"</pre>
+        <pre class="code sm">Host juelich
+  Hostname jureca.fz-juelich.de
+  User &lt;user-juelich&gt;
+  IdentityFile ~/.ssh/id_ed25519_juelich
+  IdentitiesOnly yes
+  MACs hmac-sha2-256-etm@openssh.com</pre>
+        <p class="small muted" style="margin-top:2px">Utilisable aussi par VS Code Remote-SSH.</p>
+        <div class="callout warn mt"><span class="tag">Piège : la clause from=</span>
+          Elle ne couvre que le réseau d'où l'on dépose la clé. Wi-Fi du lieu, partage 4G ou VPN : redéposer ou élargir. <b>Déposer la clé depuis le réseau qu'on utilisera pendant le hackathon.</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 : JURECA 3/4 -->
+<section class="slide" data-sec="5. GPU JURECA" data-title="GPU JURECA (3/4) : installation d'équipe">
+  <div class="head"><div class="kicker">5. GPU JURECA · 3/4</div><h1>Installation d'équipe : le chef d'abord, puis les autres</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Chef d'équipe (une seule fois)</h2>
+        <pre class="code sm" style="font-size:15px">HFD=https://huggingface.co/datasets/SprintML/hackathon
+mkdir -p ~/hackathon-scripts &amp;&amp; cd ~/hackathon-scripts
+wget $HFD/resolve/main/hackathon_setup.sh \
+  -O hackathon_setup.sh
+wget $HFD/resolve/main/teammate.sh -O teammate.sh
+<span class="c"># éditer la section CONFIGURATION de hackathon_setup.sh :</span>
+<span class="c">#  TEAM_LEAD  TEAMMATE_1  TEAMMATE_2  TEAM_FOLDER</span>
+export HF_TOKEN=&lt;token d'un compte AUTORISÉ&gt;
+source hackathon_setup.sh   <span class="c"># à SOURCER, pas exécuter</span></pre>
+        <p class="small">Le script crée le dossier d'équipe, pose les ACL, installe <code>uv</code>, télécharge les 3 datasets et crée un <code>.venv</code> par tâche. Attendre sa fin avant les coéquipiers.</p>
+      </div>
+      <div>
+        <h2>Coéquipiers (chacun, après le chef)</h2>
+        <pre class="code sm" style="font-size:15px">mkdir -p ~/hackathon-scripts &amp;&amp; cd ~/hackathon-scripts
+wget $HFD/resolve/main/teammate.sh -O teammate.sh
+sed -i \
+ 's/^PROJECT_NAME="training2625"/PROJECT_NAME="training2666"/' \
+ teammate.sh
+grep -n '^PROJECT_NAME=' teammate.sh
+<span class="c"># doit afficher training2666</span>
+<span class="c"># éditer : TEAM_LEAD="&lt;user du chef&gt;"</span>
+<span class="c">#         TEAM_FOLDER="&lt;équipe&gt;"</span>
+source teammate.sh</pre>
+        <div class="callout warn"><span class="tag">Bug du script officiel</span>
+          <code>teammate.sh</code> contient <code>PROJECT_NAME="training2625"</code> (ligne 48, vérifié le 21/11/2026) ; le projet est <code>training2666</code>. Corriger <b>avant</b> de lancer.</div>
+      </div>
+    </div>
+    <div class="callout mt"><span class="tag">À retenir</span>Jamais les deux scripts depuis le même compte. Sans <code>HF_TOKEN</code> autorisé, seul le dataset de localisation échoue (« Download failed - skipping venv setup ») ; relancer après l'accès : le script saute ce qui existe.</div>
+  </div>
+</section>
+
+<!-- 22 : JURECA 4/4 -->
+<section class="slide" data-sec="5. GPU JURECA" data-title="GPU JURECA (4/4) : notre code et les jobs Slurm">
+  <div class="head"><div class="kicker">5. GPU JURECA · 4/4</div><h1>Notre code sur le cluster et les jobs Slurm</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>À chaque connexion</h2>
+        <pre class="code sm">jutil env activate -p training2666
+source ~/.bashrc
+cd /p/scratch/training2666/&lt;chef&gt;/&lt;équipe&gt;/&lt;tâche&gt;
+source .venv/bin/activate</pre>
+        <h2>Envoyer le code (depuis le Mac)</h2>
+        <pre class="code sm">TEAM=/p/scratch/training2666/&lt;chef&gt;/&lt;équipe&gt;
+rsync -az --exclude .venv --exclude data \
+  --exclude weights --exclude third_party ./ \
+  &lt;user&gt;@jureca.fz-juelich.de:$TEAM/Tempete/</pre>
+        <p class="small">Le code <code>src/hackathon</code> n'a besoin que des paquets des <code>.venv</code> officiels, avec <code>PYTHONPATH=&lt;repo&gt;/src</code>.</p>
+      </div>
+      <div>
+        <h2>Lancer un job GPU (Unlearning)</h2>
+        <pre class="code sm"><span class="c"># le dossier output doit exister AVANT sbatch</span>
+cd "$TEAM_DIR/unlearning" &amp;&amp; mkdir -p output
+TEAM_DIR=$TEAM_DIR METHOD=gold_soft CONFIG=full \
+  SETS="target_temperature=2.0" \
+  sbatch $TEAM_DIR/challenge/jureca/unlearning.sbatch
+squeue -u "$USER"
+tail -f output/&lt;jobid&gt;.out
+scancel &lt;jobid&gt;</pre>
+        <div class="callout warn"><span class="tag">Incohérence à trancher</span>La fiche JURECA envoie le code dans <code>.../Tempete/</code> ; le sbatch attend par défaut <code>$TEAM_DIR/challenge</code>. Soit rsync vers <code>challenge/</code>, soit passer <code>REPO=...</code>.</div>
+        <p class="small mt">Le job ne soumet jamais au serveur : soumettre depuis le portable. Les nœuds de calcul n'ont en général pas Internet <span class="chip no">Non vérifié</span></p>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:6px">Job de localisation <code>jureca/wmloc.sbatch</code> : <span class="chip wip">En cours</span> · Model Equality tourne sur CPU.</p>
+  </div>
+</section>
+
+<!-- 23 : soumission ME -->
+<section class="slide" data-sec="6. Préparer chaque soumission" data-title="Soumettre Model Equality">
+  <div class="head"><div class="kicker">6. Préparer chaque soumission · Model Equality</div><h1>Model Equality : un CSV, un délai de 30 minutes</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Format exact</h2>
+        <pre class="code sm">endpoint,family,model
+ep-01,A,A1
+ep-02,B,B1
+ep-03,A,A2</pre>
+        <ul class="small">
+          <li>Une ligne par endpoint (33), trois colonnes ; en-tête facultatif ; ordre libre ; libellés libres, sans virgule.</li>
+          <li>Même <code>model</code> implique même <code>family</code>.</li>
+        </ul>
+        <h2>Commandes</h2>
+        <pre class="code sm">ME="$PY -m hackathon.model_equality"
+S=artifacts/model_equality/submissions/submission.csv
+$ME make-submission --labels $LABELS
+$ME validate $S
+$ME submit $S          <span class="c"># essai à blanc</span>
+$ME submit $S --yes    <span class="c"># envoi réel</span></pre>
+        <p class="tiny muted">Avec <code>export PYTHONPATH=$PWD/src</code>, <code>PY=.venv/bin/python</code> et <code>LABELS=artifacts/model_equality/analysis/labels_ep.csv</code>.</p>
+      </div>
+      <div>
+        <div class="callout warn"><span class="tag">Piège : le délai de 30 minutes</span>1 soumission toutes les 30 min, <b>un échec relance le délai</b>. Toujours <code>validate</code> d'abord. Notre garde refuse l'envoi tant que le délai court.</div>
+        <ul class="small mt">
+          <li><code>submit</code> sans <code>--yes</code> ne fait rien d'envoyé (essai à blanc, code de sortie 2).</li>
+          <li>Une seule personne soumet : le journal et le délai sont par équipe.</li>
+          <li>Juger sur les <code>ref-*</code> et les marges du rapport d'analyse, pas sur le score public.</li>
+        </ul>
+        <div class="callout"><span class="tag">Vérifié le 21/11/2026</span><span class="small">Sur un CSV d'exemple de 33 lignes : <code>validate</code> répond « valid » ; <code>submit</code> sans <code>--yes</code> répond « DRY RUN: nothing sent ». <code>make-submission</code> et <code>submit --yes</code> : non exécutées (analyse réelle et envoi réel).</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 : soumission UNL -->
+<section class="slide" data-sec="6. Préparer chaque soumission" data-title="Soumettre Unlearning">
+  <div class="head"><div class="kicker">6. Préparer chaque soumission · Unlearning</div><h1>Unlearning : un state dict float32, sous la porte des 70&nbsp;%</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Format exact</h2>
+        <ul class="small">
+          <li>Fichier <code>.pt</code> ou <code>.pth</code> chargé en <code>strict=True</code> dans l'architecture du sujet (mêmes noms de couches et formes).</li>
+          <li><b>float32 uniquement</b> (un seul tenseur float16 ou bf16 : rejet) ; ni NaN ni infini.</li>
+          <li><b>450&nbsp;Mo maximum</b> (450 000 000 octets) ; fichier attendu : 343 617 075 octets.</li>
+          <li>LoRA et adaptateurs refusionnés avant l'envoi.</li>
+        </ul>
+        <h2>Commandes</h2>
+        <pre class="code sm">HK="env PYTHONPATH=$PWD/src \
+ .venv/bin/python -m hackathon.unlearning"
+$HK validate &lt;fichier.pt&gt;
+$HK submit   &lt;fichier.pt&gt;          <span class="c"># essai à blanc</span>
+$HK submit   &lt;fichier.pt&gt; --yes    <span class="c"># envoi réel</span></pre>
+      </div>
+      <div>
+        <div class="callout warn"><span class="tag">Piège : la porte à 70&nbsp;%</span>Moins de 70&nbsp;% d'accuracy sur un validation set caché : score 0. Pas d'ancre locale : garder <code>lr</code> bas et surveiller l'accord d'argmax sur la rétention.</div>
+        <ul class="small mt">
+          <li>Le serveur évalue en eval avec fp16 autocast ; les poids soumis restent float32.</li>
+          <li>Enregistrer <code>state_dict()</code>, jamais le module ; <code>save_submission</code> caste et valide avant d'écrire.</li>
+          <li>Aucun délai documenté, mais chaque tentative est journalisée.</li>
+          <li>Premier envoi conseillé : <code>identity</code>, qui doit scorer environ 0 (valide chaîne, format, délai).</li>
+          <li>Dans un worktree, exporter <code>HACKATHON_DATA_DIR</code>.</li>
+        </ul>
+        <div class="callout"><span class="tag">Vérifié le 21/11/2026</span><span class="small"><code>validate</code> sur le vrai <code>model.pt</code> : « VALID, 343,6 MB, 176 tensors ». <code>submit</code> via le client commun, sans <code>--yes</code> : essai à blanc. <code>submit --yes</code> : non exécutée.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 : soumission WL -->
+<section class="slide" data-sec="6. Préparer chaque soumission" data-title="Soumettre Watermark Localization">
+  <div class="head"><div class="kicker">6. Préparer chaque soumission · Watermark Localization</div><h1>Localisation : un dictionnaire de masques, 20&nbsp;Mo maximum</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Format exact</h2>
+        <pre class="code sm">{"image_names": names, "masks": masks}
+<span class="c"># names[i] correspond à masks[i]</span>
+<span class="c"># masks : tenseur [num_images, 128, 128], valeurs 0 ou 1</span></pre>
+        <ul class="small">
+          <li>Chaque nom d'image <b>une seule fois</b> ; pas de doublon, pas de valeur invalide.</li>
+          <li>Fichier <code>.pt</code> de <b>20&nbsp;Mo maximum</b> : stocker en <b>uint8</b> ou bool. 1 020 masques : 16,7&nbsp;Mo en uint8, 66,8&nbsp;Mo en float32 (rejet).</li>
+        </ul>
+        <div class="callout warn"><span class="tag">Pièges</span>float32 dépasse la limite ; le task id serveur est inconnu (<code>HACKATHON_TASK_WMLOC</code>) ; aucune limite d'envoi documentée.</div>
+      </div>
+      <div>
+        <div class="pending"><span class="tag">En cours</span><br>
+          <b>Commande de validation et commande d'envoi du kit de localisation</b> : à insérer à la livraison du kit (<code>python -m hackathon.&lt;module&gt; validate ...</code>).</div>
+        <h2 class="mt">En attendant : envoi générique</h2>
+        <pre class="code sm">python -m hackathon.common.submit \
+  --task &lt;task id&gt; --file masks.pt
+python -m hackathon.common.submit \
+  --task &lt;task id&gt; --file masks.pt --yes</pre>
+        <p class="small">Cet outil <b>ne valide pas le format</b> : il envoie le fichier et journalise la tentative. Sans <code>--yes</code>, il affiche seulement ce qu'il enverrait (essai à blanc exécuté le 21/11/2026 avec un autre task id).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 26 : structures 1 -->
+<section class="slide" data-sec="7. Structures prêtes" data-title="Structures prêtes (1/3) : arborescence du dépôt">
+  <div class="head"><div class="kicker">7. Structures prêtes · 1/3</div><h1>L'arborescence du dépôt, branche <code style="font-size:.8em">victor</code></h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <pre class="code sm" style="font-size:16px;line-height:1.5">Tempete/
+├── src/hackathon/
+│   ├── common/          config, submit, errors
+│   ├── model_equality/  cli, client, store, prompts/,
+│   │                    pairwise, clustering, scoring,
+│   │                    submission, simulate
+│   └── unlearning/      cli, fetch, model, data, methods,
+│                        training, alterations, proxy_eval,
+│                        validate, submission
+├── src/wmkit/           boîte à outils (Pixel Seal...)
+├── jureca/              unlearning.sbatch
+├── artifacts/           model_equality/ (réponses, analyses)
+├── docs/hackathon/      GUIDE, jureca, keynote, fiches
+├── tests/hackathon/     16 fichiers, 217 tests
+└── .env.example         clés et chemins, sans valeurs</pre>
+        <p class="small muted">Sur <code>main</code> : un dossier par tâche (<code>unlearning/</code>, <code>model_equality/</code>, <code>watermark_localization/</code>) avec le code de démarrage officiel, un <code>slurm_job.sh</code> générique et <code>.env.example</code>.</p>
+      </div>
+      <div>
+        <h2>Démarrage local (Mac)</h2>
+        <pre class="code sm">git clone git@github.com:alex-pierron/Tempete.git
+cd Tempete &amp;&amp; git checkout victor
+make setup             <span class="c"># .venv 3.12, pas uv sync</span>
+cp .env.example .env   <span class="c"># remplir les clés</span>
+make test              <span class="c"># suite rapide</span></pre>
+        <div class="callout"><span class="tag">À retenir</span>Le code <code>src/hackathon</code> ne dépend que des paquets des environnements officiels de JURECA : le même code tourne en local et sur le cluster avec <code>PYTHONPATH=&lt;repo&gt;/src</code>.</div>
+        <p class="small mt"><span class="chip ok">Vérifié</span> <code>pytest tests/hackathon</code> : 217 passés. <span class="chip no">Non exécutées</span> <code>make setup</code> (reconstruit l'environnement) et <code>make test</code> (suite complète du dépôt).</p>
+        <div class="pending mt"><span class="tag">En cours</span> Fiche <code>docs/hackathon/wmloc.md</code> et module de localisation : absents de cette branche, attendus avec le kit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 : structures 2 -->
+<section class="slide" data-sec="7. Structures prêtes" data-title="Structures prêtes (2/3) : commandes clés par tâche">
+  <div class="head"><div class="kicker">7. Structures prêtes · 2/3</div><h1>Les commandes clés, par tâche</h1></div>
+  <div class="content">
+    <div class="cols c3" style="gap:22px">
+      <div>
+        <h2>Model Equality</h2>
+        <pre class="code sm" style="font-size:14.5px;line-height:1.45">ME="$PY -m hackathon.model_equality"
+$ME budget
+$ME plan --phase ref-1
+$ME query-ref --phase ref-1
+$ME query-ref --phase ref-full
+$ME analyze --target ref \
+ --practice-answers $PRACTICE
+$ME plan --phase ep-1
+$ME query-ep --phase ep-1 --yes
+$ME analyze --calibrate \
+ --ref-like ep-1 \
+ --practice-answers $PRACTICE
+$ME make-submission --labels $LABELS
+$ME validate $CSV
+$ME submit $CSV --yes</pre>
+        <p class="tiny muted" style="margin-top:2px">$PRACTICE = <code>practice_answers.csv</code>, $LABELS = <code>labels_ep.csv</code>, $CSV = <code>submission.csv</code></p>
+      </div>
+      <div>
+        <h2>Unlearning</h2>
+        <pre class="code sm" style="font-size:14.5px;line-height:1.45">HK="env PYTHONPATH=$PWD/src \
+ $PY -m hackathon.unlearning"
+$HK fetch
+$HK info
+$HK proxy-eval --forget-limit 64 \
+ --retain-count 32 --batch-size 16
+$HK run --method gold_soft \
+ --config smoke
+$HK run --method scrub \
+ --config smoke
+$HK run --method gold_soft \
+ --config smoke \
+ --set max_steps_per_epoch=24 \
+ --set lr=5e-5
+$HK proxy-eval --candidate $F \
+ --forget-limit 64
+$HK validate $F
+$HK submit $F --yes</pre>
+        <p class="tiny muted" style="margin-top:2px">$F = <code>fichier.pt</code></p>
+      </div>
+      <div>
+        <h2>Watermark Localization</h2>
+        <div class="pending"><span class="tag">En cours</span><br>
+          <b>Commandes du kit de localisation</b> : fetch du dataset, baseline, mIoU local sur le train, validation, envoi. À insérer à la livraison.</div>
+        <h2 class="mt">Commun</h2>
+        <pre class="code sm" style="font-size:14.5px;line-height:1.45">python -m hackathon.common.submit \
+ --task &lt;id&gt; --file &lt;f&gt; [--yes]</pre>
+        <p class="tiny muted">Exécutées pour cette présentation : <code>plan</code> (ep-1, ep-2), <code>validate</code>, <code>submit</code> sans <code>--yes</code>, <code>--help</code> et <code>validate</code> d'Unlearning. Non exécutées : <code>budget</code>, <code>query-*</code>, <code>fetch</code>, <code>run</code>, <code>proxy-eval</code>, <code>analyze</code>, tout <code>--yes</code> (serveur, budget ou calcul lourd).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 28 : structures 3 -->
+<section class="slide" data-sec="7. Structures prêtes" data-title="Structures prêtes (3/3) : où sont les choses">
+  <div class="head"><div class="kicker">7. Structures prêtes · 3/3</div><h1>Où sont les données, les réponses et le journal</h1></div>
+  <div class="content">
+    <div class="cols" style="gap:28px;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr)">
+      <table class="t xs wrapcode" style="font-size:16.5px">
+        <tr><th style="width:27%">Quoi</th><th>Où</th></tr>
+        <tr><td class="k">Modèle et forget set</td><td><code>&lt;HACKATHON_DATA_DIR&gt;/<wbr>unlearning/<wbr></code> (défaut <code>data/<wbr>hackathon/<wbr></code>)</td></tr>
+        <tr><td class="k">Réponses officielles de pratique</td><td><code>data/<wbr>hackathon/<wbr>hf/<wbr>model_equality/<wbr>practice_answers.csv</code></td></tr>
+        <tr><td class="k">Réponses des <code>ep-*</code></td><td><code>artifacts/<wbr>model_equality/<wbr>answers.jsonl</code> ; convention d'équipe : <code>model_equality/<wbr>answers.jsonl</code> sur <code>main</code></td></tr>
+        <tr><td class="k">Réponses des <code>ref-*</code></td><td><code>artifacts/<wbr>model_equality/<wbr>reference_answers.jsonl</code></td></tr>
+        <tr><td class="k">Analyses Model Equality</td><td><code>artifacts/<wbr>model_equality/<wbr>analysis/<wbr></code> (rapport, distances, labels)</td></tr>
+        <tr><td class="k">CSV prêts à soumettre</td><td><code>artifacts/<wbr>model_equality/<wbr>submissions/<wbr></code></td></tr>
+        <tr><td class="k">Sorties Unlearning</td><td><code>&lt;task-dir&gt;/<wbr>output/<wbr>&lt;méthode&gt;_&lt;horodatage&gt;.pt</code> et un <code>.json</code> (config, historique, proxys)</td></tr>
+        <tr><td class="k">Journal des soumissions</td><td><code>data/<wbr>hackathon/<wbr>submissions/<wbr>log.jsonl</code></td></tr>
+      </table>
+      <div>
+        <div class="callout"><span class="tag">Le journal garde</span><span class="small">task_id, fichier, sha256, date, succès, statut HTTP, score, meilleur score précédent, amélioration, message. Une tentative échouée y figure aussi.</span></div>
+        <div class="callout warn mt"><span class="tag">Pièges</span>
+          <ul class="small" style="margin:4px 0;padding-left:24px">
+            <li>Dans un worktree, <code>data/</code> n'est pas celui du dépôt principal : exporter <code>HACKATHON_DATA_DIR</code>.</li>
+            <li>Les réponses Model Equality sont <b>toujours commitées</b> : le budget ne se rachète pas.</li>
+            <li><code>.env</code> n'est jamais commité ; la clé n'apparaît dans aucun fichier.</li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 29 : process -->
+<section class="slide" data-sec="8. Process automatique" data-title="Le process automatique, schéma cible">
+  <div class="head"><div class="kicker">8. Process automatique</div><h1>De l'idée à la soumission : le schéma cible</h1></div>
+  <div class="content">
+    <div class="flow">
+      <div class="step"><span class="n">1</span><span class="t">Idée</span><span class="d">une hypothèse, une tâche, un critère de succès</span></div>
+      <div class="step"><span class="n">2</span><span class="t">Code</span><span class="d">branche de travail, <code>src/hackathon</code></span></div>
+      <div class="step"><span class="n">3</span><span class="t">Éval locale</span><span class="d"><code>proxy-eval</code><code>analyze</code><code>score-practice</code></span></div>
+      <div class="step"><span class="n">4</span><span class="t">Job JURECA</span><span class="d"><code>sbatch</code> sur un nœud de 4 GPU</span></div>
+      <div class="step"><span class="n">5</span><span class="t">Validation</span><span class="d"><code>validate</code>format avant tout envoi</span></div>
+      <div class="step"><span class="n">6</span><span class="t">Soumission</span><span class="d"><code>submit --yes</code>garde du délai</span></div>
+      <div class="step"><span class="n">7</span><span class="t">Registre</span><span class="d"><code>log.jsonl</code>chaque tentative</span></div>
+    </div>
+    <p class="loop">Le registre nourrit l'idée suivante : score public, score local et paramètres de chaque essai restent côte à côte.</p>
+    <div class="cols c2 mt">
+      <div class="callout"><span class="tag">Ce qui existe aujourd'hui (étapes 3 à 7)</span>
+        <span class="small">Chaque étape a sa commande, citée sous son nom. Elles se lancent à la main. Toute soumission passe par la validation, est refusée sans <code>--yes</code> et est journalisée.</span></div>
+      <div class="pending"><span class="tag">En cours</span><br>
+        <b>Enchaînement automatique <code>hackathon.lab</code></b> (idée, expérience, job GPU, validation, soumission) : en construction par un autre agent. <b>Commandes exactes à insérer à la livraison.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 30 : à faire 1/2 -->
+<section class="slide" data-sec="9. Ce qu'on doit faire" data-title="À faire (1/2) : équipe et accès, 2 prochaines heures">
+  <div class="head"><div class="kicker">9. Ce qu'on doit faire · 1/2</div><h1>Les deux prochaines heures : équipe et accès</h1></div>
+  <div class="content">
+    <table class="t sm">
+      <tr><th style="width:7%">Prio</th><th>Action</th><th style="width:21%">Responsable</th></tr>
+      <tr><td class="k">P1</td><td>Obtenir les identifiants Jülich des 2 autres membres et le nom du dossier d'équipe (<code>TEAM_FOLDER</code>)</td><td></td></tr>
+      <tr><td class="k">P1</td><td>Chaque membre : JuDoor, MFA, accord JURECA, clé ed25519 avec <code>from=</code> déposée depuis le réseau du hackathon, puis <code>ssh juelich</code></td><td></td></tr>
+      <tr><td class="k">P1</td><td>Chef (Alex) : <code>hackathon_setup.sh</code> avec un <code>HF_TOKEN</code> autorisé ; puis <code>teammate.sh</code> corrigé (<code>training2666</code>) pour les 2 autres</td><td></td></tr>
+      <tr><td class="k">P1</td><td>Obtenir un <code>HF_TOKEN</code> d'un compte autorisé et le task id serveur de la localisation</td><td></td></tr>
+      <tr><td class="k">P1</td><td>Premier job de test : <code>nvidia-smi</code> (combien de GPU voit-on ?) et <code>rsync</code> du code</td><td></td></tr>
+      <tr><td class="k">P2</td><td>Trancher les décisions de la page 32 ; fixer le rythme : point de 5 min toutes les 2 h (scores locaux, soumissions, budget restant)</td><td></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 31 : à faire 2/2 -->
+<section class="slide" data-sec="9. Ce qu'on doit faire" data-title="À faire (2/2) : par tâche, 2 prochaines heures">
+  <div class="head"><div class="kicker">9. Ce qu'on doit faire · 2/2</div><h1>Les deux prochaines heures : par tâche</h1></div>
+  <div class="content">
+    <table class="t xs">
+      <tr><th style="width:6%">Prio</th><th style="width:16%">Tâche</th><th>Action</th><th style="width:17%">Responsable</th></tr>
+      <tr><td class="k">P1</td><td class="k">Model Equality</td><td><code>budget</code>, puis calibration sur les <code>ref-*</code> (gratuits) : <code>query-ref --phase ref-1</code> (360 requêtes) pour mesurer la vitesse du serveur et vérifier que les répétitions donnent des réponses différentes</td><td></td></tr>
+      <tr><td class="k">P2</td><td class="k">Model Equality</td><td><code>ref-full</code> (2 484 requêtes), <code>analyze</code> sur les ref ; <b>après</b> calibration seulement : <code>ep-1</code> (1 320 requêtes)</td><td></td></tr>
+      <tr><td class="k">P1</td><td class="k">Unlearning</td><td>Envoyer <code>identity</code> pour valider chaîne, format et délai (score attendu : environ 0)</td><td></td></tr>
+      <tr><td class="k">P1</td><td class="k">Unlearning</td><td><code>gold_soft</code>, <code>CONFIG=full</code>, <code>target_temperature</code> dans {1,5 ; 2 ; 3} sur un A100 ; copier <code>proxy_images</code> (coco_val_subset 79&nbsp;Mo, kodak 15&nbsp;Mo) sur le cluster</td><td></td></tr>
+      <tr><td class="k">P1</td><td class="k">Localisation</td><td>À la livraison du kit : baseline et mIoU local sur le train ; confirmer le task id</td><td></td></tr>
+      <tr><td class="k">P2</td><td class="k">Process</td><td>Brancher la chaîne <code>hackathon.lab</code> à la livraison, sinon rester sur les commandes à la main</td><td></td></tr>
+    </table>
+    <div class="pending mt"><span class="tag">En cours</span> Lignes Localisation et Process à préciser avec le rapport du kit de localisation et de la chaîne.</div>
+  </div>
+</section>
+
+<!-- 32 : décisions -->
+<section class="slide" data-sec="9. Ce qu'on doit faire" data-title="Décisions à prendre en équipe">
+  <div class="head"><div class="kicker">9. Ce qu'on doit faire</div><h1>Trois décisions à prendre en équipe</h1></div>
+  <div class="content">
+    <table class="t sm">
+      <tr><th style="width:19%">Décision</th><th>Ce que disent les faits</th><th style="width:32%">Proposition à valider</th></tr>
+      <tr><td class="k">Qui interroge les <code>ep-*</code> ?</td><td>Budget commun de 100 par endpoint, irremplaçable. Le store fusionné par git évite le conflit, pas la double dépense.</td><td>Une seule personne à la fois, après <code>git pull</code>, push juste après.</td></tr>
+      <tr><td class="k">Quand soumettre ?</td><td>Model Equality : 30 min entre deux envois, échec compris. Les autres tâches : délai non documenté. Le score public n'est pas le score final.</td><td>Envoyer après un gain compris sur ref ou proxy. Premier envoi Unlearning : <code>identity</code>.</td></tr>
+      <tr><td class="k">Quelle tâche d'abord ?</td><td>Model Equality : kit prêt, calibration gratuite, sans GPU. Unlearning : kit prêt, besoin d'un A100. Localisation : kit et accès en attente.</td><td>Un responsable par tâche au départ, rotation possible. Model Equality démarre pendant que l'accès JURECA se met en place.</td></tr>
+    </table>
+    <div class="callout mt"><span class="tag">À retenir</span>Une seule personne soumet par tâche : le journal et le délai de 30 min sont par équipe, pas par personne.</div>
+  </div>
+</section>
+
+<!-- 33 : check-lists -->
+<section class="slide" data-sec="9. Ce qu'on doit faire" data-title="Check-lists">
+  <div class="head"><div class="kicker">9. Ce qu'on doit faire</div><h1>Check-lists</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Avant de commencer</h2>
+        <ul class="check small" style="font-size:22px">
+          <li>Comptes Jülich actifs pour les 3, clés SSH déposées, connexion testée.</li>
+          <li>Chef désigné ; <code>hackathon_setup.sh</code> passé, puis <code>teammate.sh</code> pour les 2 autres.</li>
+          <li>Clé API d'équipe dans <code>.env</code> (local) et dans l'environnement JURECA, jamais commitée.</li>
+          <li><code>HF_TOKEN</code> d'un compte autorisé pour le dataset de localisation.</li>
+          <li>Task id serveur de la localisation (<code>HACKATHON_TASK_WMLOC</code>).</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Avant chaque soumission</h2>
+        <ul class="check small" style="font-size:22px">
+          <li>Validation locale réussie (<code>validate</code> de la tâche).</li>
+          <li>Score local ou proxy meilleur que l'envoi précédent, pour une raison comprise.</li>
+          <li>Pas de sur-ajustement au score public (30&nbsp;%).</li>
+          <li>Délai respecté (Model Equality : 30 min, un échec compte).</li>
+          <li>Fichier envoyé avec <code>--yes</code> par une seule personne ; tentative visible dans le journal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 34 : risques -->
+<section class="slide" data-sec="9. Ce qu'on doit faire" data-title="Points de vigilance et mitigations">
+  <div class="head"><div class="kicker">9. Ce qu'on doit faire</div><h1>Points de vigilance</h1></div>
+  <div class="content">
+    <table class="t xs">
+      <tr><th style="width:34%">Risque</th><th>Mitigation</th></tr>
+      <tr><td>Sur-ajustement au score public (30&nbsp;%)</td><td>Juger sur les <code>ref-*</code> et les proxys locaux ; traiter le public comme un contrôle grossier</td></tr>
+      <tr><td>Gaspillage du budget Model Equality (100 par endpoint)</td><td>Calibrer sur <code>ref-*</code> d'abord ; réserve de 10 ; un seul opérateur ; réponses commitées ; <code>budget</code> compare serveur et store</td></tr>
+      <tr><td>Fuite de la clé API ou du token HF</td><td>Seulement dans <code>.env</code> (gitignoré) ; jamais dans le code, un commit, un chat ou un log</td></tr>
+      <tr><td>Accès SSH perdu en changeant de réseau (<code>from=</code>)</td><td>Déposer la clé depuis le réseau du hackathon ; redéposer si le réseau change</td></tr>
+      <tr><td>Unlearning sous la porte de 70&nbsp;% (score 0)</td><td><code>lr</code> bas, surveiller l'accord d'argmax sur la rétention, envoyer <code>identity</code> d'abord</td></tr>
+      <tr><td>Proxys Unlearning différents du vrai score</td><td>Régler au milieu d'un plateau ; le seul oracle est le classement public</td></tr>
+      <tr><td>Localisation rejetée (plus de 20&nbsp;Mo)</td><td>Masques en uint8 ; valider le fichier avant l'envoi</td></tr>
+      <tr><td>Bug <code>training2625</code> dans <code>teammate.sh</code></td><td>Corriger par <code>sed</code> avant de lancer ; vérifier avec <code>grep</code></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 35 : sources -->
+<section class="slide" data-sec="10. Sources" data-title="Sources et vérifications">
+  <div class="head"><div class="kicker">10. Sources</div><h1>Sources et vérifications faites</h1></div>
+  <div class="content">
+    <div class="cols c2">
+      <div>
+        <h2>Sources</h2>
+        <ul class="tiny" style="font-size:18px;line-height:1.38">
+          <li><b>Documents d'équipe</b> : <code>docs/hackathon/</code> : GUIDE, jureca, keynote, unlearning, model_equality.</li>
+          <li><b>Sujets officiels</b> : 3 PDF (Model Equality Testing, Unlearning, Watermark Localization).</li>
+          <li><b>Dépôts Hugging Face</b> : <code>SprintML/hackathon</code>, <code>/model_equality</code>, <code>/unlearning</code>, <code class="wrap">/Hackathon_Watermark_Localisation_Task_Paris</code>.</li>
+          <li><b>Keynote</b> : <code class="wrap">pierrefdz.github.io/assets/slides/2026-11-21_image_watermarking_cispa.html</code></li>
+          <li><b>Papiers</b> : MET 2410.20247 · RUT 2506.06975 · AgentProv 2609.00052 · SCRUB 2302.09880 · Zero-Shot Unlearning 2201.05629 · SalUn 2310.12508 · NPO 2404.05868 · Pixel Seal 2512.16874 · TrustMark (ICCV 2025) · StegaStamp (CVPR 2020) · Watermark Anything (ICLR 2025).</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Vérifié pour cette présentation (21/11/2026)</h2>
+        <ul class="tiny" style="font-size:18px;line-height:1.38">
+          <li><code>pytest tests/hackathon</code> : 217 passés (16 fichiers).</li>
+          <li><code>model_equality plan --phase ep-1</code> : 1 320 requêtes ; <code>ep-2</code> : 990 ; banque de 92 prompts.</li>
+          <li><code>model_equality validate</code> et <code>submit</code> (essai à blanc) sur un CSV d'exemple de 33 lignes.</li>
+          <li><code>unlearning validate</code> sur le vrai <code>model.pt</code> ; <code>unlearning --help</code> ; <code>common.submit</code> sans <code>--yes</code>.</li>
+          <li>Bug <code>PROJECT_NAME="training2625"</code> présent dans <code>teammate.sh</code> (ligne 48).</li>
+        </ul>
+        <h2 class="mt">Non exécuté</h2>
+        <p class="tiny" style="font-size:18px">Tout appel au serveur (<code>budget</code>, <code>query-*</code>, <code>submit --yes</code>), <code>run</code>, <code>proxy-eval</code>, <code>analyze</code>, <code>make setup</code>, scripts et jobs JURECA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nav">
+  <button type="button" id="btn-prev" aria-label="Diapositive précédente">&lsaquo;</button>
+  <button type="button" id="btn-toc" aria-label="Ouvrir le sommaire">Sommaire</button>
+  <button type="button" id="btn-next" aria-label="Diapositive suivante">&rsaquo;</button>
+</div>
+<div class="progress" id="progress"></div>
+<div id="overlay" role="dialog" aria-label="Sommaire des diapositives">
+  <h2>Sommaire des diapositives</h2>
+  <div class="grid" id="overlay-grid"></div>
+  <div class="hint">Cliquer sur une diapositive pour y aller · Échap ou M pour fermer</div>
+</div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var FOOTER_LABEL = "Équipe Tempête · European AI Championship Paris 2026 · synthèse de départ";
+  var DESIGN_WIDTH = 1600;
+  var DESIGN_HEIGHT = 900;
+  var stage = document.getElementById("stage");
+  var slides = Array.prototype.slice.call(document.querySelectorAll("section.slide"));
+  var total = slides.length;
+  var overlay = document.getElementById("overlay");
+  var grid = document.getElementById("overlay-grid");
+  var progress = document.getElementById("progress");
+  var current = 0;
+
+  // Pied de page et numéros générés ici pour rester cohérents si l'on ajoute ou retire une diapositive.
+  slides.forEach(function (slide, index) {
+    var foot = document.createElement("div");
+    foot.className = "foot";
+    foot.innerHTML = "<span></span><span class=\"num\"></span>";
+    foot.firstChild.textContent = FOOTER_LABEL;
+    foot.lastChild.textContent = (index + 1) + " / " + total;
+    slide.appendChild(foot);
+  });
+
+  // Ajustement de l'échelle du contenu : on cherche la plus grande échelle (bornée) pour laquelle le contenu
+  // tient dans la zone utile. Une transformation CSS garde la mise en page et reste vectorielle dans le PDF.
+  var FIT_MAX_SCALE = 1.4;
+  var FIT_MIN_SCALE = 0.8;
+  var FIT_STEP = 0.01;
+  var FIT_BOTTOM_MARGIN_PX = 14;
+
+  function fitSlide(slide) {
+    var content = slide.querySelector(".content");
+    var inner = content && content.querySelector(":scope > .fit");
+    if (!content || !inner || slide.classList.contains("title-slide")) { return; }
+    var style = window.getComputedStyle(content);
+    var available = content.clientHeight - parseFloat(style.paddingTop) - FIT_BOTTOM_MARGIN_PX;
+    var scale = FIT_MAX_SCALE;
+    while (scale > FIT_MIN_SCALE) {
+      inner.style.width = (100 / scale) + "%";
+      var fitsHeight = inner.offsetHeight * scale <= available;
+      var fitsWidth = inner.scrollWidth <= inner.clientWidth + 1;
+      if (fitsHeight && fitsWidth) { break; }
+      scale -= FIT_STEP;
+    }
+    inner.style.width = (100 / scale) + "%";
+    inner.style.transform = "scale(" + scale + ")";
+    inner.setAttribute("data-scale", scale.toFixed(2));
+  }
+
+  function fitAllSlides() {
+    slides.forEach(function (slide) {
+      var content = slide.querySelector(".content");
+      if (content && !content.querySelector(":scope > .fit")) {
+        var inner = document.createElement("div");
+        inner.className = "fit";
+        while (content.firstChild) { inner.appendChild(content.firstChild); }
+        content.appendChild(inner);
+      }
+      // Mesure possible seulement quand la diapositive est affichée : on l'active le temps du calcul.
+      var wasActive = slide.classList.contains("active");
+      slide.classList.add("active");
+      fitSlide(slide);
+      if (!wasActive) { slide.classList.remove("active"); }
+    });
+  }
+
+  // Le sommaire cliquable de la diapositive 2 suit la numérotation réelle des diapositives.
+  function buildOverlay() {
+    var lastSection = "";
+    slides.forEach(function (slide, index) {
+      var section = slide.getAttribute("data-sec") || "";
+      if (section !== lastSection) {
+        var group = document.createElement("div");
+        group.className = "grp";
+        group.textContent = section;
+        grid.appendChild(group);
+        lastSection = section;
+      }
+      var link = document.createElement("a");
+      link.href = "#" + (index + 1);
+      link.setAttribute("data-index", String(index));
+      link.textContent = (index + 1) + ". " + (slide.getAttribute("data-title") || "");
+      grid.appendChild(link);
+    });
+  }
+
+  function fit() {
+    var scale = Math.min(window.innerWidth / DESIGN_WIDTH, window.innerHeight / DESIGN_HEIGHT);
+    stage.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+  }
+
+  function clamp(index) {
+    return Math.max(0, Math.min(total - 1, index));
+  }
+
+  function show(index) {
+    current = clamp(index);
+    slides.forEach(function (slide, position) {
+      slide.classList.toggle("active", position === current);
+    });
+    progress.style.width = (((current + 1) / total) * 100) + "%";
+    var links = grid.querySelectorAll("a");
+    Array.prototype.forEach.call(links, function (link) {
+      link.classList.toggle("cur", Number(link.getAttribute("data-index")) === current);
+    });
+    document.title = (current + 1) + "/" + total + " · " + (slides[current].getAttribute("data-title") || "Équipe Tempête");
+  }
+
+  function indexFromHash() {
+    var match = /^#(\d+)$/.exec(window.location.hash);
+    return match ? Number(match[1]) - 1 : 0;
+  }
+
+  function go(index) {
+    var target = clamp(index);
+    if (window.location.hash !== "#" + (target + 1)) {
+      window.location.hash = "#" + (target + 1);
+    } else {
+      show(target);
+    }
+  }
+
+  function toggleOverlay(force) {
+    var open = typeof force === "boolean" ? force : !overlay.classList.contains("open");
+    overlay.classList.toggle("open", open);
+  }
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey || event.metaKey || event.altKey) { return; }
+    switch (event.key) {
+      case "ArrowRight": case "ArrowDown": case "PageDown": case " ": case "Enter":
+        event.preventDefault(); go(current + 1); break;
+      case "ArrowLeft": case "ArrowUp": case "PageUp": case "Backspace":
+        event.preventDefault(); go(current - 1); break;
+      case "Home": event.preventDefault(); go(0); break;
+      case "End": event.preventDefault(); go(total - 1); break;
+      case "m": case "M": case "g": case "G": toggleOverlay(); break;
+      case "Escape": toggleOverlay(false); break;
+      case "f": case "F": toggleFullscreen(); break;
+      default: break;
+    }
+  });
+
+  grid.addEventListener("click", function () { toggleOverlay(false); });
+  document.getElementById("btn-prev").addEventListener("click", function () { go(current - 1); });
+  document.getElementById("btn-next").addEventListener("click", function () { go(current + 1); });
+  document.getElementById("btn-toc").addEventListener("click", function () { toggleOverlay(); });
+  window.addEventListener("hashchange", function () { show(indexFromHash()); });
+  window.addEventListener("resize", fit);
+
+  buildOverlay();
+  fit();
+  fitAllSlides();
+  show(indexFromHash());
+})();
+</script>
+</body>
+</html>

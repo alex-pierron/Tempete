@@ -70,5 +70,25 @@ utilisent `training2666`. Corriger cette ligne avant de le lancer.
   `ep-*`, et on commite `model_equality/answers.jsonl`.
 - Les scripts officiels ne sont modifiés qu'au minimum (lecture de la clé API, chemin de soumission en argument). Le code
   de chaque méthode va dans des fichiers à part.
-- La branche `victor` contient la boîte à outils `wmkit` d'un coéquipier (watermarking, SCRUB, MET), avec un historique
-  séparé de `main`.
+- Branches : `main` = avancée du projet (ce qui est validé par l'équipe) ; `victor` = branche de travail de Victor
+  (recherche, essais), fusionnée dans `main` quand c'est validé.
+
+## Kit d'outils de l'équipe (`src/hackathon`, `wmkit`)
+
+En plus du code officiel par dossier, le dépôt contient un kit typé et testé (`make hk-test`) qui tourne en local et sur
+JURECA avec les `.venv` officiels (`PYTHONPATH=$PWD/src`).
+
+| Besoin | Où |
+|---|---|
+| Point d'entrée, règles, check-lists | [`docs/hackathon/GUIDE.md`](docs/hackathon/GUIDE.md) |
+| Présentation de synthèse (HTML + PDF) | [`docs/hackathon/presentation/`](docs/hackathon/presentation/) |
+| GPU JURECA pas à pas (accès, MFA, clé `from=`, Slurm) | [`docs/hackathon/jureca.md`](docs/hackathon/jureca.md) |
+| Processus idée → expérience → job → soumission | [`docs/hackathon/process.md`](docs/hackathon/process.md), `python -m hackathon.lab` |
+| Boucle de recherche et format des rapports | [`docs/hackathon/research_loop.md`](docs/hackathon/research_loop.md), [`reports/`](reports/) |
+| Unlearning | `python -m hackathon.unlearning` ([doc](docs/hackathon/unlearning.md)) |
+| Model Equality | `python -m hackathon.model_equality` ([doc](docs/hackathon/model_equality.md)) |
+| Watermark Localization | `python -m hackathon.wmloc` (en cours d'intégration) |
+| Keynote Meta résumée | [`docs/hackathon/keynote.md`](docs/hackathon/keynote.md) |
+
+Installation du kit en local : `make setup` (crée `.venv` Python 3.12 avec torch, timm, videoseal...), puis `make hk-test`.
+Toute soumission passe par la validation locale et exige `--yes` ; chaque tentative est journalisée.
