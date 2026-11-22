@@ -2,13 +2,12 @@
 
 Best public score, rank and the name of the best file: see [`results.md`](../../results.md).
 A submission is a ViT-B/16 state dict of 344 MB, above the GitHub file size limit, so it is **not in
-this repository**: the recipe below rebuilds it. Our two best files come from the same recipe and
-differ by one setting:
+this repository**: the recipe below rebuilds it.
 
-| File | Frozen blocks | L2-SP lambda | Extrapolation alpha | Head scale | SHA-256 |
-|---|---|---|---|---|---|
-| `ua_L_f2l60_a147.pt` | 0-2 (`trainable_blocks=9`) | 60 | 1.47 | 1.75 | `d07256aceacf47fef5f8dc72bb12737897aa4e69913e0b4d4e4069d7940ee6c5` |
-| `ua_L_f3l60_a150.pt` | 0-3 (`trainable_blocks=8`) | 60 | 1.50 | 1.75 | `f93e3a54da8de37194dd8eb407a65bb744ec68458bc8a37471c0a25c2100bd1f` |
+| File | Public | SHA-256 |
+|---|---|---|
+| `ua_Ck2_f2l5_a164_r15_d325_s250_h164_k175.pt` (best, "Ck2") | see results.md | `030a269c25842ec54ec3a859f8f10dd99d89da25703027db4478af3a728cf55a` |
+| `ua_L_f2l60_a147.pt` (previous record) | 0.1976 | `d07256aceacf47fef5f8dc72bb12737897aa4e69913e0b4d4e4069d7940ee6c5` |
 
 ## Problem
 
@@ -19,91 +18,92 @@ the forget set (no external data). Score = `forget x retain`, with `forget = ms 
 3.0) and `retain = accuracy ratio x 1 / (1 + KL(original || model) at T = 2)` on a hidden control set.
 
 Two facts shape everything: the original has memorised the forget set (confidence 0.9997), and
-9 classes (0, 6, 7, 8, 29, 30, 31, 33, 38) have 129 or 130 images in it, the per-class maximum. We
-first read them as classes the gold never saw (hence the head recipe below); the key finding further
-down says the gold still behaves as if it knows them.
+9 classes (0, 6, 7, 8, 29, 30, 31, 33, 38) have 129 or 130 images in it, the per-class maximum
+(about a third of the forget set).
 
-## Recipe
+## Recipe of the best file (Ck2)
 
-**Stage 1: train (one A100, about 5 minutes).** Alex's trust-region method (V4), run on the forget set
-only, with the first transformer blocks frozen and an L2-SP pull toward the original weights.
+**Stage 1: train the body (one A100, about 5 minutes).** Alex's trust-region method (V4) on the forget
+set only: calibrated soft targets (4 views, min area 0.5), 4-fold anchor on the forget set (weight
+0.1), AdamW lr 4e-5, 15 epochs, seed 1, stop at 0.95 of the calibrated KL radius; **blocks 0-2
+frozen** (`trainable_blocks=9`) and an **L2-SP pull** to the original weights after each step
+(`p -= lr x 5 x (p - p_original)`). Arm `v4l_f2_l5`.
 
-| Setting | Value |
-|---|---|
-| Method | `trust_region`, calibrated target (target temperature 6, 4 views, min area 0.5), trust lambda 0.25 |
-| Anchor | 4 folds of the forget set, anchor weight 0.1, no anchor views |
-| Optimiser | AdamW, lr 4e-5, 15 epochs, seed 1, stop at 0.95 of the calibrated KL radius |
-| Freeze | blocks 0-2 or 0-3 frozen (`trainable_blocks=9` or `8`: last blocks + norm + head train) |
-| L2-SP | after each AdamW step, `p -= lr x 60 x (p - p_original)` |
+- Job: [`train_v4l_freeze_l2sp.sh`](train_v4l_freeze_l2sp.sh) (arms at [L91](train_v4l_freeze_l2sp.sh#L91),
+  L2-SP patch applied at run time at [L54](train_v4l_freeze_l2sp.sh#L54)).
+- Method code (Alex's package, exact commit used):
+  [`trust_region_unlearn`](trust_region_src/src/hackathon/unlearning/methods.py#L613),
+  [`_trust_phase`](trust_region_src/src/hackathon/unlearning/methods.py#L477),
+  [`calibrated_target_logits`](trust_region_src/src/hackathon/unlearning/methods.py#L369),
+  [`anchor_fold_indices`](trust_region_src/src/hackathon/unlearning/methods.py#L436),
+  [`_apply_update`](trust_region_src/src/hackathon/unlearning/methods.py#L209) (L2-SP target).
 
-Job: [`train_v4l_freeze_l2sp.sh`](train_v4l_freeze_l2sp.sh) (arms `v4l_f2_l60` and `v4l_f3_l60`,
-[L94](train_v4l_freeze_l2sp.sh#L94) and [L97](train_v4l_freeze_l2sp.sh#L97); the L2-SP patch is applied at run time,
-[L54-L80](train_v4l_freeze_l2sp.sh#L54)). Code of the method (Alex's package, the exact commit used):
-[`trust_region_unlearn`](trust_region_src/src/hackathon/unlearning/methods.py#L613),
-[`_trust_phase`](trust_region_src/src/hackathon/unlearning/methods.py#L477),
-[`calibrated_target_logits`](trust_region_src/src/hackathon/unlearning/methods.py#L369),
-[`anchor_fold_indices`](trust_region_src/src/hackathon/unlearning/methods.py#L436),
-[`_apply_update`](trust_region_src/src/hackathon/unlearning/methods.py#L209) (L2-SP target),
-[`trainable_blocks`](trust_region_src/src/hackathon/unlearning/configs.py#L172).
+**Stage 2: edit the head (closed form, one GPU, a few minutes for a whole grid).**
 
-**Stage 2: build the submission (one GPU, about 3 minutes).** Head recipe from our research track C, in this order:
+1. Extrapolate the body delta: `theta = theta_0 + 1.64 x (theta_trained - theta_0)`. Forgetting
+   through the body (high alpha) rather than through a class bias paid: 0.1976 to 0.219.
+2. Sibling routing, strength 1.5: the head rows of the classes close to a removed class receive the
+   centred mean feature direction of the removed-class images
+   ([`cosine_groups`](../../src/hackathon/unlearning/research/c_classes.py#L111),
+   [`centred_mean_direction`](../../src/hackathon/unlearning/research/c_classes.py#L90)).
+3. **Head gate on the 9 removed rows only (key idea).** Each removed row becomes
+   `z_c = 2.5 x (w_c . f + b_c - 3.25)`: the class stays where the evidence is strong and disappears
+   where the trained body has weakened it (the forgotten images). The 91 kept rows are only scaled by
+   1.75, as in every earlier record. Per-row scales:
+   [`row_scales`](build_head_gate_grid.sh#L90), sweep at [L269](build_head_gate_grid.sh#L269); the
+   job that produced Ck2: [`head_gate_ck2_job.sh`](head_gate_ck2_job.sh).
+4. Measure (ms 0.972, agreement 0.656, drift on the removed classes 0.135) and validate with the
+   official checks ([`validate_submission`](../../src/hackathon/unlearning/validate.py#L117)).
 
-1. extrapolate the training delta: `theta = theta_0 + alpha x (theta_trained - theta_0)`, alpha 1.47 or 1.50;
-2. sibling routing, strength 2: for every group of classes with similar head rows that contains a
-   removed class, the remaining siblings receive the centred mean feature direction of the images of
-   the removed classes, so those images move to their neighbours as the gold does
-   ([`routed_weight`](build_submission.sh#L136), with
-   [`cosine_groups`](../../src/hackathon/unlearning/research/c_classes.py#L111) and
-   [`centred_mean_direction`](../../src/hackathon/unlearning/research/c_classes.py#L90));
-3. lower the bias of the 9 removed classes by the delta that brings the loss law closest to the
-   gold's (2.25, 3.0) ([build loop](build_submission.sh#L169),
-   [`fully_forgotten_classes`](../../src/hackathon/unlearning/research/c_classes.py#L58));
-4. multiply the head by 1.75;
-5. measure (ms, agreement, drift; [`measure`](build_submission.sh#L150)), validate with the official
-   checks ([`validate_submission`](../../src/hackathon/unlearning/validate.py#L117)) and hash.
+Moving from 0.219 to 0.2445 came from step 3 alone: same body, only 9 of the 100 head rows changed.
 
-Job: [`build_submission.sh`](build_submission.sh) (`BUILDS`, [L64](build_submission.sh#L64): first
-line for `ua_L_f3l60_a150`, third line for `ua_L_f2l60_a147`).
+## Predicting before sending
 
-## Key finding
-
-The public score falls with the drift of the model on synthetic images of the 9 removed classes:
-`public ~ 0.238 - 0.083 x KL_removed` over 9 scored files (r = -0.79). The drift on the kept classes
-explains nothing. Lesson: **forget the images, not the concept of the classes.** Freezing the first
-blocks and pulling the weights back to the original (L2-SP) lowers that drift for the same forgetting,
-which is what moved the score from 0.1826 to about 0.197.
+Every submission had a written prediction. The last model, fitted on 14 public reads (rms 0.0027):
+`public = -0.0285 - 0.0957 x KL_removed + 0.8304 x agreement - 0.6103 x agreement^2`, where
+`KL_removed` is the drift KL(original || model) at T = 2 on synthetic images of the 9 removed classes
+and `agreement` the share of kept-class forget images whose prediction stays the original's
+(optimum near 0.68). Earlier version: `public ~ 0.238 - 0.083 x KL_removed` (9 files, r = -0.79):
+forget the images, not the concept of the classes.
 
 ## What worked and what did not
 
-| Family | Best public | Verdict |
+| Step | Public | Verdict |
 |---|---|---|
 | Distil the original on strong views (`gold_soft`) | 0.0457 | too weak: the head stays memorised |
-| Head-only edits (bias of the 9 classes, flattening, zeroed rows) | 0.1114 | the intact body protects retain, forget stays weak |
-| Full fine-tune toward gold-like targets | 0.0856 | retain collapses |
-| Sibling routing of the 9 removed classes, then head x s | 0.157 | large step: the gold sends those images to sibling classes |
+| Head-only edits (bias of the 9 classes, flattening, zeroed rows) | 0.1114 | the intact body protects retain |
+| Sibling routing of the 9 removed classes, then head x s | 0.157 | the gold sends those images to sibling classes |
 | "Conform" base blended with the original, then the recipe | 0.1675 | record for 5 hours |
-| Alex's trust region V3, then V4 (K-fold anchor) | 0.1312, then 0.1826 | V4 kept |
-| V4 + frozen first blocks + L2-SP 60 | **0.1973 and 0.1976** (07:15) | best family |
-| Per-image targets, full retraining ("leap") | 0.098 | predicted 0.22: our proxies did not see the retain damage |
-| SSD (selective synaptic dampening), SalUn-style saliency | not sent | no useful flips at paper settings, random flips at strong ones |
-| Model inversion as retain anchor | not sent | saturated images (confidence 1.0), no information |
+| Alex's trust region V4 (K-fold anchor) + recipe | 0.1826 | kept |
+| + frozen first blocks + L2-SP | 0.1976 | kept |
+| Higher body extrapolation, lower class bias | 0.219 | kept |
+| **Head gate on the 9 removed rows (Ck2)** | **0.2445** | best |
+| Same gate on a stronger body (alpha 1.72) | 0.2443 | equal: the gate is saturated |
+| Full fine-tune toward gold-like targets | 0.0856 | retain collapses |
+| Per-image targets, full retraining ("leap") | 0.098 | predicted 0.22: proxies blind to retain damage |
+| Smooth gold targets (mean of strong views) | 0.084 | the gold is sharp, not smooth |
+| Restore the kept classes on synthetic images | 0.2154 vs 0.2149 | no transfer to the hidden control set |
+| Student distilled from Ck2 with a flattened "rest" | 0.2098 vs 0.2445 | the gold is more committed than our outputs |
 | Softer head (x1.5 to x1.6) | 0.1855, 0.1744 | stopped after two losses |
-| Weight soups across settings | +1 to 2 % at best | not worth a submission slot |
+| SSD, model inversion, weight soups across settings | not sent | no useful flips / saturated images / +1-2 % |
 
 ## Rebuild the file
 
 Needs the official task data (original `model.pt` and `forget_images.npz`, not published here) and
 one CUDA GPU. Paths come from environment variables documented in [`.env.example`](../../.env.example).
+None of these commands was run for this write-up (cluster and task data required).
 
 ```bash
-# 1. the two code trees used on the cluster
+# 1. code trees used on the cluster
 (cd solutions/31-unlearning/trust_region_src && zip -qr "$UNL_WORK_DIR/jureca/alex_src_52fa1d3.zip" src)
 tar -cf "$UNL_WORK_DIR/jureca/unl_alex_src2.tar" src
-# 2. train the arms (the record is arm v4l_f3_l60), then build and validate
+cp solutions/31-unlearning/build_head_gate_grid.sh "$UNL_WORK_DIR/jureca/x_unlc_grid.sh"
+# 2. train the body arms (v4l_f2_l5 is the one used), then the head-gate grid that writes x_ua_Ck2_*
 sbatch solutions/31-unlearning/train_v4l_freeze_l2sp.sh   # add your account and partition flags
-sbatch solutions/31-unlearning/build_submission.sh
-PYTHONPATH=src python -m hackathon.unlearning validate "$UNL_WORK_DIR/output/x_ua_L_f2l60_a147.pt"
+sbatch solutions/31-unlearning/head_gate_ck2_job.sh
+PYTHONPATH=src python -m hackathon.unlearning validate "$UNL_WORK_DIR/output/x_ua_Ck2_f2l5_a164_r15_d325_s250_h164_k175.pt"
 ```
 
-The build is deterministic given the trained delta (TF32 off); the training run depends on the GPU
-kernels, so a rebuilt file matches the recipe, not necessarily the hash bit for bit.
+The previous builder ([`build_submission.sh`](build_submission.sh)) produced the 0.197 files with the
+same body family and a uniform head scale. The edit is deterministic given the trained delta; the
+training run depends on GPU kernels, so a rebuilt file follows the recipe, not the hash bit for bit.
