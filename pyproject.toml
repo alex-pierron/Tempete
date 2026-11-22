@@ -1,0 +1,62 @@
+[project]
+name = "tempete"
+version = "1.0.0"
+description = "Team Tempete, European AI Championship Paris 2026 (watermarking track): machine unlearning, model equality testing, watermark localisation."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.5",
+    "torchvision>=0.20",
+    "numpy",
+    "scipy",
+    "pillow",
+    "scikit-learn",
+    "scikit-image",
+    "opencv-python",
+    "kornia",
+    "matplotlib",
+    "pandas",
+    "tqdm",
+    "pydantic>=2",
+    "requests",
+    "timm==0.9.16",
+    "safetensors",
+    "transformers",
+    "tokenizers",
+    "accelerate",
+    "huggingface_hub",
+    "networkx",
+    "jinja2",
+]
+
+[project.optional-dependencies]
+# Watermark localisation: the official starter kit embedders (TrustMark, StegaStamp ONNX) run in a
+# separate Python 3.11 venv; Pixel Seal needs Meta's videoseal clone (see src/wmkit/seal.py).
+wmloc-kit = ["trustmark", "onnxruntime"]
+
+[dependency-groups]
+dev = ["pytest", "mypy", "ruff"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hackathon", "src/wmkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "slow: needs pretrained weights, network or more than ~10 s of compute",
+]
+addopts = "-m 'not slow'"
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+mypy_path = "src"
+packages = ["hackathon"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+.env
+
+# data of the competition, weights and outputs: never committed
+third_party/
+data/
+weights/
+results/
+runs/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.npz
+# the two published submissions are small and kept on purpose
+!solutions/34-watermark-localisation/submission_best.pt
