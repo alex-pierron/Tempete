@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 from pptx import Presentation
-from pptx.enum.chart import XL_CHART_TYPE
+from pptx.enum.chart import XL_CHART_TYPE, XL_MARKER_STYLE
 from pptx.enum.dml import MSO_FILL
 from pptx.enum.shapes import MSO_SHAPE, MSO_SHAPE_TYPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
@@ -164,9 +164,70 @@ def svg_text(x: float, y: float, text: str, anchor: str = "middle", size: float 
     )
 
 
-def chart_html(shape: object) -> str:
-    """Line or clustered column chart with one series, as inline SVG."""
+def clock_label(day_fraction: float) -> str:
+    """'hh:mm' of a spreadsheet time serial (fraction of a day, modulo one day)."""
+    minutes = round((day_fraction % 1.0) * 24 * 60) % (24 * 60)
+    return f"{minutes // 60:02d}:{minutes % 60:02d}"
+
+
+def x_values(series: object) -> list[float]:
+    """X values of a scatter series, read from its cached XML."""
+    element = series._element.find(qn("c:xVal"))  # type: ignore[attr-defined]
+    if element is None:
+        raise ExportError("scatter series without x values")
+    points = sorted(element.iter(qn("c:pt")), key=lambda pt: int(pt.get("idx")))
+    return [float(pt.find(qn("c:v")).text) for pt in points]
+
+
+def scatter_html(shape: object) -> str:
+    """Scatter chart: marker-only series as dots, marker-less series as lines; time x axis."""
     chart = shape.chart  # type: ignore[attr-defined]
+    x_axis, y_axis = chart.category_axis, chart.value_axis
+    x_low, x_high, x_major = x_axis.minimum_scale, x_axis.maximum_scale, x_axis.major_unit
+    y_low, y_high, y_major = y_axis.minimum_scale, y_axis.maximum_scale, y_axis.major_unit
+    width, height = inches(shape.width), inches(shape.height)  # type: ignore[attr-defined]
+    left, right = CHART_PLOT_LEFT_IN, width - CHART_PLOT_RIGHT_IN
+    top, bottom = CHART_PLOT_TOP_IN, height - CHART_PLOT_BOTTOM_IN
+
+    def px(value: float) -> float:
+        return left + (value - x_low) / (x_high - x_low) * (right - left)
+
+    def py(value: float) -> float:
+        return bottom - (value - y_low) / (y_high - y_low) * (bottom - top)
+
+    parts: list[str] = []
+    for index in range(round((y_high - y_low) / y_major) + 1):
+        value = y_low + y_major * index
+        parts.append(f"<line x1=\"{left}in\" x2=\"{right}in\" y1=\"{py(value)}in\" y2=\"{py(value)}in\" "
+                     f"stroke=\"#D5DCE2\" stroke-width=\"0.75\"/>")
+        parts.append(svg_text(left - 0.08, py(value) + 0.05, f"{value:.2f}", anchor="end"))
+    for index in range(round((x_high - x_low) / x_major) + 1):
+        value = x_low + x_major * index
+        parts.append(svg_text(px(value), bottom + 0.22, clock_label(value)))
+    parts.append(f"<line x1=\"{left}in\" x2=\"{right}in\" y1=\"{bottom}in\" y2=\"{bottom}in\" "
+                 f"stroke=\"#D5DCE2\" stroke-width=\"1\"/>")
+    for series in chart.plots[0].series:
+        xs, ys = x_values(series), [float(v) for v in series.values]
+        if series.marker.style == XL_MARKER_STYLE.NONE:
+            color = hex_color(series.format.line.color)
+            points = " ".join(f"{px(x) * 96},{py(y) * 96}" for x, y in zip(xs, ys))
+            parts.append(f"<polyline points=\"{points}\" fill=\"none\" stroke=\"{color}\" stroke-width=\"3\"/>")
+        else:
+            color = fill_color(series.marker.format.fill) or "#9CC3E6"
+            radius = (series.marker.size or 6) / PT_PER_INCH / 2
+            parts.extend(f"<circle cx=\"{px(x)}in\" cy=\"{py(y)}in\" r=\"{radius}in\" fill=\"{color}\"/>"
+                         for x, y in zip(xs, ys))
+    return (
+        f"<svg style=\"position:absolute;{shape_style(shape)}\" width=\"{width}in\" height=\"{height}in\" "
+        f"viewBox=\"0 0 {width * 96} {height * 96}\">{''.join(parts)}</svg>"
+    )
+
+
+def chart_html(shape: object) -> str:
+    """Line or clustered column chart with one series, or a scatter chart, as inline SVG."""
+    chart = shape.chart  # type: ignore[attr-defined]
+    if chart.chart_type in (XL_CHART_TYPE.XY_SCATTER, XL_CHART_TYPE.XY_SCATTER_LINES_NO_MARKERS):
+        return scatter_html(shape)
     plot = chart.plots[0]
     categories = [str(c) for c in plot.categories]
     series = plot.series[0]
