@@ -185,7 +185,7 @@ def chart_html(shape: object) -> str:
 
     parts: list[str] = []
     major = axis.major_unit if axis.major_unit else (high - low) / 5
-    ticks = int(round((high - low) / major))
+    ticks = round((high - low) / major)
     for index in range(ticks + 1):
         value = low + major * index
         y = y_of(value)

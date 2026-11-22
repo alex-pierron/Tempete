@@ -24,9 +24,9 @@ import argparse
 import csv
 import itertools
 import json
+import os
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-import os
 from pathlib import Path
 
 import numpy as np
