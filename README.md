@@ -1,7 +1,6 @@
 # Tempete
 
-Team **Tempete** (Tempête) at the European AI Championship Paris 2026, watermarking track
-(Epitech Kremlin-Bicêtre, 21-22 November 2026). Team: Victor, Alex, Lucas.
+Team **Tempete** (Tempête) at the European AI Championship Paris 2026 at Epitech Kremlin-Bicêtre, 21-22 November 2026. Team: Victor, Alex, Lucas.
 
 We worked on the three tasks of the track: **31 Unlearning**, **33 Model Equality** and
 **34 Watermark Localisation**. Scores, ranks and the exact best files are in one place:
