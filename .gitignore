@@ -23,3 +23,6 @@ runs/
 
 # intermediate HTML of the PDF export
 slides/build/
+
+# intermediate HTML of the write-up PDF
+docs/build/
