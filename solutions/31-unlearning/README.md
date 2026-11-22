@@ -19,7 +19,9 @@ the forget set (no external data). Score = `forget x retain`, with `forget = ms 
 3.0) and `retain = accuracy ratio x 1 / (1 + KL(original || model) at T = 2)` on a hidden control set.
 
 Two facts shape everything: the original has memorised the forget set (confidence 0.9997), and
-9 classes (0, 6, 7, 8, 29, 30, 31, 33, 38) are entirely inside it.
+9 classes (0, 6, 7, 8, 29, 30, 31, 33, 38) have 129 or 130 images in it, the per-class maximum. We
+first read them as classes the gold never saw (hence the head recipe below); the key finding further
+down says the gold still behaves as if it knows them.
 
 ## Recipe
 

@@ -24,8 +24,8 @@ on a hidden control set).
 
 **Best solution.** Stage 1: Alex's trust-region method (calibrated soft targets, K-fold anchor on the
 forget set, stop at a KL radius), blocks 0-2 or 0-3 frozen, L2-SP lambda 60. Stage 2: extrapolate the
-delta (alpha about 1.5), route the images of the 9 classes entirely inside the forget set to their
-sibling classes, shift their bias to match the gold loss law (mean 2.25, std 3.0), scale the head by
+delta (alpha about 1.5), route the images of the 9 classes saturated by the forget set (129-130
+images each) to their sibling classes, shift their bias to match the gold loss law (mean 2.25, std 3.0), scale the head by
 1.75, validate.
 
 **What worked.** Moving the network as little as possible: head edits, then small trust-region

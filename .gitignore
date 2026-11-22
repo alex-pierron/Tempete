@@ -20,3 +20,6 @@ runs/
 *.npz
 # the two published submissions are small and kept on purpose
 !solutions/34-watermark-localisation/submission_best.pt
+
+# intermediate HTML of the PDF export
+slides/build/
