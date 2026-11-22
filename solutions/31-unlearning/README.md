@@ -84,6 +84,7 @@ forget the images, not the concept of the classes.
 | Smooth gold targets (mean of strong views) | 0.084 | the gold is sharp, not smooth |
 | Restore the kept classes on synthetic images | 0.2154 vs 0.2149 | no transfer to the hidden control set |
 | Student distilled from Ck2 with a flattened "rest" | 0.2098 vs 0.2445 | the gold is more committed than our outputs |
+| Erase the 9 classes completely, keep the 91 others at the original (Z1) | 0.0278 | the gold does not behave as if it never saw them |
 | Softer head (x1.5 to x1.6) | 0.1855, 0.1744 | stopped after two losses |
 | SSD, model inversion, weight soups across settings | not sent | no useful flips / saturated images / +1-2 % |
 

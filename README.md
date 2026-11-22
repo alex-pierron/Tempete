@@ -5,46 +5,16 @@ Team **Tempete** (Tempête) at the European AI Championship Paris 2026, watermar
 
 We worked on the three tasks of the track: **31 Unlearning**, **33 Model Equality** and
 **34 Watermark Localisation**. Scores, ranks and the exact best files are in one place:
-[`results.md`](results.md). Slides for the 13:00 presentation: [`slides/`](slides/).
+[`results.md`](results.md). Slides for the 13:00 presentation: [`slides/`](slides/). Full write-up:
+[`docs/writeup.md`](docs/writeup.md) ([PDF](docs/writeup.pdf)).
 
 ## The three tasks at a glance
 
-| Task | Our best solution in one line | Details and code |
-|---|---|---|
-| 31 Unlearning | Trust-region unlearning on the forget set with the first ViT blocks frozen and an L2-SP pull to the original weights, then a head recipe (extrapolation, sibling routing of the 9 removed classes, bias shift, head scale) | [`solutions/31-unlearning/`](solutions/31-unlearning/README.md) |
-| 33 Model Equality | Families by likelihood under open models; inside a family, the 5 copies of the main model found one by one: watermarked copy by exact repetition, system prompt recited on request, plain copy by likelihood distance to the watermarked copy | [`solutions/33-model-equality/`](solutions/33-model-equality/README.md) |
-| 34 Watermark Localisation | Full-resolution U-Net for StegaStamp, ensembles of segmentation heads for Pixel Seal and TrustMark, occlusion and rectangle overlays, thresholds per regime and per predicted zone size | [`solutions/34-watermark-localisation/`](solutions/34-watermark-localisation/README.md) |
-
-## 31 Unlearning
-
-**Problem.** A ViT-B/16 with 100 classes and 3 500 unlabelled forget images: return a model that
-behaves like a gold model retrained without them, using only the original model and the forget set.
-Score = forget quality (loss law and predictions close to the gold) x retain (accuracy and KL drift
-on a hidden control set).
-
-**Best solution.** Stage 1: Alex's trust-region method (calibrated soft targets, K-fold anchor on the
-forget set, stop at a KL radius), blocks 0-2 or 0-3 frozen, L2-SP lambda 60. Stage 2: extrapolate the
-delta (alpha about 1.5), route the images of the 9 classes saturated by the forget set (129-130
-images each) to their sibling classes, shift their bias to match the gold loss law (mean 2.25, std 3.0), scale the head by
-1.75, validate.
-
-**What worked.** Moving the network as little as possible: head edits, then small trust-region
-updates, then freezing and L2-SP. Measured: the score falls with the drift on synthetic images of the
-removed classes (`public ~ 0.238 - 0.083 x KL`, r = -0.79): forget the images, not the classes.
-**What did not.** Full retraining toward per-image targets (0.098 for 0.22 predicted), SSD, model
-inversion as an anchor, softer heads, soups across settings.
-
-**Code.**
-[`trust_region_unlearn`](solutions/31-unlearning/trust_region_src/src/hackathon/unlearning/methods.py#L613),
-[`_trust_phase`](solutions/31-unlearning/trust_region_src/src/hackathon/unlearning/methods.py#L477),
-L2-SP patch [`train_v4l_freeze_l2sp.sh#L54`](solutions/31-unlearning/train_v4l_freeze_l2sp.sh#L54),
-head recipe [`build_submission.sh#L136`](solutions/31-unlearning/build_submission.sh#L136) and
-[`#L169`](solutions/31-unlearning/build_submission.sh#L169),
-[`cosine_groups`](src/hackathon/unlearning/research/c_classes.py#L111),
-[`validate_submission`](src/hackathon/unlearning/validate.py#L117).
-
-**Reproduce.** The 344 MB file is not in the repository (GitHub limit). Rebuild it with the two jobs
-of [`solutions/31-unlearning/`](solutions/31-unlearning/README.md#rebuild-the-file) on one GPU.
+| Task | Presenter | Our best solution in one line | Details and code |
+|---|---|---|---|
+| 33 Model Equality | Lucas | Families by likelihood under open models; inside a family, the 5 copies of the main model found one by one: watermarked copy by exact repetition, system prompt recited on request, plain copy by likelihood distance to the watermarked copy | [`solutions/33-model-equality/`](solutions/33-model-equality/README.md) |
+| 31 Unlearning | Alex | Trust-region unlearning of the body (first blocks frozen, L2-SP), extrapolated, then a closed-form head edit: sibling routing and a gate on the 9 removed-class rows only | [`solutions/31-unlearning/`](solutions/31-unlearning/README.md) |
+| 34 Watermark Localisation | Victor | Full-resolution U-Net (StegaStamp), heads and end-to-end fine-tuned extractors (Pixel Seal, TrustMark), SAM objects with a learned selector, transductive self-training, thresholds per regime and zone size | [`solutions/34-watermark-localisation/`](solutions/34-watermark-localisation/README.md) |
 
 ## 33 Model Equality
 
@@ -78,29 +48,60 @@ budget).
 checks the submitted partition offline; the full pipeline needs the endpoints (see
 [`solutions/33-model-equality/`](solutions/33-model-equality/README.md#reproduce)).
 
+## 31 Unlearning
+
+**Problem.** A ViT-B/16 with 100 classes and 3 500 unlabelled forget images: return a model that
+behaves like a gold model retrained without them, using only the original model and the forget set.
+Score = forget quality (loss law and predictions close to the gold) x retain (accuracy and KL drift
+on a hidden control set).
+
+**Best solution (Ck2).** Body: Alex's trust-region method (calibrated soft targets, K-fold anchor on
+the forget set, stop at a KL radius) with blocks 0-2 frozen and an L2-SP pull to the original,
+extrapolated by alpha 1.64. Head, in closed form: route the images of the 9 classes saturated by the
+forget set (129-130 images each) to their sibling classes, then gate only those 9 rows,
+`z_c = 2.5 x (w_c . f + b_c - 3.25)`, so a removed class survives only on strong evidence; the 91 kept
+rows are scaled by 1.75.
+
+**What worked.** Moving the network as little as possible (head edits, small trust-region updates,
+frozen blocks and L2-SP), then forgetting through the body and gating only the removed rows (0.219 to
+0.2445 with the same body). **What did not.** Full retraining toward per-image targets (0.098 for
+0.22 predicted), smooth gold targets (0.084), restoring kept classes on synthetic images (no transfer),
+flattening the outputs (0.2098), erasing the 9 classes completely (0.0278), SSD, model inversion.
+
+**Code.**
+[`trust_region_unlearn`](solutions/31-unlearning/trust_region_src/src/hackathon/unlearning/methods.py#L613),
+L2-SP patch [`train_v4l_freeze_l2sp.sh#L54`](solutions/31-unlearning/train_v4l_freeze_l2sp.sh#L54),
+head gate [`build_head_gate_grid.sh#L90`](solutions/31-unlearning/build_head_gate_grid.sh#L90) and
+[`head_gate_ck2_job.sh`](solutions/31-unlearning/head_gate_ck2_job.sh),
+[`cosine_groups`](src/hackathon/unlearning/research/c_classes.py#L111),
+[`validate_submission`](src/hackathon/unlearning/validate.py#L117).
+
+**Reproduce.** The 344 MB file is not in the repository (GitHub limit). Rebuild it with the jobs of
+[`solutions/31-unlearning/`](solutions/31-unlearning/README.md#rebuild-the-file) on one GPU.
+
 ## 34 Watermark Localisation
 
 **Problem.** Images watermarked with Pixel Seal, TrustMark or StegaStamp, then edited: return the
 128 x 128 mask of the area that still carries the watermark ("full" regime with a restored hole, or a
-"rect" regime with a small marked rectangle). Score = mean IoU (all-zero = 0.25).
+"rect" regime with a small marked zone). Score = mean IoU (all-zero = 0.25).
 
-**Best solution.** Per method, the best probability map: a full-resolution U-Net trained on synthetic
-composites made with the official embedders (StegaStamp), ensembles of segmentation heads over the
-frozen extractor features (Pixel Seal, TrustMark); overlays from occlusion of the decoder margin and
-from a rectangle search against the payload; one threshold per (predicted regime x predicted zone
-size), chosen leave-one-out on the train split.
+**Best solution.** Per method, the best probability map: a full-resolution U-Net with a denoiser
+(StegaStamp); segmentation heads averaged with end-to-end fine-tuned official extractors (Pixel Seal,
+TrustMark), the TrustMark one self-trained on confident test pseudo-labels; SAM objects chosen by a
+learned selector in the rect regime; rectangle and occlusion overlays from the known payload; one
+threshold per (predicted regime x predicted zone size), chosen leave-one-out.
 
-**What worked.** Reading pixels at full resolution for StegaStamp (+0.08 in one submission), synthetic
-training data, regime- and size-aware thresholds. **What did not.** Window-by-window decoding and
-matched filters (the payload is a global code), forensic features, superpixels, Mask R-CNN proposals.
-The smallest Pixel Seal and TrustMark zones (under 2 % of the image) do not decode even when cropped
-exactly: that is the remaining loss.
+**What worked.** Reading pixels at full resolution for StegaStamp (+0.08 in one submission), SAM with
+a learned selector (+0.017), end-to-end fine-tuning and self-training on TrustMark. **What did not.**
+Window-by-window decoding (the payload is a global code), occlusion of the TrustMark decoder (AUC
+0.68), more Pixel Seal changes (saturated at the public read), forensic features, Mask R-CNN.
 
 **Code.** [`FullResolutionNet`](src/hackathon/wmloc/research/small_train.py#L123),
-[`small_gen.py`](src/hackathon/wmloc/research/small_gen.py),
 [`B2Net`](src/hackathon/wmloc/research/b2_model.py#L159),
-[`occlusion_map`](src/hackathon/wmloc/research/c_occlusion.py#L89),
-[`search_rectangle`](src/hackathon/wmloc/research/c_rect_search.py#L332),
+[`e2e_loc.py`](solutions/34-watermark-localisation/e2e/e2e_loc.py),
+[`sam_learn.py`](solutions/34-watermark-localisation/sam/sam_learn.py#L168),
+[`pseudo_labels.py`](solutions/34-watermark-localisation/loclab/pseudo_labels.py#L32),
+[`box_refine.py`](solutions/34-watermark-localisation/sam/box_refine.py#L73),
 [`size_prior.py`](solutions/34-watermark-localisation/loclab/size_prior.py#L39),
 [`assemble`](solutions/34-watermark-localisation/assemble.py#L80),
 [`per_image_miou`](src/hackathon/wmloc/metric.py#L83).
@@ -111,10 +112,10 @@ gated dataset and a GPU (see [`solutions/34-watermark-localisation/`](solutions/
 
 ## How we worked
 
-- **Three people, a team of AI coding agents.** Each of us owned a task direction (Alex: unlearning,
-  Lucas: model equality, Victor: coordination and localisation). Research tracks ran in parallel as
-  coding agents (Claude Code), one git worktree each, with a written prediction before every
-  submission and a rule to stop a track after two losses.
+- **Three people, a team of AI coding agents.** Each of us steered one task (Lucas: model equality,
+  Alex: unlearning, Victor: localisation and coordination). Research tracks ran in parallel as coding
+  agents (Claude Code), one git worktree each, with a written prediction before every submission and
+  a rule to stop a track after two losses.
 - **One GPU node.** JURECA (Jülich), one node of 4 A100 for the whole team, kept by a runner job that
   executed a priority queue of short tasks (two GPUs for localisation, two for the other tasks).
 - **Submission discipline.** One queue per task, one submission per server cooldown, expected score
@@ -130,8 +131,9 @@ src/hackathon/wmloc/           localisation kit (metric, validator, synthetic da
 src/wmkit/                     our watermarking toolkit (Pixel Seal wrapper, attacks, metrics)
 solutions/<task>/              scripts that produced the best submission of each task, with a README
 tests/hackathon/               unit tests of the packages
-slides/                        presentation (PPTX and PDF)
-results.md                     scores, ranks, best files and hashes
+slides/                        presentation (PPTX and PDF) and its generators
+docs/                          final write-up (Markdown and PDF) and its generator
+results.md                     scores, ranks, best files and hashes (single source of numbers)
 ```
 
 ## Setup
@@ -148,6 +150,10 @@ PYTHONPATH=src uv run python -m hackathon.model_equality validate solutions/33-m
 ```
 
 Tests: `uv run pytest -q` (fast tests only; tests marked `slow` need weights or data).
+
+Slides, report and their numbers: `bash scripts/rebuild_docs.sh <log.jsonl>` regenerates
+`slides/deck_data.json`, the deck (PPTX, PDF) and the write-up (Markdown, PDF) from `results.md` and our
+submission log (needs python-pptx, lxml, markdown and a Chromium).
 
 ## Known pitfalls
 
