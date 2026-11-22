@@ -1,0 +1,134 @@
+{
+ "plan": "lucas-met",
+ "round": 9,
+ "purpose": "Round 9 (tour B2): 8 more long answers on the same endpoints except ep-12 (plan cap reached); ep-19 gets 5 (plan cap).",
+ "frozen_at_utc": "2026-11-22T05:07:18+00:00",
+ "max_tokens": 256,
+ "prompts": [
+  {
+   "id": "W9-long-00",
+   "prompt": "Write a 300-word fable about a fox, a crow and a river.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  },
+  {
+   "id": "W9-long-01",
+   "prompt": "Describe in about 300 words how bread is made, from the field to the table.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  },
+  {
+   "id": "W9-long-02",
+   "prompt": "Write a 300-word speech for the opening of a public library.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  },
+  {
+   "id": "W9-long-03",
+   "prompt": "Write a story of about 300 words about two strangers stuck in a lift.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  },
+  {
+   "id": "W9-long-04",
+   "prompt": "In about 300 words, explain to a child why the sky changes colour at sunset.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  },
+  {
+   "id": "W9-long-05",
+   "prompt": "Write a 300-word review of an imaginary restaurant that only serves soup.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13"
+   ]
+  },
+  {
+   "id": "W9-long-06",
+   "prompt": "Write a 300-word diary entry of a cat observing its owners.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13"
+   ]
+  },
+  {
+   "id": "W9-long-07",
+   "prompt": "Describe in about 300 words the history of the bicycle.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13"
+   ]
+  }
+ ]
+}

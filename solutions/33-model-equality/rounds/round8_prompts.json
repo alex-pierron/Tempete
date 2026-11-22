@@ -1,0 +1,144 @@
+{
+ "plan": "lucas-met",
+ "round": 8,
+ "purpose": "Round 8 (tour B1): 8 long answers (256 tokens) on the watermark gauges 04, 06, 10 and the best plain-copy candidates 12, 18 / 32, 26 / 19, 13, to sharpen the likelihood-distance test (argmax plain copy per family). ep-12 gets 7 (plan cap).",
+ "frozen_at_utc": "2026-11-22T05:07:18+00:00",
+ "max_tokens": 256,
+ "prompts": [
+  {
+   "id": "W8-long-00",
+   "prompt": "Write a story of about 300 words about a lighthouse keeper who finds a message in a bottle.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-01",
+   "prompt": "Write a 300-word essay on why cities should plant more trees.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-02",
+   "prompt": "Describe, in about 300 words, a day in the life of a medieval blacksmith.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-03",
+   "prompt": "Write a 300-word letter from a grandmother to her grandson who just started university.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-04",
+   "prompt": "Explain in about 300 words how a bill becomes a law, for a curious teenager.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-05",
+   "prompt": "Write a 300-word travel diary entry about arriving in a small mountain village.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-06",
+   "prompt": "Write a short science-fiction story of about 300 words set on a generation ship.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19",
+    "ep-12"
+   ]
+  },
+  {
+   "id": "W8-long-07",
+   "prompt": "In about 300 words, argue for and against working from home.",
+   "repeats": 1,
+   "first_repeat": 0,
+   "endpoints": [
+    "ep-04",
+    "ep-06",
+    "ep-10",
+    "ep-18",
+    "ep-32",
+    "ep-26",
+    "ep-13",
+    "ep-19"
+   ]
+  }
+ ]
+}
