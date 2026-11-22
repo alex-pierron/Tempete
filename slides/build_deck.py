@@ -863,7 +863,7 @@ def slide_failed_loc(prs: Presentation, number: int) -> None:
     slide = content_slide(prs, "What did not work", "The number that stopped each idea.", task="34")
     failure_rows(slide, [
         ("Decode the message window by window", "AUC 0.46-0.65", "the payload is a global code"),
-        ("More Pixel Seal changes (e2e, SAM)", "0 public", "+0.008 and +0.003 out of fold: Pixel Seal saturated"),
+        ("Pixel Seal e2e without the occlusion overlay", "0.7251", "the overlay must stay; re-fused with it: 0.7293"),
         ("Occlusion of the TrustMark decoder", "AUC 0.68", "blur changes the content too; fusion +0.0008"),
         ("SAM on the full regime (holes as objects)", "-0.0021", "the learned selector lost on 6 of 6 splits"),
         ("Forensic cues, Mask R-CNN proposals", "AUC 0.50-0.58", "no trace of the edit in the pixels; superpixels -0.006"),
@@ -946,7 +946,8 @@ MILESTONES: dict[str, list[tuple[str, str, str]]] = {
     "34": [("18:30", "0.461", "regime switch"), ("20:52", "0.540", "heads on extractor maps"),
            ("22:51", "0.582", "rectangles"), ("01:55", "0.677", "full-res U-Net"),
            ("06:48", "0.699", "ensembles, size prior"), ("08:21", "0.721", "SAM + learned selector"),
-           ("09:21", "0.727", "self-training, refined boxes")],
+           ("09:21", "0.727", "self-training, refined boxes"),
+           ("10:10", "0.729", "PS holes re-fused"), ("10:34", "0.7304", "expected-IoU threshold")],
 }
 
 

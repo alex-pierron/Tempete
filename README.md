@@ -88,13 +88,15 @@ head gate [`build_head_gate_grid.sh#L90`](solutions/31-unlearning/build_head_gat
 **Best solution.** Per method, the best probability map: a full-resolution U-Net with a denoiser
 (StegaStamp); segmentation heads averaged with end-to-end fine-tuned official extractors (Pixel Seal,
 TrustMark), the TrustMark one self-trained on confident test pseudo-labels; SAM objects chosen by a
-learned selector in the rect regime; rectangle and occlusion overlays from the known payload; one
-threshold per (predicted regime x predicted zone size), chosen leave-one-out.
+learned selector in the rect regime; rectangle and occlusion overlays from the known payload, the
+Pixel Seal holes re-fused per cell from the occlusion drops, the heads and four end-to-end maps; one
+threshold per (predicted regime x predicted zone size), chosen leave-one-out, or per image by expected
+IoU on the Pixel Seal full regime.
 
 **What worked.** Reading pixels at full resolution for StegaStamp (+0.08 in one submission), SAM with
 a learned selector (+0.017), end-to-end fine-tuning and self-training on TrustMark. **What did not.**
 Window-by-window decoding (the payload is a global code), occlusion of the TrustMark decoder (AUC
-0.68), more Pixel Seal changes (saturated at the public read), forensic features, Mask R-CNN.
+0.68), Pixel Seal changes that dropped the occlusion overlay (0.7251), forensic features, Mask R-CNN.
 
 **Code.** [`FullResolutionNet`](src/hackathon/wmloc/research/small_train.py#L123),
 [`B2Net`](src/hackathon/wmloc/research/b2_model.py#L159),

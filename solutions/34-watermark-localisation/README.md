@@ -1,8 +1,8 @@
 # Task 34: Watermark Localisation
 
 Best public score and rank: see [`results.md`](../../results.md). Submitted file:
-[`submission_best.pt`](submission_best.pt) (`ll_v26a_tm_xpl2`, 16.7 MB, 1 020 test masks, SHA-256
-`caabeabc48d092ca35385d120d3366f934db6f0f5f4442d133859844606d2292`).
+[`submission_best.pt`](submission_best.pt) (`ll_v30c_ps4soft_tm_xbig4`, 16.7 MB, 1 020 test masks, SHA-256
+`de0e3c19553e2820966fb17db85269cf2dc4c02bb77165563f1eb83ff87ac547`).
 
 ## Problem
 
@@ -78,8 +78,12 @@ another image). 510 labelled train images, 1 020 test.
 | **SAM objects + learned selector** | 0.7185, 0.7209 | kept |
 | TrustMark e2e with synthetic data (xb2) + self-training (xpl1) | 0.7239 | kept |
 | Refined TrustMark boxes + StegaStamp denoiser (dn4) | 0.7268 | kept |
-| Second self-training round (xpl2) | 0.727 | best, within noise |
-| More Pixel Seal changes (e2e, SAM) | 0.7209, 0.7237 | PS saturated: +0.008 / +0.003 out of fold, nothing public |
+| Second self-training round (xpl2) | 0.727 | kept, within noise |
+| **Pixel Seal holes: occlusion drops re-fused with heads + 4 end-to-end maps** ([`psocc_fuse.py`](loclab/psocc_fuse.py)) | 0.7293 | kept: +0.022 out of fold on the full regime |
+| Threshold per image by expected IoU ([`softiou_build.py`](loclab/softiou_build.py)) + TrustMark averaged over 4 e2e seeds | **0.7304** | best |
+| Same fusion with 2 maps only | 0.7288 | dropped |
+| More TrustMark seeds (5, 7) | +0.0000 out of fold | plateau |
+| Pixel Seal e2e without the occlusion overlay | 0.7251 | the overlay must stay |
 | Window-by-window decoding, matched filters | AUC 0.46-0.65 | the payload is a global code |
 | Occlusion of the TrustMark decoder | AUC 0.68, fusion +0.0008 | dropped |
 | SAM on the full regime (holes as objects) | selector -0.0021 | dropped |

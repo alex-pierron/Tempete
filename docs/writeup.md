@@ -2,14 +2,14 @@
 
 European AI Championship Paris 2026, watermarking track (21-22 November 2026).
 Team: Lucas (Model Equality), Alex (Unlearning), Victor (Watermark Localisation and coordination).
-Numbers as of 2026-11-22, 09:45 (Paris); public scores cover about 30 % of the test data.
+Numbers as of 2026-11-22, 10:45 (Paris), after the last scored submission; public scores cover about 30 % of the test data.
 
 | Task | Best public score | Public rank | Scored submissions |
 |---|---|---|---|
-| 33 Model Equality | 1.00 | to confirm | 22 |
-| 31 Unlearning | 0.2445 | to confirm | 50 |
-| 34 Watermark Localisation | 0.727 | to confirm | 47 |
-| Overall | | to confirm | |
+| 33 Model Equality | 1.00 | 1 / 44 (tied) | 22 |
+| 31 Unlearning | 0.2445 | 25 / 44 | 54 |
+| 34 Watermark Localisation | 0.7304 | 16 / 44 | 52 |
+| Overall | | 15 / 44 | |
 
 ## 1. Organisation
 
@@ -104,7 +104,10 @@ strong views): 0.084, the gold is sharp. Restoring the kept classes on synthetic
 0.2149, no transfer to the hidden control set. Flattening the wrong-class outputs of the best model:
 0.2098 against 0.2445, the gold is more committed than our outputs. The radical bet, erasing the 9
 classes completely (loss near 6 nats on their images) while keeping the 91 others at the original:
-0.0278, so the gold does not behave as if it had never seen them. SSD (selective synaptic dampening),
+0.0278, so the gold does not behave as if it had never seen them. Mixing five forgotten models,
+since the gold is itself an average of retrained models: 0.1682 (seeds share only 39 % of their flips,
+so the mixture smooths what the gold keeps sharp). Adding 5 % more flips to Ck2: 0.2336, Ck2 already
+flips the right amount. SSD (selective synaptic dampening),
 model inversion as an anchor, softer heads and weight soups did not help.
 
 **Lessons.** Measure what the metric punishes: the score followed the drift on the removed classes,
@@ -142,11 +145,13 @@ is watermarked, a rectangle or an object pasted from another image. 510 labelled
 **Path.** 0.4613 (regime switch), 0.5404 (heads), 0.5819 (rectangles), 0.5982 (synthetic data and
 occlusion overlay), 0.6769 (full-resolution U-Net), 0.699 (ensembles and size-aware thresholds), 0.704
 (end-to-end extractors), 0.7209 (SAM with the learned selector), 0.7239 (TrustMark self-training),
-0.727 (refined boxes, denoiser, second self-training round).
+0.727 (refined boxes, denoiser, second self-training round), 0.7293 (Pixel Seal holes: the decoder
+occlusion test re-fused with the end-to-end maps), 0.7304 (threshold chosen per image by expected IoU,
+TrustMark averaged over 4 seeds).
 
 **What did not work.** Window-by-window decoding and matched filters (AUC 0.46-0.65): the payload is a
-global code. Further Pixel Seal changes (+0.008 and +0.003 out of fold, nothing public): Pixel Seal
-saturated. Occlusion of the TrustMark decoder (AUC 0.68; fusion +0.0008). SAM on the full regime
+global code. Pixel Seal changes that dropped the occlusion overlay (+0.008 and +0.003 out of fold, 0.7251
+public): the overlay must stay, and the gain came only when it was re-fused with the new maps. Occlusion of the TrustMark decoder (AUC 0.68; fusion +0.0008). SAM on the full regime
 (selector -0.0021). Decoding the message on an isolated object (agreement 0.518 against 0.5). Forensic
 features (AUC 0.50-0.58), superpixels (-0.006), Mask R-CNN proposals (no gain). Oracle: decoding the
 exact crop of a true Pixel Seal box under 2 % of the image fails 24 times out of 24, which bounds what

@@ -301,6 +301,30 @@
     "x": 1.399745,
     "score": 0.0278,
     "name": "ua_Z1_L636"
+   },
+   {
+    "time": "09:48",
+    "x": 1.40838,
+    "score": 0.0614,
+    "name": "ua_Z1ck2R"
+   },
+   {
+    "time": "10:00",
+    "x": 1.416863,
+    "score": 0.2103,
+    "name": "ua_Cfs_mar"
+   },
+   {
+    "time": "10:12",
+    "x": 1.425451,
+    "score": 0.1682,
+    "name": "ua_M5c_cons2_rfix"
+   },
+   {
+    "time": "10:25",
+    "x": 1.434479,
+    "score": 0.2336,
+    "name": "ua_R_flipP5"
    }
   ],
   "model_equality": [
@@ -719,6 +743,36 @@
     "x": 1.398542,
     "score": 0.7256,
     "name": "ll_v26b_ss_dn3"
+   },
+   {
+    "time": "09:46",
+    "x": 1.406968,
+    "score": 0.7271,
+    "name": "ll_v27a_tm_xbig"
+   },
+   {
+    "time": "09:58",
+    "x": 1.415394,
+    "score": 0.7251,
+    "name": "ll_v27c_ps_xbig_noocc"
+   },
+   {
+    "time": "10:10",
+    "x": 1.423819,
+    "score": 0.7293,
+    "name": "ll_v28m_ps_occe2e"
+   },
+   {
+    "time": "10:22",
+    "x": 1.432245,
+    "score": 0.7288,
+    "name": "ll_v29b_ps_occxpl2big_tm_xbig123"
+   },
+   {
+    "time": "10:34",
+    "x": 1.440671,
+    "score": 0.7304,
+    "name": "ll_v30c_ps4soft_tm_xbig4"
    }
   ]
  }

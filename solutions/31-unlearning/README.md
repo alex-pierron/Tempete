@@ -86,6 +86,9 @@ forget the images, not the concept of the classes.
 | Student distilled from Ck2 with a flattened "rest" | 0.2098 vs 0.2445 | the gold is more committed than our outputs |
 | Erase the 9 classes completely, keep the 91 others at the original (Z1) | 0.0278 | the gold does not behave as if it never saw them |
 | Softer head (x1.5 to x1.6) | 0.1855, 0.1744 | stopped after two losses |
+| Mixture of 5 forgotten models (the gold is an average of retrained models) | 0.1682 | mixing smooths the outputs; random seeds share only 39 % of their flips |
+| Ck2 + 5 % more flips where Ck2 hesitates | 0.2336 | Ck2 already flips the right amount (about a third of the kept forget images) |
+| Ck2 flips re-selected by strong views | 0.2103 | the body of the V4 model chooses its flips better |
 | SSD, model inversion, weight soups across settings | not sent | no useful flips / saturated images / +1-2 % |
 
 ## Rebuild the file
