@@ -1,7 +1,7 @@
 # Task 33: Model Equality Testing
 
 Best public score and rank: see [`results.md`](../../results.md). Submitted file:
-[`submission_best.csv`](submission_best.csv) (SHA-256 `8dae83dc341f6b4e483655d11bdb1ef920cd886565320d6e826d76c0a777df7c`).
+[`submission_best.csv`](submission_best.csv) (SHA-256 `390a258500be71ef804518a99ca70ca48823fbbb2694773b8ab60f3bb7712e2d`).
 
 ## Problem
 
@@ -17,7 +17,7 @@ rounded to 0.05. Budget: 100 answers per endpoint, 256 tokens each, temperature 
 |---|---|---|
 | F1 Qwen2.5-3B-Instruct | 02 (system prompt), 04 (watermark), 12 (plain), 23 (persona), 33 (T 1.0) | 01, 14, 17, 18, 24, 25 |
 | F2 Qwen2.5-1.5B-Instruct | 06 (watermark), 08 (system prompt), 20 (persona), 30 (T 1.0), 32 (plain) | 03, 07, 21, 22, 26, 28 |
-| F3 Llama-3.2-1B-Instruct | 10 (watermark), 16 (persona), 19 (plain), 29 (system prompt), 31 (T 1.0) | 05, 09, 11, 13, 15, 27 |
+| F3 Llama-3.2-1B-Instruct | 10 (watermark), 13 (plain), 16 (persona), 29 (system prompt), 31 (T 1.0) | 05, 09, 11, 15, 19, 27 |
 
 The structure comes from the free practice endpoints `ref-*`: one family = 5 copies of one model
 (plain, watermark, system prompt, persona, temperature 1.0), then 1 fp8 and 3 LoRA strengths, each a
@@ -62,7 +62,10 @@ different model. So the task reduces to finding the 5 copies in each family of 1
    has the same token distribution as the main model at the same temperature. In each family the
    plain copy is the non-variant endpoint closest to that gauge under the base checkpoint:
    `distance = |dt| / 0.01 + |dz_cal| / 2 + |dz_top|`, argmax per family, no threshold:
-   [`plain_rank.py`](plain_rank.py#L36). It picked 12, 32 and 19.
+   [`plain_rank.py`](plain_rank.py#L36). It picked 12 and 32 clearly; for Llama, 13 and 19 were
+   close. The 0.85 read said one plain copy was wrong; the re-reading on 16 identical long prompts
+   for the gauge and the candidates put 13 ahead of 19 (distance 1.19 against 2.83), and the swap
+   read 1.00.
 9. **Choosing what to send.** Public-read law of a candidate partition under hypothesised truths
    (30 % pair subsample, rounding to 0.05), used to write each prediction before sending:
    [`sim.py`](sim.py). CSV writer and validator:
@@ -77,7 +80,8 @@ different model. So the task reduces to finding the 5 copies in each family of 1
 | High fitted temperature = variant | 0.40 | partly right; stuck at 0.40 for 8 submissions |
 | Main = only the known disguised copies, every other endpoint alone | 0.55 | kept: matches the `ref-*` structure |
 | + watermarked copies (repetition) + ep-29 (recited system prompt) | 0.70 | kept |
-| + plain copies 12, 32, 19 by likelihood distance to the gauge | 0.85 | kept |
+| + plain copies 12, 32, 19 by likelihood distance to the gauge | 0.85 | one copy wrong |
+| Llama plain copy 19 replaced by 13 after a re-reading on identical prompts | 1.00 | best |
 | Weak LoRA (strength 0.3) by top-1 residual | not separable | would need more than 100 000 tokens per endpoint |
 | API side channels (logprobs, n, seed, latency, response ids) | no signal | all ignored or constant |
 
