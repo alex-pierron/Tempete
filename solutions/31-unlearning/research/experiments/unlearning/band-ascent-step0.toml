@@ -1,0 +1,27 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent-step0                 local : GPU CUDA (RTX 5080) ; lourd sur Mac
+#   make hk-run SPEC=band-ascent-step0 WHERE=jureca    cluster : 1 A100 (file d'equipe)
+# Etape 0 de la V5 (band_ascent), SANS entrainement : sur les 2800 images entrainees du banc
+# (fold d'audit de 20 % retire), les 24 vues des doublures et les 4 vues de la V5. Aucun fichier
+# soumissible. Fiche : band-ascent-step0.md.
+
+id = "band-ascent-step0"
+task = "unlearning"
+idea = "band ascent step 0"
+hypothesis = "La selection de la V5 (25 % des images dont l'original doute le plus sur des vues fortes) designe les erreurs des doublures par masquage nettement mieux que le hasard, et porte une part de la perte des doublures proche du meilleur choix de meme taille."
+where = "local"
+
+[resources]
+gpus = 1
+time_limit = "00:20:00"    # estimation : ~30 passes avant de 2800 images, aucune retropropagation
+
+[[steps]]
+name = "diagnose"
+args = ["diagnose", "--views", "4", "--view-min-area", "0.5", "--json-out", "{out}/step0.json"]
+
+[expect]
+metrics_file = "step0.json"
+# A lire avec selection.<cle>.phi25.base_rate, mass.<cle>.phi25.loss_share(_oracle) et
+# direction.<cle>.runner_ups / views ; les cles mXX (masquages) font foi, les sXX sont circulaires.
+primary_metric = "selection.m30.phi25.precision"
+higher_is_better = true

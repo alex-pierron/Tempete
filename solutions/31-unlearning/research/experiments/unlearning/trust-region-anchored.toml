@@ -1,0 +1,53 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=trust-region-anchored                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=trust-region-anchored WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# V4, ancre croisee, sur la V3 retenue (ref4-v3 : b = 0, lambda 0,25, rho 0,9, aire 0,5, 4 vues,
+# sans copies douces) : le forget set est oublie pli apres pli, les autres plis tenus (jamais
+# pousses : aux sorties de l'original ; deja oublies : a leur etat du debut de la phase).
+# Graine 0, apparie a la V3 retenue deja mesuree a la meme graine (tr3-hedge v1 : 0,0784, rejouable
+# par ref4-v3 v1 ; le code fusionne la redonne au bit pres). Un bras par question ; le dernier --set
+# l'emporte : chaque bras surcharge un seul reglage de la base (K = 4, poids 1, ancre exacte).
+
+id = "trust-region-anchored"
+task = "unlearning"
+idea = "trust region anchored"
+hypothesis = "Une ancre tiree du forget set (plis jamais pousses tenus a l'original) divise au moins par deux le rapport audit/exact de la V3 retenue (0,86 a la graine 0) a KL d'oubli egale (+-20 %), et releve bench.score_min au-dela de 2 sigma par le retain (plafond ~0,097 a la graine 0)."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"    # estimation : 2 passes avant-arriere + 1 passe avant par pas, 4 phases
+
+[sweep]
+# anchor_views=0 : K = 4, ancre sur images exactes ; anchor_folds=2 : K = 2 (la 2e phase n'a que des
+# plis deja oublies dans son ancre) ; anchor_views=1 : ancre sur vues fortes (aire 25-35 %) ;
+# anchor_weight=3 : l'ancre est-elle saturee ?
+arm = ["anchor_views=0", "anchor_folds=2", "anchor_views=1", "anchor_weight=3"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=calibrated",
+        "--set", "trust_lambda=0.25", "--set", "trust_hedge=0",
+        "--set", "target_temperature=6", "--set", "target_views=4",
+        "--set", "target_view_min_area=0.5", "--set", "radius_fraction=0.9",
+        "--set", "radius_check_every=1", "--set", "altered_fraction=0",
+        "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--set", "anchor_folds=4", "--set", "anchor_weight=1", "--set", "anchor_views=0",
+        "--set", "{arm}", "--set", "seed=0", "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac, 64 images). Si final.radius_reached = 0 dans
+# un bras (une phase n'atteint pas son rayon), monter lr (3e-5), pas le nombre d'epoques.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire avec bench.audit_kl / bench.groups.forget_exact.kl_orig_sub (audit/exact),
+# bench.retain, bench.audit_view_kl, bench.score_min_family.mask, bench.mean_std.*,
+# bench.prediction.*, et final.pending_kl_p1..p3 (derive des plis jamais pousses, mesuree par le
+# run lui-meme), final.reached_p1..p4, final.radius_ratio.
+primary_metric = "bench.score_min"
+higher_is_better = true

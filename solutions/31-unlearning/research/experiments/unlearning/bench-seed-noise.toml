@@ -1,0 +1,33 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 8-9
+#   make hk-run SPEC=bench-seed-noise                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=bench-seed-noise WHERE=jureca    cluster : full, 2 A100
+# Plancher de bruit du banc : la meme config que trust-region-kl-radius (kl_radius = 0,6, seed 0)
+# relancee avec deux autres graines d'entrainement. Le fold d'audit et le banc ne dependent pas de
+# la graine : tout l'ecart vient de l'entrainement. Ne pas soumettre ces fichiers.
+
+id = "bench-seed-noise"
+task = "unlearning"
+idea = "bench seed noise"
+hypothesis = "Sur 3 graines, l'ecart-type de bench.score_min est petit devant l'ecart entre methodes ; sinon toute comparaison doit se faire sur plusieurs graines."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+seed = [1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=6",
+        "--set", "kl_radius=0.6", "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--set", "seed={seed}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

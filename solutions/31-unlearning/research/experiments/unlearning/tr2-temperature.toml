@@ -1,0 +1,31 @@
+# Campagne trust_region V2 a pleine echelle (RTX 5080), V2, etape 2 : temperature de la cible.
+# Fiche de la campagne : experiments/unlearning/trust-region-v2-campaign.md (hypotheses et criteres
+# de refutation fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md.
+#   make hk-run SPEC=tr2-temperature
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr2-temperature"
+task = "unlearning"
+idea = "tr2 temperature"
+hypothesis = "Contrairement a la V1, tau compte pour la V2, et tau = 1 est le meilleur (seule cible au plafond positif sous les trois doublures)."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:45:00"
+
+[sweep]
+target_temperature = [1, 2, 3, 6]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "radius_check_every=1", "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "trust_target=views", "--set", "target_view_min_area=0.45", "--set", "target_views=3", "--set", "kl_radius=0.15", "--set", "target_temperature={target_temperature}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

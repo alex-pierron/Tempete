@@ -1,0 +1,29 @@
+# Campagne trust_region (RTX 5080), etape 8 : confirmation des references dosees (graines, voisinage).
+# Fiche : experiments/unlearning/trust-region-campaign.md. RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=scrub-dose-fine
+
+id = "scrub-dose-fine"
+task = "unlearning"
+idea = "scrub dose fine"
+hypothesis = "Le score de scrub forme un plateau autour de lr = 1e-4 (5e-5 et 2e-4 a moins de 0,02 de 0,102) ; sinon 1e-4 est un pic fragile."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+lr = [5e-5, 2e-4]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "holdout_fraction=0.2",
+        "--set", "lr={lr}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

@@ -1,0 +1,54 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=trust-region-views                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=trust-region-views WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# V2 de trust-region-kl-radius : la cible change (trust_target=views, tau = 4 pour une cible a
+# distance comparable : KL 1,08 contre 1,22), memes rayons, memes epoques ; chaque variante se
+# compare a la variante V1 de meme kl_radius.
+# MESURE (campagne V2, bench-v3, 2026-11-21) : cette grille a tau = 4 est l'etape 1 de la campagne
+# (tr2-radius-a/b), gain faible. Reglage retenu : tau = 1, epsilon = 0,15 (tr2-seeds), voir
+# experiments/unlearning/trust-region-v2-campaign.md. La relancer ici la note en bench-v4.
+
+id = "trust-region-views"
+task = "unlearning"
+idea = "trust region views"
+hypothesis = "A rayon egal, une cible propre a chaque image (l'original moyenne sur 3 vues fortes, adouci a tau = 4) bat la V1 (cible adoucie uniforme) sur bench.score_min, par la composante mean_std, au-dela du plancher de bruit de bench-seed-noise ; une partie du gain est mecanique (la doublure du gold est aussi l'original sur des vues fortes)."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"    # estimation non mesuree : la V1 + 3 passes avant (~ une epoque), une fois
+
+[sweep]
+# Budget d'oubli epsilon, KL(original || eleve) a T = 1. Revision a la fusion (avant tout run
+# complet de la V2), d'apres la campagne V1 : les rayons mesures de la V1 autour de son plateau
+# (0,1 / 0,15 / 0,2 a 3 graines, 0,3 a une), rayon teste a chaque pas. Atteignable :
+# KL(original || cible) = 1,08 mesuree (tau = 4, aire 0,45, 3 vues, 256 images ; fiche).
+kl_radius = [0.1, 0.15, 0.2, 0.3]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=views",
+        "--set", "target_temperature=4", "--set", "target_view_min_area=0.45",
+        "--set", "kl_radius={kl_radius}", "--set", "radius_check_every=1",
+        "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA (3 vues par image), smoke ailleurs (Mac, 2 vues). L'arret au rayon
+# coupe avant les 10 epoques.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc local bench-v4 : score_min = score aux formules du sujet sous la PIRE des 6 doublures du
+# gold, deux familles (3 recadrages s40/s50/s60, 3 masquages m30/m20/m15 ; identite = 0), pire
+# cas par famille dans bench.score_min_family. Seuls les runs sur le forget set complet
+# ecrivent `bench.*` ; un smoke ecrit `bench_smoke.*` et n'est pas classe. A lire avec
+# bench.score_min_family.crop|mask, bench.mean_std, bench.prediction,
+# bench.audit_kl, bench.movement_ratio, final.target_kl, final.target_agreement,
+# final.forget_kl et final.radius_reached.
+primary_metric = "bench.score_min"
+higher_is_better = true

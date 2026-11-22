@@ -1,0 +1,30 @@
+# Campagne trust_region (RTX 5080), etape 7 : reference scrub plus poussee (taux plus haut), scrub
+# par defaut bougeant a peine (KL 0,009). Fiche : experiments/unlearning/trust-region-campaign.md.
+# RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=scrub-dose
+
+id = "scrub-dose"
+task = "unlearning"
+idea = "scrub dose"
+hypothesis = "Un scrub plus pousse (taux 3 a 30 fois plus haut) bouge assez pour approcher trust_region a epsilon = 0,15."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:45:00"
+
+[sweep]
+lr = [3e-5, 1e-4, 3e-4]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "holdout_fraction=0.2", "--set", "lr={lr}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

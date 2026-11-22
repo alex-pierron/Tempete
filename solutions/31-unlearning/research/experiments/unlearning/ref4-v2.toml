@@ -1,0 +1,32 @@
+# Campagne V3 (RTX 5080) : references recalculees en bench-v4, enregistrees au lab (graines 0-2).
+# Memes reglages que les runs bench-v3 retenus ; l'entrainement est deterministe a graine egale.
+# Fiche : experiments/unlearning/trust-region-v3-campaign.md. RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=ref4-v2
+
+id = "ref4-v2"
+task = "unlearning"
+idea = "ref4 v2"
+hypothesis = "Reference V2 retenue (tau = 1, aire 0,45, 3 vues, epsilon = 0,15) en bench-v4 : redonne 0,0786 +- 0,0030."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:45:00"
+
+[sweep]
+seed = [0, 1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=views", "--set", "target_temperature=1",
+        "--set", "target_view_min_area=0.45", "--set", "target_views=3", "--set", "kl_radius=0.15",
+        "--set", "radius_check_every=1", "--set", "epochs=10",
+        "--set", "holdout_fraction=0.2", "--set", "seed={seed}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

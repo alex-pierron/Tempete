@@ -1,0 +1,31 @@
+# Campagne trust_region V3 a pleine echelle (RTX 5080, bench-v4).
+# Fiche de la campagne : experiments/unlearning/trust-region-v3-campaign.md (hypotheses et criteres
+# fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md (section bench-v4).
+#   make hk-run SPEC=tr3-b0-lambda35
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr3-b0-lambda35"
+task = "unlearning"
+idea = "tr3 b0 lambda35"
+hypothesis = "A b = 0, lambda 0,35 (rayon effectif plus grand) monte encore le score ou retombe au-dela du plateau."
+where = "local"
+
+[resources]
+gpus = 1
+time_limit = "00:45:00"
+
+[sweep]
+trust_lambda = [0.35]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=calibrated", "--set", "trust_lambda={trust_lambda}", "--set", "trust_hedge=0", "--set", "target_temperature=6", "--set", "target_views=4", "--set", "target_view_min_area=0.5", "--set", "radius_fraction=0.9", "--set", "radius_check_every=1", "--set", "altered_fraction=0", "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

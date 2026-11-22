@@ -1,0 +1,31 @@
+# Campagne trust_region a pleine echelle (RTX 5080), etape 1 : rayon teste a chaque pas, petits rayons.
+# Fiche de la campagne : experiments/unlearning/trust-region-campaign.md (hypotheses et criteres
+# de refutation fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md.
+#   make hk-run SPEC=tr-radius-fine-small
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr-radius-fine-small"
+task = "unlearning"
+idea = "tr radius fine small"
+hypothesis = "Avec un arret teste a chaque pas, la KL finale suit epsilon et un petit rayon donne score_min > 0 (s60 demande peu de mouvement)."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:45:00"
+
+[sweep]
+kl_radius = [0.01, 0.02, 0.05, 0.1]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=6", "--set", "radius_check_every=1", "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "kl_radius={kl_radius}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

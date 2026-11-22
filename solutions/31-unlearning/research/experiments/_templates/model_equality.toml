@@ -1,0 +1,41 @@
+# Experience Model Equality (33-model-equality). Mode d'emploi : docs/hackathon/process.md
+#   make hk-run SPEC={{id}}
+# Tout est hors ligne : analyse des reponses DEJA stockees (artifacts/model_equality/ ou
+# MET_ANSWERS_FILE), aucune requete serveur. Interroger les ep-* (budget irremplacable) reste
+# une commande manuelle : `python -m hackathon.model_equality query-ep --phase ep-N --yes`.
+# Le lab REFUSE `query-ep`, `submit` et `--yes` dans une spec.
+
+id = "{{id}}"
+task = "{{task}}"
+idea = {{idea}}
+hypothesis = "TODO : ce qui doit changer et pourquoi, en une phrase"
+where = "local"
+
+# Balayage de seuils (4 variantes au plus) : decommenter, et ajouter
+#   "--tau-model", "{tau_model}"   aux arguments de l'etape analyze.
+# [sweep]
+# tau_model = [2.0, 3.0, 4.0]
+
+[[steps]]
+name = "analyze"
+args = ["analyze", "--calibrate", "--ref-like", "ep-1", "--out-dir", "{out}/analysis"]
+
+[[steps]]
+name = "make-submission"
+args = ["make-submission", "--labels", "{out}/analysis/labels_ep.csv",
+        "--out", "{out}/submission.csv"]
+
+# Mesure LOCALE honnete : le score officiel sur les ref-*. Decommenter une etape de ce type
+# avec le fichier d'etiquettes des ref produit par une analyse `--target ref` :
+# [[steps]]
+# name = "score-ref"
+# args = ["score-practice", "<labels_ref.csv>", "--answers", "<practice_answers.csv>"]
+
+[expect]
+submission = "submission.csv"
+[expect.metrics_regex]
+families = '([0-9]+) family\(ies\)'
+models = 'family\(ies\), ([0-9]+) model'
+tau_model = 'tau_model = ([0-9.]+)'
+# practice_mcc = 'Practice score \(MCC over [0-9]+ pairs[^)]*\): (-?[0-9.]+)'
+# primary_metric = "practice_mcc"

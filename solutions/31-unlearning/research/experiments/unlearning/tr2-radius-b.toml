@@ -1,0 +1,31 @@
+# Campagne trust_region V2 a pleine echelle (RTX 5080), V2, etape 1 : rayon, cible distante (tau = 4), grands rayons.
+# Fiche de la campagne : experiments/unlearning/trust-region-v2-campaign.md (hypotheses et criteres
+# de refutation fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md.
+#   make hk-run SPEC=tr2-radius-b
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr2-radius-b"
+task = "unlearning"
+idea = "tr2 radius b"
+hypothesis = "Avec un arret teste a chaque pas, la V2 de la spec distante (tau = 4, aire 0,45, 3 vues) fait mieux que la V1 au meme rayon."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+kl_radius = [0.3, 0.5]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=4", "--set", "radius_check_every=1", "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "trust_target=views", "--set", "target_view_min_area=0.45", "--set", "target_views=3", "--set", "kl_radius={kl_radius}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

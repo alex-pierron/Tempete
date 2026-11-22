@@ -1,0 +1,44 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=tr4-anchored-lr                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=tr4-anchored-lr WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# Suivi de trust-region-anchored (fiche trust-region-anchored.md, "Suivi", pose avant ce run) :
+# aucune phase n'a atteint son rayon a lr 1e-5 ; la spec d'origine prevoyait ce cas ("monter lr
+# (3e-5), pas le nombre d'epoques"). Memes bras exacts, lr 3e-5, plus un temoin sans ancre
+# (anchor_folds=0 : V3 retenue a lr 3e-5). Graine 0, apparie a trust-region-anchored et ref4-v3 v1.
+
+id = "tr4-anchored-lr"
+task = "unlearning"
+idea = "tr4 anchored lr"
+hypothesis = "A lr 3e-5, les phases ancrees atteignent leur rayon ; arretees au regime de la V3, elles divisent au moins par deux le rapport audit/exact (<= 0,43 et <= 0,5 x le temoin sans ancre au meme lr)."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"
+
+[sweep]
+# anchor_views=0 : base (K = 4, w 1, exacte) ; anchor_folds=2 ; anchor_weight=3 ; anchor_folds=0 :
+# temoin sans ancre (V3 retenue a lr 3e-5).
+arm = ["anchor_views=0", "anchor_folds=2", "anchor_weight=3", "anchor_folds=0"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=calibrated",
+        "--set", "trust_lambda=0.25", "--set", "trust_hedge=0",
+        "--set", "target_temperature=6", "--set", "target_views=4",
+        "--set", "target_view_min_area=0.5", "--set", "radius_fraction=0.9",
+        "--set", "radius_check_every=1", "--set", "altered_fraction=0",
+        "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "lr=3e-5",
+        "--set", "anchor_folds=4", "--set", "anchor_weight=1", "--set", "anchor_views=0",
+        "--set", "{arm}", "--set", "seed=0", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

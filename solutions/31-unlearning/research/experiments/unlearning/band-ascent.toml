@@ -1,0 +1,44 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=band-ascent WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# V5, oubli en bande (rapport, section V5) : montee bornee par image, reservee aux 25 % d'images
+# dont l'original doute le plus sur des vues fortes, dosee par 4 niveaux choisis sur un pli temoin
+# (validation croisee a 5 plis, dans les 80 % entraines). Un bras par question ; le dernier --set
+# l'emporte. Lancer d'abord band-ascent-step0 (sans entrainement).
+
+id = "band-ascent"
+task = "unlearning"
+idea = "band ascent"
+hypothesis = "La bande (selection + borne haute des images tenues) rend la montee locale a pleine echelle : rapport audit/exact <= 0,5 et au moins deux fois plus bas que sans selection, a perte egale ; sans borne haute, la bande retombe pres de la V1 (modele lineaire du rapport)."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:30:00"    # estimation : ~1,5 min par variante sur la RTX 5080, non mesuree
+
+[sweep]
+# band_release=0.25 : V5 par defaut ; band_release=1 : sans selection (toutes les images montent) ;
+# band_floor=none : sans borne haute des images tenues ; cv_folds=0 : les 4 niveaux, sans choix hors pli.
+arm = ["band_release=0.25", "band_release=1", "band_floor=none", "cv_folds=0"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=1e-4", "--set", "epochs=1",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "{arm}", "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac, 64 images).
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire avec bench.audit_kl / bench.groups.forget_exact.kl_orig_sub (audit/exact),
+# bench.audit_view_kl, bench.score_min_family.mask, bench.exact.*, et final.cv_stop_level,
+# final.cv_monitor_kl (a comparer a bench.audit_kl : l'estimateur de la derive), final.hard_stop,
+# final.band_levels_done, final.pushed_count.
+primary_metric = "bench.score_min"
+higher_is_better = true

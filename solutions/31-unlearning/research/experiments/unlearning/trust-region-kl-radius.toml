@@ -1,0 +1,40 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 8-9
+#   make hk-run SPEC=trust-region-kl-radius                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=trust-region-kl-radius WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+
+id = "trust-region-kl-radius"
+task = "unlearning"
+idea = "trust region kl radius"
+hypothesis = "A KL d'oubli egale, la region de confiance (cible adoucie convexe, arret au rayon, batches stratifies) bat l'identite sur le banc local sous les 3 doublures du gold, sans casse sur le fold d'audit, et l'oubli se transfere aux copies alterees."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"    # estimation non mesuree : < 15 min par variante sur A100
+
+[sweep]
+# Budget d'oubli epsilon : KL(original || eleve) moyenne a T = 1 sur les images entrainees.
+kl_radius = [0.2, 0.4, 0.6, 0.8]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=6",
+        "--set", "kl_radius={kl_radius}", "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac). 10 epoques au plus : l'arret au rayon coupe avant.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc local bench-v3 (src/hackathon/unlearning/bench.py) : score_min = score aux formules du sujet
+# sous la PIRE des 3 doublures du gold (identite = 0, gold = 1). Seuls les runs
+# sur le forget set complet ecrivent `bench.*` ; un smoke ecrit `bench_smoke.*` et n'est pas classe.
+# A lire avec bench.audit_kl, bench.movement_ratio, bench.groups.forget_*.kl_orig_sub,
+# final.forget_kl et final.radius_reached.
+primary_metric = "bench.score_min"
+higher_is_better = true

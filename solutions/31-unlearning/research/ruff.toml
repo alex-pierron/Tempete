@@ -1,0 +1,5 @@
+# Lint settings of the repository, with this folder's hackathon packages as first-party code.
+extend = "../../../pyproject.toml"
+
+[lint.isort]
+known-first-party = ["hackathon", "wmkit"]

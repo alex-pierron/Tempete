@@ -1,0 +1,31 @@
+# Campagne trust_region V2 a pleine echelle (RTX 5080), V2, etape 4 : nombre de vues.
+# Fiche de la campagne : experiments/unlearning/trust-region-v2-campaign.md (hypotheses et criteres
+# de refutation fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md.
+#   make hk-run SPEC=tr2-views
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr2-views"
+task = "unlearning"
+idea = "tr2 views"
+hypothesis = "3 vues est un bon compromis : une seule vue degrade, 6 ou 10 vues font au plus aussi bien."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:45:00"
+
+[sweep]
+target_views = [1, 6, 10]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=1", "--set", "radius_check_every=1", "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "trust_target=views", "--set", "target_view_min_area=0.45", "--set", "kl_radius=0.15", "--set", "target_views={target_views}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

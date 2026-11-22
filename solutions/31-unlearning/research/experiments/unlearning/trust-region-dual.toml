@@ -1,0 +1,49 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=trust-region-dual                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=trust-region-dual WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# Contrainte active de la V4 (radius_dual_lr) sur la V3 retenue (ref4-v3 : b = 0, lambda 0,25,
+# rho 0,9, aire 0,5, 4 vues, sans copies douces) : au lieu de s'arreter au premier franchissement du
+# rayon (vers la fin du warmup, modele fige au taux maximal), le run parcourt ses 10 epoques avec le
+# rayon comme contrainte (montee duale sur le multiplicateur de KL(original || eleve)).
+# Apparie a la V3 retenue deja mesuree aux memes graines (0 : tr3-hedge v1, 0,0784 ; 1 : tr3-seeds
+# v1, 0,0804 ; rejouables par ref4-v3). lambda = 0,5 n'est pas repris : deja refute (0,0566).
+
+id = "trust-region-dual"
+task = "unlearning"
+idea = "trust region dual"
+hypothesis = "A rayon egal, garder le rayon comme contrainte active pendant tout le calendrier laisse l'eleve apprendre la forme de la cible V3 : bench.score_min monte au-dela de 2 sigma par rapport a la V3 retenue de meme graine, par la composante prediction."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"    # estimation : 880 pas x (0,06 s + sonde 0,13 s) ~ 3 min sur la RTX 5080
+
+[sweep]
+# radius_dual_lr : pas de la montee duale (log KL / rayon par test de la sonde). seed : 0 et 1.
+radius_dual_lr = [0.25, 0.5]
+seed = [0, 1]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=calibrated",
+        "--set", "trust_lambda=0.25", "--set", "trust_hedge=0",
+        "--set", "target_temperature=6", "--set", "target_views=4",
+        "--set", "target_view_min_area=0.5", "--set", "radius_fraction=0.9",
+        "--set", "radius_check_every=1", "--set", "altered_fraction=0",
+        "--set", "radius_dual_lr={radius_dual_lr}",
+        "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "seed={seed}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire avec bench.prediction.*, bench.mean_std.*, bench.audit_kl,
+# final.radius_ratio (KL finale / rayon ; hors [0,85 ; 1,15] : eta mal regle, pas une refutation),
+# final.dual_multiplier, final.dual_penalty.
+primary_metric = "bench.score_min"
+higher_is_better = true

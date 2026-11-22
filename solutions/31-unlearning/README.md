@@ -111,3 +111,9 @@ PYTHONPATH=src python -m hackathon.unlearning validate "$UNL_WORK_DIR/output/x_u
 The previous builder ([`build_submission.sh`](build_submission.sh)) produced the 0.197 files with the
 same body family and a uniform head scale. The edit is deterministic given the trained delta; the
 training run depends on GPU kernels, so a rebuilt file follows the recipe, not the hash bit for bit.
+
+## Every tested version
+
+[`research/`](research/README.md) holds the final state of the method code (V1 to V5.1, V_Dumb,
+V_Dumb2, V_Fusion), the campaign specs behind every local run, the run registry, the experiment lab
+and the LaTeX report, with the commands to rerun any version.

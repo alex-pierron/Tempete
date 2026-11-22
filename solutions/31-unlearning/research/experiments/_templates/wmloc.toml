@@ -1,0 +1,28 @@
+# Experience Watermark Localization. Mode d'emploi : docs/hackathon/process.md
+#   make hk-run SPEC={{id}}
+# ATTENTION : le CLI `python -m hackathon.wmloc` (fetch|synth|bench|predict|validate|submit) est
+# livre par un autre chantier. Les arguments ci-dessous sont un SQUELETTE a aligner sur les vrais
+# arguments de `bench` et `predict` au moment de la fusion.
+
+id = "{{id}}"
+task = "{{task}}"
+idea = {{idea}}
+hypothesis = "TODO : ce qui doit changer et pourquoi, en une phrase"
+where = "local"
+
+# [sweep]
+# threshold = [0.4, 0.5, 0.6]
+
+[[steps]]
+name = "bench"
+args = ["bench", "--out", "{out}/bench.json"]
+
+[[steps]]
+name = "predict"
+args = ["predict", "--out", "{out}/predictions.pt"]
+
+[expect]
+submission = "predictions.pt"
+metrics_file = "bench.json"
+# primary_metric = "miou"   # a renseigner avec le vrai nom de metrique de `bench`
+# higher_is_better = true

@@ -1,0 +1,58 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=trust-region-calibrated                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=trust-region-calibrated WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# V3 de trust-region-kl-radius (V1) et trust-region-views (V2) : la cible change
+# (trust_target=calibrated), le rayon est tire de la cible (radius_fraction = 0,9, plus de grille),
+# et deux variantes remplacent la moitie de chaque lot par des copies douces (altered_fraction).
+# lr, epoques, lots, fold d'audit : ceux de la V1 et de la V2, pour comparer toutes choses egales ;
+# rayon teste a chaque pas, comme la campagne V1 l'impose (trust-region-campaign.md).
+
+id = "trust-region-calibrated"
+task = "unlearning"
+idea = "trust region calibrated"
+hypothesis = "La cible calibree (direction a T = 2 = melange de 4 vues fortes couvert par l'original adouci, perte a T = 1 calibree vers la perte moyenne par vue) bat la meilleure V1 et la meilleure V2 sur bench.score_min (pire cas des 6 doublures, deux familles) au-dela du plancher de bruit de bench-seed-noise, par la composante mean_std ; les copies douces (flip, recadrage 70-100 %) relevent l'oubli des copies alterees de familles jamais vues (jitter, JPEG)."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:45:00"    # estimation non mesuree : la V1 + 4 passes avant (~1,3 epoque), une fois
+
+[sweep]
+# trust_lambda : 0 vise la perte du melange des vues, 1 la perte moyenne par vue (statistiques
+# modele par modele, ce que compare mean_std) ; 0,25-0,5 = optimum interieur de la recherche (D4).
+# altered_fraction : part de chaque lot remplacee par un retournement ou un recadrage 70-100 % de
+# la meme image, cible de l'image source. 4 variantes = un noeud.
+trust_lambda = [0.25, 0.5]
+altered_fraction = [0.0, 0.5]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "trust_target=calibrated",
+        "--set", "trust_lambda={trust_lambda}", "--set", "trust_hedge=0.25",
+        "--set", "target_temperature=6", "--set", "target_views=4",
+        "--set", "target_view_min_area=0.5", "--set", "radius_fraction=0.9",
+        "--set", "radius_check_every=1",
+        "--set", "altered_fraction={altered_fraction}",
+        "--set", "holdout_fraction=0.2", "--set", "epochs=10",
+        "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac, 64 images, 40 pas). Couverture : l'original
+# adouci de la V1 (target_temperature = 6, poids trust_hedge = 0,25). Aire 0,50 : moyenne
+# harmonique des forces des doublures (recherche, D5). L'arret au rayon coupe avant les 10 epoques.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc local bench-v4 : score_min = score aux formules du sujet sous la PIRE des 6 doublures du
+# gold (3 recadrages s40/s50/s60, 3 masquages m30/m20/m15 ; identite = 0). Seuls les runs sur le
+# forget set complet ecrivent `bench.*` ; un smoke ecrit `bench_smoke.*` et n'est pas classe.
+# A lire avec bench.score_min_family.crop|mask, bench.mean_std, bench.prediction,
+# bench.audit_kl, bench.audit_view_kl (hors score), bench.groups.forget_*.kl_orig_sub,
+# final.target_kl, final.target_loss_mean|std (l*), final.kl_radius_effective,
+# final.forget_kl et final.radius_reached.
+primary_metric = "bench.score_min"
+higher_is_better = true

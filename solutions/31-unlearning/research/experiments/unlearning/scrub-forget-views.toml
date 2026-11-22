@@ -1,0 +1,43 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=scrub-forget-views                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=scrub-forget-views WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# SCRUB conforme (V4, retain_source=forget_views) : les min-steps tiennent des vues fortes du forget
+# set (aire 25-35 %, puis couleur) aux sorties de l'original, au lieu des images proxy externes
+# (COCO, DIV2K, Kodak) que le sujet exclut. References : scrub proxy aux memes lr et graines
+# (scrub-dose, scrub-dose-seeds, scrub-dose-fine), rebenches en bench-v4 (etape 0 de la fiche).
+
+id = "scrub-forget-views"
+task = "unlearning"
+idea = "scrub forget views"
+hypothesis = "Dose (lr 1e-4 ou 2e-4), scrub garde son avance sur la V1 quand son ancre externe est remplacee par des vues fortes du forget set : la methode en tete reste en tete une fois conforme au sujet."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:30:00"    # scrub proxy : ~33 s par run sur la RTX 5080
+
+[sweep]
+# lr : les deux doses qui encadrent le meilleur scrub proxy (1e-4 : 0,098 +- 0,022 ; 2e-4 : 0,118,
+# une graine, a un pas de l'effondrement de 3e-4). Deux graines : scrub est bruite.
+lr = [1e-4, 2e-4]
+seed = [0, 1]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "retain_source=forget_views",
+        "--set", "holdout_fraction=0.2", "--set", "lr={lr}", "--set", "seed={seed}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire avec bench.audit_kl, bench.groups.forget_exact.kl_orig_sub (audit/exact),
+# bench.score_min_family.mask, bench.exact.mean_std.*, bench.exact.prediction.* (images exactes
+# seules : les max-steps de scrub s'entrainent sur les familles d'alterations du banc).
+primary_metric = "bench.score_min"
+higher_is_better = true

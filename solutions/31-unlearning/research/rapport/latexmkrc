@@ -1,0 +1,4 @@
+# LuaLaTeX (polices OpenType Libertinus) + bibtex (biber plante sur macOS arm64) ; fichiers auxiliaires ignorés par git.
+$pdf_mode = 4;
+$bibtex_use = 2;
+$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';

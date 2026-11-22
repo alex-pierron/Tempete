@@ -1,0 +1,39 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 8-9
+#   1. editer ce fichier (hypothese, balayage, config) et la fiche .md (criteres de refutation)
+#   2. make hk-run SPEC={{id}}                      local : full sur GPU CUDA (garde GPU), smoke sur Mac
+#      make hk-run SPEC={{id}} WHERE=jureca         cluster : full, 1 variante par A100 (4 au plus)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : holdout_fraction = 0,2 tient 20 % du forget set a l'ecart (fold d'audit du banc
+# bench-v3), ce qui note le run ; le fichier produit n'a PAS oublie ces images : ne pas le soumettre.
+
+id = "{{id}}"
+task = "{{task}}"
+idea = {{idea}}
+hypothesis = "TODO : ce qui doit changer et pourquoi, en une phrase"
+where = "local"
+
+# [resources]
+# gpus = 2                 # JURECA : >= nombre de variantes, 4 au plus (1 variante par A100)
+# time_limit = "01:00:00"  # --time Slurm, optionnel
+
+[sweep]
+# Cartesien, 4 variantes au plus. Chaque cle devient le placeholder {cle} des arguments.
+# En local, les variantes passent l'une apres l'autre sur la carte.
+target_temperature = [2.0]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "gold_soft", "--set", "target_temperature={target_temperature}",
+        "--set", "holdout_fraction=0.2", "--out", "{out}/candidate.pt"]
+# auto : full (forget set complet) sur un GPU CUDA, smoke ailleurs (Mac, non classe).
+# {task_dir} = dossier de la tache sur JURECA ; en local, les images proxy sont lues dans data/.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc local bench-v3 : score aux formules du sujet sous la PIRE des 3 doublures du gold
+# (identite = 0). A comparer aux references bench-baselines, au-dela du bruit bench-seed-noise.
+primary_metric = "bench.score_min"
+higher_is_better = true

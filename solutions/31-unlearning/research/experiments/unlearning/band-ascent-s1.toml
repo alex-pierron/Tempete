@@ -1,0 +1,32 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent-s1                local : GPU CUDA (RTX 5080)
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+# Suivi L2 de la campagne V5 (trust-region-v5-campaign.md) : graine 1 du bras par defaut et du bras
+# cv_folds=0 de band-ascent (localite reproduite ?).
+
+id = "band-ascent-s1"
+task = "unlearning"
+idea = "band ascent s1"
+hypothesis = "A la graine 1, le bras par defaut garde un rapport audit/exact <= 0,5 et le bras cv_folds=0 reste a +-20 % de 0,538."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:20:00"    # mesure : ~50 s par variante sur la RTX 5080
+
+[sweep]
+arm = ["band_release=0.25", "cv_folds=0"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=1e-4", "--set", "epochs=1",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "seed=1", "--set", "{arm}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

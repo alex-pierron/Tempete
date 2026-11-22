@@ -1,0 +1,42 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=v-fusion-anchor                 local : full sur GPU CUDA (RTX 5080)
+# RUN DE REGLAGE : 20 % du forget set tenu a l'ecart (fold d'audit du banc). Ne pas soumettre.
+# V_Fusion (rapport, section V_Fusion ; fiche v-fusion-anchor.md) : SCRUB conforme dont les min-steps
+# distillent l'original a T = 2 sur des images synthetiques tirees du seul original (augmentees comme
+# le proxy), au lieu de vues fortes du forget set. Images : etape 0 (v-fusion-step0.md), fichier local
+# runs/unlearning/20261122-vfusion-step0/synthetic_gated.pt (non versionne, RTX 5080 seulement) ;
+# ancre = images gardees (kept), hors thermometre. Bras : lots AB, A, B a lr 4e-4 (la dose ou l'ancre
+# de vues fait tomber le retain a 0,73), et AB a lr 3e-4 (la dose de SCRUB conforme retenue).
+# A apparier a scrub-fv-dose v1 (3e-4) et v3 (4e-4), graine 0.
+
+id = "v-fusion-anchor"
+task = "unlearning"
+idea = "v fusion anchor"
+hypothesis = "Une ancre d'images synthetiques tiree du seul original tient bench.retain >= 0,8 a lr 4e-4 sans defaire l'oubli, et score au-dessus de SCRUB conforme apparie a lr 3e-4 (0,1151) de plus de 2 sigma."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:30:00"    # estimation : ~1 min par variante sur la RTX 5080 (SCRUB conforme : ~45 s)
+
+[sweep]
+# le dernier --set l'emporte : synthetic_pools=AB et lr=4e-4 sont les valeurs de base
+arm = ["synthetic_pools=AB", "synthetic_pools=A", "synthetic_pools=B", "lr=3e-4"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "retain_source=synthetic",
+        "--set", "synthetic_path=runs/unlearning/20261122-vfusion-step0/synthetic_gated.pt",
+        "--set", "synthetic_pools=AB", "--set", "lr=4e-4", "--set", "holdout_fraction=0.2",
+        "--set", "seed=0", "--set", "{arm}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# A lire : bench.score_min et .score_min_family.mask, bench.retain (plancher 0,8),
+# bench.groups.forget_exact.kl_orig_sub (l'ancre defait-elle l'oubli ?), bench.audit_kl /
+# bench.groups.forget_exact.kl_orig_sub, bench.audit_view_kl, bench.gate_passed.
+primary_metric = "bench.score_min"
+higher_is_better = true

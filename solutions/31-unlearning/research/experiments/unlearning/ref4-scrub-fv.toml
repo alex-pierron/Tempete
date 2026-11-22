@@ -1,0 +1,32 @@
+# Campagne V4 (RTX 5080) : reference du meilleur reglage conforme mesure, scrub a ancre conforme
+# (retain_source=forget_views : vues fortes du forget set, aucune image externe), lr 3e-4, bench-v4.
+# Fiche : experiments/unlearning/scrub-forget-views.md (suivis 1 et 2). RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=ref4-scrub-fv
+# Deja mesure sur la RTX 5080 (graines 0-2 : scrub-fv-dose v1-v2, scrub-fv-seeds v1 :
+# 0,1151 ; 0,1015 ; 0,1090), a rejouer sur une autre machine avant d'y comparer quoi que ce soit.
+
+id = "ref4-scrub-fv"
+task = "unlearning"
+idea = "ref4 scrub fv"
+hypothesis = "Reference scrub conforme (retain_source=forget_views, lr 3e-4) en bench-v4 : redonne 0,1085 +- 0,0068."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:30:00"
+
+[sweep]
+seed = [0, 1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "retain_source=forget_views", "--set", "lr=3e-4",
+        "--set", "holdout_fraction=0.2", "--set", "seed={seed}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

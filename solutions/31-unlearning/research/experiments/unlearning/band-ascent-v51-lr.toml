@@ -1,0 +1,37 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent-v51-lr                 local : full sur GPU CUDA (RTX 5080)
+# RUN DE REGLAGE : 20 % du forget set tenu a l'ecart (fold d'audit du banc). Ne pas soumettre.
+# Suivi S1 de la campagne V5.1 (trust-region-v51-campaign.md ; fiche band-ascent-v51-lr.md) : a lr 1e-4,
+# les trois bras en marge font un arret dur au niveau 1 en 15-20 pas (aucun niveau garde, modele
+# inchange). La fiche band-ascent-v51 prescrit de refaire a lr 3e-5 avant d'abandonner. Memes reglages
+# que band-ascent-v51, lr 3e-5 ; bras : V5.1 complete, sans retenue KL, bande en perte (memes
+# ablations, au meme lr), et V5.1 complete a lr 1e-5 (le dernier --set l'emporte).
+
+id = "band-ascent-v51-lr"
+task = "unlearning"
+idea = "band ascent v51 lr"
+hypothesis = "A lr 3e-5, la V5.1 complete garde au moins un niveau de dose sans arret dur, avec bench.retain >= 0,8, rapport audit/exact <= 0,4 et un score au-dessus de la V5 au meme plancher."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:40:00"    # estimation : ~1 min par variante sur la RTX 5080 (mesure a 1e-4 : 25-60 s)
+
+[sweep]
+arm = ["band_release=0.25", "band_hold_kl=none", "band_space=loss", "lr=1e-5"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=3e-5", "--set", "epochs=2",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "band_space=margin",
+        "--set", "band_hold_kl=0.128", "--set", "cv_min_retain=0.8",
+        "--set", "{arm}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

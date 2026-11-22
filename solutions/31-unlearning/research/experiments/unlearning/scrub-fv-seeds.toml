@@ -1,0 +1,37 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=scrub-fv-seeds                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=scrub-fv-seeds WHERE=jureca    cluster : full, 2 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# Suivi 2 de scrub-forget-views (fiche scrub-forget-views.md, "Suivi 2", pose avant ce run) :
+# graine 2 du candidat (lr 3e-4) et du bras a la meilleure moyenne, ecarte par le plancher de
+# retain (lr 4e-4). Apparie a ref4-v3 v3 (graine 2) et aux graines 0-1 de scrub-fv-dose.
+
+id = "scrub-fv-seeds"
+task = "unlearning"
+idea = "scrub fv seeds"
+hypothesis = "scrub conforme (retain_source=forget_views) a lr 3e-4 bat la V3 retenue sur trois graines appariees : moyenne > 0,086 et gain sous le masquage au-dela de 2 sigma."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:30:00"
+
+[sweep]
+lr = [3e-4, 4e-4]
+seed = [2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "retain_source=forget_views",
+        "--set", "holdout_fraction=0.2", "--set", "lr={lr}", "--set", "seed={seed}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

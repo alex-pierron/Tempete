@@ -1,0 +1,32 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 8-9
+#   make hk-run SPEC=bench-baselines                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=bench-baselines WHERE=jureca    cluster : full, 2 A100
+# Lignes de reference du banc local : les methodes existantes, notees par le meme protocole que
+# les idees. Runs de reglage (fold d'audit tenu a l'ecart) : ne pas soumettre ces fichiers.
+
+id = "bench-baselines"
+task = "unlearning"
+idea = "bench baselines"
+hypothesis = "gold_soft et scrub, notees sur le meme fold d'audit, donnent les references a battre ; gold_soft devrait mieux noter (le banc le favorise par construction)."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+method = ["gold_soft", "scrub"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "{method}", "--set", "holdout_fraction=0.2",
+        "--out", "{out}/candidate.pt"]
+# gold_soft et scrub ont besoin des images proxy (COCO/DIV2K/Kodak) pour leur terme de retain.
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

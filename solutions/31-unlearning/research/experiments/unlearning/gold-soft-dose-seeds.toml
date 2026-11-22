@@ -1,0 +1,29 @@
+# Campagne trust_region (RTX 5080), etape 8 : confirmation des references dosees (graines, voisinage).
+# Fiche : experiments/unlearning/trust-region-campaign.md. RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=gold-soft-dose-seeds
+
+id = "gold-soft-dose-seeds"
+task = "unlearning"
+idea = "gold soft dose seeds"
+hypothesis = "Sur 3 graines, gold_soft dose (1 epoque, lr = 1e-5) reste au niveau de trust_region a epsilon = 0,15 ou au-dessus."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+seed = [1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "gold_soft", "--set", "holdout_fraction=0.2", "--set", "epochs=1", "--set", "lr=1e-5",
+        "--set", "seed={seed}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

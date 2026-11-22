@@ -1,0 +1,30 @@
+# Campagne V3 (RTX 5080) : references recalculees en bench-v4, enregistrees au lab (graines 0-2).
+# Memes reglages que les runs bench-v3 retenus ; l'entrainement est deterministe a graine egale.
+# Fiche : experiments/unlearning/trust-region-v3-campaign.md. RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=ref4-scrub
+
+id = "ref4-scrub"
+task = "unlearning"
+idea = "ref4 scrub"
+hypothesis = "Reference de banc scrub lr 1e-4 (non conforme : images proxy) en bench-v4 : redonne 0,098 +- 0,022."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:45:00"
+
+[sweep]
+seed = [0, 1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "lr=1e-4",
+        "--set", "holdout_fraction=0.2", "--set", "seed={seed}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

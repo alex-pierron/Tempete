@@ -1,0 +1,30 @@
+# Campagne trust_region (RTX 5080) : bruit de la reference scrub (graines 1 et 2 ; la graine 0 est
+# dans bench-baselines). Fiche : experiments/unlearning/trust-region-campaign.md.
+#   make hk-run SPEC=scrub-seeds
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "scrub-seeds"
+task = "unlearning"
+idea = "scrub seeds"
+hypothesis = "Le score_min de scrub (0,0027 a la graine 0) varie peu d'une graine a l'autre."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:45:00"
+
+[sweep]
+seed = [1, 2]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "holdout_fraction=0.2", "--set", "seed={seed}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

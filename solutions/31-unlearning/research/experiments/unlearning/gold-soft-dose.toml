@@ -1,0 +1,30 @@
+# Campagne trust_region (RTX 5080), etape 7 : reference gold_soft dosee (1 epoque, taux reduit), pour
+# comparer trust_region a une reference reglee et pas seulement aux defauts.
+# Fiche : experiments/unlearning/trust-region-campaign.md. RUN DE REGLAGE : ne pas soumettre.
+#   make hk-run SPEC=gold-soft-dose
+
+id = "gold-soft-dose"
+task = "unlearning"
+idea = "gold soft dose"
+hypothesis = "Un gold_soft moins pousse (1 epoque, taux reduit) rejoint trust_region a epsilon = 0,15 ; sinon l'avantage vient de la methode et pas du seul dosage."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:45:00"
+
+[sweep]
+lr = [5e-7, 1e-6, 3e-6, 1e-5]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "gold_soft", "--set", "holdout_fraction=0.2", "--set", "epochs=1",
+        "--set", "lr={lr}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full", "--proxy-root", "{task_dir}/proxy_images"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

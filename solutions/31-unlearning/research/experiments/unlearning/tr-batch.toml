@@ -1,0 +1,31 @@
+# Campagne trust_region a pleine echelle (RTX 5080), etape 5 : taille de lot.
+# Fiche de la campagne : experiments/unlearning/trust-region-campaign.md (hypotheses et criteres
+# de refutation fixes avant lancement). Tableau : make hk-unl-scores -> SCOREBOARD.md.
+#   make hk-run SPEC=tr-batch
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+
+id = "tr-batch"
+task = "unlearning"
+idea = "tr batch"
+hypothesis = "A KL egale, la taille de lot change peu le resultat."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:45:00"
+
+[sweep]
+batch_size = [8, 16, 64]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "trust_region", "--set", "target_temperature=6", "--set", "radius_check_every=1", "--set", "holdout_fraction=0.2", "--set", "epochs=10", "--set", "kl_radius=0.15", "--set", "batch_size={batch_size}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

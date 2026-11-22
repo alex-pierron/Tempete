@@ -1,0 +1,43 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent-budget                 local : full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=band-ascent-budget WHERE=jureca    cluster : 3 A100 sur UN noeud (file d'equipe)
+# RUN DE REGLAGE : 20 % du forget set tenu a l'ecart (fold d'audit du banc). Ne pas soumettre.
+# Fiche : band-ascent-budget.md. V5.1, premier essai (rapport, section V5.1) : la V5 (band_ascent)
+# par defaut, seul le budget de derive du pli temoin change. Sans code nouveau :
+# avec cv_min_agreement = 0,97, le retain estime du temoin est >= 0,97 / (1 + cv_max_drift), soit
+# 0,88 / 0,81 / 0,75 pour 0,1 / 0,2 / 0,3 (KL brute du temoin <= 0,064 / 0,128 / 0,192 avec
+# gamma_n = 1,5625). Le bras 0,3 passe sous le plancher
+# retain >= 0,8 : il encadre la contrainte du cote agressif.
+# Arret dur au double du budget (0,2 / 0,4 / 0,6). Le bras 0,1 est le bras par defaut de
+# band-ascent (meme graine, memes lots) : s'il a deja tourne, le reutiliser pour l'appariement.
+
+id = "band-ascent-budget"
+task = "unlearning"
+idea = "band ascent drift budget"
+hypothesis = "Sous la contrainte retain >= 0,8, un budget de derive plus large (0,2) laisse la validation croisee garder plus de niveaux de dose (rho <= 1) et releve bench.score_min au-dela de la V5 a 0,1 sans faire tomber bench.retain sous 0,8 ; a 0,3 le retain passe sous 0,8."
+where = "local"
+
+[resources]
+gpus = 3                   # 1 variante par A100 ; un seul noeud (regle d'equipe)
+time_limit = "00:30:00"    # estimation : ~1,5 min par variante sur la RTX 5080, non mesuree
+
+[sweep]
+arm = ["cv_max_drift=0.1", "cv_max_drift=0.2", "cv_max_drift=0.3"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=1e-4", "--set", "epochs=1",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "{arm}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# A lire : bench.retain (contrainte >= 0,8), bench.score_min et .score_min_family.mask,
+# final.cv_stop_level (niveaux gardes), final.cv_monitor_kl x final.cv_scale contre bench.audit_kl
+# (estimateur), final.cv_agreement / (1 + final.cv_scale x final.cv_monitor_kl) contre bench.retain,
+# final.hard_stop, final.band_levels_done, bench.audit_kl / bench.groups.forget_exact.kl_orig_sub.
+primary_metric = "bench.score_min"
+higher_is_better = true

@@ -1,0 +1,34 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-locality                 local : GPU CUDA (RTX 5080)
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+# Suivi L2 de la campagne V5 (trust-region-v5-campaign.md) : mesure de la localite, pas une candidate.
+# A calendrier egal au bras cv_folds=0 de band-ascent (4 niveaux, graine 0), les deux ablations :
+# sans borne haute des images tenues ; sans selection (phi = 1). cv_max_drift ne fixe ici que le
+# budget de l'arret dur prequential (2 x cv_max_drift) : 1 laisse le bras sans borne aller au bout.
+
+id = "band-locality"
+task = "unlearning"
+idea = "band locality"
+hypothesis = "A 4 niveaux, sans borne haute des images tenues, le rapport audit/exact depasse 0,7 (ou 1,3 fois le bras cv_folds=0, 0,538) ; sans selection (phi = 1), il n'est pas deux fois plus haut que le bras cv_folds=0 a perte exacte comparable."
+where = "local"
+
+[resources]
+gpus = 2
+time_limit = "00:20:00"    # mesure : ~50 s par variante sur la RTX 5080
+
+[sweep]
+arm = ["band_floor=none", "band_release=1"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=1e-4", "--set", "epochs=1",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "cv_folds=0", "--set", "cv_max_drift=1", "--set", "{arm}", "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

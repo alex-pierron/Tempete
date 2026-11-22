@@ -1,0 +1,43 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=v-dumb2                 local : smoke sur Mac, full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=v-dumb2 WHERE=jureca    cluster : full, 4 A100 (un noeud, le maximum)
+# Un `run` n'envoie jamais rien au serveur : `submit --yes` reste un geste explicite.
+# RUN DE REGLAGE : 20 % du forget set est tenu a l'ecart (fold d'audit du banc), le fichier produit
+# n'a PAS oublie ces images. Ne pas le soumettre ; le run final se fait sans holdout.
+# V_Dumb2 (rapport, section V_Dumb2) : SCRUB conforme dont le max-step devient la charniere de V_Dumb,
+# par image, en marge, bornee des deux cotes (CE poussee jusqu'a t = 0,45, ramenee au-dela de 2t).
+# A lancer seulement si l'etape 0 (band-ascent-step0, cle level_ceiling) passe sa porte : fiche v-dumb2.md.
+# 2 x 2 : dose (3e-4, la dose retenue de SCRUB conforme ; 4e-4, celle ou il passe sous le retain 0,8)
+# x plafond (band_tolerance 2 ; 1e6, soit aucun rappel : h depasse tout CE atteignable).
+
+id = "v-dumb2"
+task = "unlearning"
+idea = "v dumb2"
+hypothesis = "A dose egale, un niveau d'oubli par image borne des deux cotes (t = 0,45, plafond 2t) dans le squelette de SCRUB conforme oublie plus uniformement que le plafond moyen de SCRUB : meilleure composante des predictions, et retain >= 0,8 la ou SCRUB conforme tombe a 0,73."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:30:00"    # estimation : comme ref4-scrub-fv (~45 s par variante sur la RTX 5080), non mesuree
+
+[sweep]
+lr = [3e-4, 4e-4]
+band_tolerance = [2.0, 1e6]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "scrub", "--set", "retain_source=forget_views",
+        "--set", "scrub_target_loss=0.45", "--set", "lr={lr}", "--set", "band_tolerance={band_tolerance}",
+        "--set", "holdout_fraction=0.2", "--set", "seed=0", "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac, 64 images).
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire avec bench.score_min_family.crop / .mask, bench.retain, bench.audit_kl,
+# bench.prediction / bench.mean_std (pire doublure), bench.groups.forget_exact.kl_orig_sub,
+# .loss_mean_sub / .loss_std_sub, et final.in_band, final.forget_loss_mean / _std.
+primary_metric = "bench.score_min"
+higher_is_better = true

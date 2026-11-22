@@ -1,0 +1,47 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=band-ascent-v51                 local : full sur GPU CUDA (RTX 5080)
+#   make hk-run SPEC=band-ascent-v51 WHERE=jureca    cluster : 4 A100 sur UN noeud (file d'equipe)
+# RUN DE REGLAGE : 20 % du forget set tenu a l'ecart (fold d'audit du banc). Ne pas soumettre.
+# V5.1 (rapport, section V5.1 ; fiche band-ascent-v51.md) : la V5 (band_ascent) avec la bande sur
+# la marge des logits, la retenue des images non poussees en KL a T = 2 (tolerance 0,128 = 0,2 /
+# 1,5625, la derive brute permise au temoin) et la dose choisie sous un retain estime de 0,8 ;
+# deux passes par niveau (consolidation). Tout est pose en reglages fixes ; chaque bras en retire
+# un seul composant (ablation), le dernier --set l'emporte. Le bras band_release=0.25 est la V5.1
+# complete (0,25 est le defaut). A apparier au bras cv_max_drift=0.2 de band-ascent-budget.
+
+id = "band-ascent-v51"
+task = "unlearning"
+idea = "band ascent v51"
+hypothesis = "Sous un retain estime >= 0,8, la bande en marge amene les images liberees dans leur bande et la retenue en KL a T = 2 rend l'oubli local : rapport audit/exact <= 0,4, bench.retain >= 0,8, et bench.score_min au-dessus de la V5 au meme plancher ; chaque composant retire degrade sa propre lecture."
+where = "local"
+
+[resources]
+gpus = 4                   # 1 variante par A100 ; 4 au plus (un noeud)
+time_limit = "00:40:00"    # estimation : ~2,5 min par variante sur la RTX 5080 (deux passes par niveau), non mesuree
+
+[sweep]
+# band_release=0.25 : V5.1 complete ; band_hold_kl=none : sans retenue KL (retour a la borne
+# band_floor, ecrite en marge) ; band_space=loss : bande en perte (la famine revient) ;
+# epochs=1 : une passe par niveau, sans consolidation.
+arm = ["band_release=0.25", "band_hold_kl=none", "band_space=loss", "epochs=1"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "band_ascent", "--set", "lr=1e-4", "--set", "epochs=2",
+        "--set", "target_views=4", "--set", "target_view_min_area=0.5",
+        "--set", "holdout_fraction=0.2", "--set", "band_space=margin",
+        "--set", "band_hold_kl=0.128", "--set", "cv_min_retain=0.8",
+        "--set", "{arm}", "--out", "{out}/candidate.pt"]
+# auto : full sur un GPU CUDA, smoke ailleurs (Mac, 64 images).
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+# Banc bench-v4. A lire : bench.retain (plancher 0,8), bench.audit_kl /
+# bench.groups.forget_exact.kl_orig_sub (audit/exact), bench.score_min_family.mask,
+# final.pushed_in_band, final.held_kl, final.cv_retain contre bench.retain (estimateur),
+# final.cv_stop_level, final.hard_stop, bench.audit_view_kl.
+primary_metric = "bench.score_min"
+higher_is_better = true

@@ -1,0 +1,31 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=v-dumb-dose2               local : GPU CUDA (RTX 5080)
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+# Suivi D2 de la campagne V_Dumb (trust-region-vdumb-campaign.md) : la falaise entre w = 0,03 (KL
+# exacte 0,03) et w = 0 (effondrement). Trois poids au meme pas logarithmique, lr 1e-5.
+
+id = "v-dumb-dose2"
+task = "unlearning"
+idea = "v dumb dose2"
+hypothesis = "Entre w = 0,03 (KL exacte 0,03) et w = 0 (effondrement), un poids d ancre donne un oubli borne par la charniere qui depasse la V1 avec un retain >= 0,8 ; sinon, V_Dumb n a pas de dose utilisable a lr 1e-5."
+where = "local"
+
+[resources]
+gpus = 3
+time_limit = "00:30:00"    # mesure : ~50 s par variante sur la RTX 5080
+
+[sweep]
+arm = ["retain_weight=0.01", "retain_weight=0.003", "retain_weight=0.001"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "dumb", "--set", "holdout_fraction=0.2", "--set", "{arm}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true

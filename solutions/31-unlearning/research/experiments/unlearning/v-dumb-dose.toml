@@ -1,0 +1,32 @@
+# Experience Unlearning (31-unlearning). Mode d'emploi : docs/hackathon/process.md, unlearning.md par. 2, 8-9
+#   make hk-run SPEC=v-dumb-dose                local : GPU CUDA (RTX 5080)
+# RUN DE REGLAGE (fold d'audit de 20 %) : ne pas soumettre.
+# Suivi D de la campagne V_Dumb (trust-region-vdumb-campaign.md) : a lr 1e-5, l'ancre (w = 1) fige le
+# modele et son absence (w = 0) l'effondre. Trois poids d'ancre entre les deux, et le taux que la
+# regle 2 prevoyait (lr 1e-4, w = 1). Cible t = 0,45 (le defaut).
+
+id = "v-dumb-dose"
+task = "unlearning"
+idea = "v dumb dose"
+hypothesis = "Entre l'ancre pleine (immobile) et pas d'ancre (effondrement), un poids d'ancre ou un taux plus haut donne un oubli borne par la charniere (perte moyenne entre 0,5 t et 2 t) qui depasse la V1 (0,0637) avec un retain >= 0,8."
+where = "local"
+
+[resources]
+gpus = 4
+time_limit = "00:30:00"    # mesure : ~50 s par variante sur la RTX 5080
+
+[sweep]
+arm = ["retain_weight=0.03", "retain_weight=0.1", "retain_weight=0.3", "lr=1e-4"]
+
+[[steps]]
+name = "train"
+args = ["run", "--method", "dumb", "--set", "holdout_fraction=0.2", "--set", "{arm}",
+        "--out", "{out}/candidate.pt"]
+args_local = ["--config", "auto"]
+args_jureca = ["--config", "full"]
+
+[expect]
+submission = "candidate.pt"
+metrics_file = "candidate.json"
+primary_metric = "bench.score_min"
+higher_is_better = true
